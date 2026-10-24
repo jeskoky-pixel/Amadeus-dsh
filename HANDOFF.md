@@ -6,6 +6,7 @@
 - Life 四项缺口已先提交失败回归 `889be0a`（14 项中 11 项失败），再由原 Creator 主要修复 `92fc18b`，审查返工后全套 47/47 通过。Life PR #2 当前质量交付 `fc977b1`，未合并；主仓 PR #2 将同步本页与验收状态。详见 [质量关卡](docs/verification/LIFE_QUALITY_FIX_2026-10-25.md)。
 - 真实隔离 DSH 的加载、禁用/启用、卸载/重装、强制重启恢复通过；一次私有探针命令重放造成假失败，清除旧探针命令后复验通过。诊断探针已移除，Life 保持启用，原数据库、会话与工作空间保留。生产 SnowLuma、QQ Bridge、生产 DSH 未改，无真实平台外发。
 - 用户已一次授权持续推进 Life v1.0；质量关卡完成后立即研究并实现官方 DSH 自动唤醒，再推进统一 Persona、活动 Provider、注意力、预算与恢复。不以 0.2.0 为暂停点。此文件下方较早的“尚未修复”表述是账号交接时的历史状态，以本节和 Life 当前源码为准。
+- 已完成官方 Host 唤醒接口的隔离实测：无人工新输入的真实 DSH turn 与带 `amadeus-life` 来源的持久投递均成立；Life 自动调度与去重尚未实现。见 [Host 实测](docs/verification/LIFE_HOST_WAKE_SMOKE_2026-10-25.md) 和 [v1.0 连续路线](docs/plans/LIFE_V1_EXECUTION.md)。用户允许余额不足时改用 OpenCode Go 的 DeepSeek V4.1 Flash，但当前隔离模型目录仅显示官方路由可用，切换前须正常配置并验证，不复制认证或改生产。
 
 ## 账号切换：先读这里（2026-10-25）
 
