@@ -1,5 +1,9 @@
 # Codex ↔ DSH Creator 开发协议
 
+## 2026-10-25 Host adapter 增量
+
+原 cordis Creator Session 持续到第 16 轮 completed、210 steps，仍为 deepseek-official / deepseek-flash / High / Workspace Write。Life PR #2 `ce93ff9`。真实隔离 Desktop 发现普通 `ctx.get('sessionController')` 在 Life 作用域不可见；同会话返工为 `ctx.inject(['sessionController','sessions'], ...)` 可选绑定，保留服务缺失时 Life 核心。真实合成 Session 的 wake 在第 2 turn 消费并 completed，模型只调用 Life 工具后取消意图；重复 drive/重启无重投。完成后逐字节恢复独立 profile patch，私有探针撤载。后续继续原 Session，不重建；详见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。
+
 ## 2026-10-25 Life v3 增量
 
 原 cordis Creator Session 完成第 11 轮 v3 首稿、第 12 轮 Codex 三项回归定点返工；独立 Desktop 冷备份/迁移/重启后同 Session 仍可按 ID 读取，12 轮响应、156 steps、空队列，配置保持 deepseek-official / deepseek-flash / High / Workspace Write。Life PR #2 `b21ecb2`；标准测试 66/66。下一轮从真实 Host adapter 继续，不重复派 v3 任务。用户指定官方余额耗尽时切 OpenCode Go V4.1 Flash；当前 modelCatalog 只有 deepseek-official 可路由，须先在隔离 profile 完成正常配置与验证，不复制认证或改生产。

@@ -1,5 +1,9 @@
 # Amadeus 当前状态
 
+## 2026-10-25 Life Host 唤醒首段
+
+Life PR #2 `ce93ff9`：到期意图 Host adapter 已默认关闭、管理员 allowlist 限定，标准 85/85 测试通过。真实隔离 DSH 的合成 Session 无用户新消息时收到 `amadeus-life` wake，在 completed turn 读取 Life 并自主取消意图；无外部工具，重启不重投。当前 wake ledger 对同 turn 内取消只记录 superseded，消费与决策事实需拆分；admitted/uncertain 对账、idle、身份、Provider、注意力和预算仍待实现。见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。
+
 ## 2026-10-25 Life SQLite v3 增量
 
 Life PR #2 当前 `b21ecb2`：持久 `intent_due` wake ledger、v2→v3 增量迁移，Codex 三项失败回归经原 Creator 返工，66/66 独立标准测试通过。真实隔离开发库在冷备份后从 v2 成功迁至 v3，原意图/事件/活动保留；原 Session 可恢复，Life bundle active。见 [v3 验收](../verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。Host 自动投递、真实执行证据、idle、身份、Provider、注意力和预算仍待开发；下文较早的 schema 2 快照不代表现状。

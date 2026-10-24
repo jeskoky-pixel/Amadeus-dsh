@@ -8,6 +8,8 @@
 
 ## 0.2 纵切：真正无用户输入唤醒
 
+状态更新：Life PR #2 `ce93ff9` 已使合成到期意图在无人工新消息时真正唤醒隔离 DSH Session；模型读取 Life 后自主取消，turn completed、重启不重投。见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。下一段先拆分“wake 已消费”与“旧意图已失效”的记录并对账崩溃窗口，再实现 idle 自主机会。完整 v1.0 未完成。
+
 状态更新：SQLite v3 wake ledger 已在 Life PR #2 `b21ecb2` 完成且真实开发库迁移验收。可持久准备/领取/准入/记录 wake，但还没有 Host 自动投递与真实 turn 证据；下一步从第 2 点的 Host 部分继续。见 [v3 验收](../verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。
 
 1. 在独立开发 DSH 中验证 Host 调用的真实语义。已实测：`sessionController.prompt` 可无人工输入唤醒并完成 turn，但持久来源为 `user` 且返回 `accepted` 不代表执行；受控 Host `resolveAgent → followup → sessions.flush` 可保留 `amadeus-life` 来源与 wake ID 并完成 turn。私有探针构造错误的初次调用曾产生缺少 `role` 的消息和失败 turn，已保留并纠正；详情见 [Host 唤醒研究](../verification/LIFE_HOST_WAKE_SMOKE_2026-10-25.md)。

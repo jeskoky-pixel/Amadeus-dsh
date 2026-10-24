@@ -1,5 +1,9 @@
 # 新 Codex 唯一启动入口
 
+## 2026-10-25 真实 Host 唤醒检查点
+
+Life PR #2 已至 `ce93ff9`，默认关闭且 allowlist 受控的官方 Host wake adapter 已通过 85/85 测试与真实隔离 DSH 合成 Session 投递、消费、取消和重启不重投验收；原 profile 已恢复，原 Creator Session/Workspace/SQLite 保留。见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。下一段处理同一 turn 内取消导致 wake 只记 superseded 的双重事实、崩溃对账、idle 自主机会，再继续 Life v1.0；下方较早快照按历史理解。
+
 ## 2026-10-25 Life v3 检查点
 
 Life PR #2 已至 `b21ecb2`，SQLite v2→v3 wake ledger 通过 66/66 独立标准测试和真实隔离 DSH 冷备份、迁移、重启验收。原 Creator Session、Workspace、SQLite 保留；自动 Host 唤醒、idle、自主预算等尚未接入。下一段按 [主仓 v3 验收](../verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md) 接续真实 Host adapter，不要重复实现 0.1 质量修复。下方早期快照按当时历史理解。

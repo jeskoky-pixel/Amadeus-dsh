@@ -1,5 +1,10 @@
 # Amadeus 项目交接
 
+## 最新检查点：Life 真实隔离 Host 唤醒首段（2026-10-25）
+
+- Life PR #2 已至 `ce93ff9`，原 Creator 实现默认关闭、管理员 Session allowlist 的到期 wake Host adapter；Codex 审查返工后标准 85/85，`npm test` 全通过。见 [Host 首段验收](docs/verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。PR 未合并。
+- 真正的隔离 DSH Session 已无人工新消息地消费 Life 的 `amadeus-life` wake，并在 completed turn 中调用 Life 工具后自行取消合成意图；无外部平台工具。重复 drive 与重启不重投，原 profile 已恢复且私有探针撤载。当前 ledger 将该 wake 记为 `superseded`，未独立留下“已消费”证据；下段需拆分消费与意图失效，并补 admitted/uncertain 崩溃对账，再推进 idle、身份、Provider、注意力和预算。
+
 ## 最新检查点：Life SQLite v3 wake ledger（2026-10-25）
 
 - Life PR #2 已更新至 `b21ecb2`，仍未合并。原 cordis Creator 完成 v2→v3 增量迁移及持久 `intent_due` ledger；Codex 的三项失败回归由同一会话返工。独立 `node --test` 为 66/66、`npm test` 四组均通过。见 [v3 验收](docs/verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。
