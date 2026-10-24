@@ -1,5 +1,9 @@
 # Amadeus 当前状态
 
+## 2026-10-25 质量修复后更新
+
+Life PR #2 的 0.1.0 四项缺口已修复：测试先失败 11/14，原 Creator 实施修复并经 Codex 返工审查，现全套 47/47；当前 Life 交付 SHA `fc977b1`，schema 仍为 2。真实隔离 DSH 启停、卸载/重装、强制重启恢复复验通过，原 Session/Workspace/数据库保留。详细证据见 [Life 质量关卡](../verification/LIFE_QUALITY_FIX_2026-10-25.md)。自动唤醒、Persona、Provider、注意力与预算尚未实现；用户已授权持续推进到 v1.0。下文“尚未修复”是接手前历史记录。
+
 2026-10-25 实查。交接模式：不写新功能，所有仓库起始工作树干净。最终交接只改文档和证据路径脱敏，原功能源码保持不变。主仓库和八插件公开；GitHub 当前用户 jeskoky-pixel、九仓 ADMIN；八插件未选独立 LICENSE，主仓库既有 MIT。
 
 ## 版本与工作成果

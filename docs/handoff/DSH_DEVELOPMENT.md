@@ -1,5 +1,9 @@
 # Codex ↔ DSH Creator 开发协议
 
+## 2026-10-25 增量
+
+原 Session `session-fa594d5f-9c84-4e51-aca1-f8ba8a3ee621` 已在独立 Desktop 重启后恢复并复用，质量测试、修复与两轮针对性返工后共有 9 轮 response、116 steps，空队列。配置仍为 cordis / deepseek-official / deepseek-flash / high / workspace-write / never。Life 质量修复已推至 PR #2 `fc977b1`，真实隔离宿主验收见 [质量记录](../verification/LIFE_QUALITY_FIX_2026-10-25.md)。后续继续在同一会话分派 v1.0 任务；下文五轮和 82 steps 是账号切换时快照。
+
 2026-10-25 现场核查。以下为本机已验证的**官方 Desktop Creator 后台 API**，不是 Headless CLI 替身。官方 Desktop/自带 CLI 均 0.2.1-rc.3。CLI 不在 PATH；本机完整路径见 private/handoff。跨未来 DSH 版本接口稳定性未承诺。
 
 ## 现有实例

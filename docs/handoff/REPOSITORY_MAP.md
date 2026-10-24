@@ -1,5 +1,9 @@
 # 仓库与克隆映射
 
+## 2026-10-25 Life 增量
+
+九仓初始路径、远端与分支映射仍见下表。Life 开发克隆和 `plugins/amadeus-life/` 已同步到 `codex/life-core` 的 `fc977b1`；Life PR #2 未合并。主仓 `codex/life-development` 当前 HEAD 请用本地 `git rev-parse HEAD` 与 PR #2 核对；其余插件未参与本次质量修复。下表的交接 HEAD 为此前快照，不能覆盖当前 Git 检查。
+
 2026-10-25：以下是实际 git fetch/status/remote/worktree/branch 与 GitHub open PR 查询结果。公开路径以项目根为基准；绝对路径只保存在本机 private/handoff。九仓均公开、当前可 ADMIN；初始无未提交修改。本轮所有插件 handoff 已推送。
 
 | 仓库/remote | 本地目录 | 当前分支 | 精确文档交付 HEAD | 打开 PR |

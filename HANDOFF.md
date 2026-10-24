@@ -1,5 +1,12 @@
 # Amadeus 项目交接
 
+## 最新检查点：Life 0.1.0 质量修复完成，v1.0 连续开发中（2026-10-25）
+
+- Life 原 Creator Session 已恢复并复用，现为 9 轮 completed、116 steps；仍为 cordis / deepseek-official / deepseek-flash / High / Workspace Write。Workspace 列表未登记此 Session 的旧差异仍在，但按 ID 可读，不能据此新建。
+- Life 四项缺口已先提交失败回归 `889be0a`（14 项中 11 项失败），再由原 Creator 主要修复 `92fc18b`，审查返工后全套 47/47 通过。Life PR #2 当前质量交付 `fc977b1`，未合并；主仓 PR #2 将同步本页与验收状态。详见 [质量关卡](docs/verification/LIFE_QUALITY_FIX_2026-10-25.md)。
+- 真实隔离 DSH 的加载、禁用/启用、卸载/重装、强制重启恢复通过；一次私有探针命令重放造成假失败，清除旧探针命令后复验通过。诊断探针已移除，Life 保持启用，原数据库、会话与工作空间保留。生产 SnowLuma、QQ Bridge、生产 DSH 未改，无真实平台外发。
+- 用户已一次授权持续推进 Life v1.0；质量关卡完成后立即研究并实现官方 DSH 自动唤醒，再推进统一 Persona、活动 Provider、注意力、预算与恢复。不以 0.2.0 为暂停点。此文件下方较早的“尚未修复”表述是账号交接时的历史状态，以本节和 Life 当前源码为准。
+
 ## 账号切换：先读这里（2026-10-25）
 
 唯一启动入口：[NEXT_CODEX_START](docs/handoff/NEXT_CODEX_START.md)；另见 CURRENT_STATE、DSH_DEVELOPMENT、REPOSITORY_MAP。本机 private/handoff 保存真实绝对路径、恢复步骤、初始 Git 库存、复现与最终交付 SHA；已忽略，不上传。九仓实查初始干净，原 DSH 会话可读、5轮完成且无排队任务。
