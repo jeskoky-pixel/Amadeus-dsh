@@ -1,0 +1,15 @@
+# Independent plugin checkouts; never vendor their code into this repository.
+/plugins/
+
+# Local credentials, runtime data and private evidence.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+/private/
+/runtime/
+/logs/
+/memory/
+/profiles/
+node_modules/

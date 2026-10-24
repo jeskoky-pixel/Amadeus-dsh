@@ -1,0 +1,13 @@
+schemaVersion: 1
+status: unverified
+installable: false
+product_dsh: null
+worker_dsh: null
+qq_bridge_baseline: null
+napcat: null
+contract_version: null
+verified_combinations: []
+notes:
+  - Repository initialization only; no plugin releases exist.
+  - Real DSH, QQ bridge and NapCat versions must be checked during M0.
+  - This is a planning record, not an installable dependency lockfile.
