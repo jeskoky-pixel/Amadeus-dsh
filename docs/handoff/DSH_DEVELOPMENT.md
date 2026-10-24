@@ -1,5 +1,9 @@
 # Codex ↔ DSH Creator 开发协议
 
+## 2026-10-25 Life v3 增量
+
+原 cordis Creator Session 完成第 11 轮 v3 首稿、第 12 轮 Codex 三项回归定点返工；独立 Desktop 冷备份/迁移/重启后同 Session 仍可按 ID 读取，12 轮响应、156 steps、空队列，配置保持 deepseek-official / deepseek-flash / High / Workspace Write。Life PR #2 `b21ecb2`；标准测试 66/66。下一轮从真实 Host adapter 继续，不重复派 v3 任务。用户指定官方余额耗尽时切 OpenCode Go V4.1 Flash；当前 modelCatalog 只有 deepseek-official 可路由，须先在隔离 profile 完成正常配置与验证，不复制认证或改生产。
+
 ## 2026-10-25 增量
 
 原 Session `session-fa594d5f-9c84-4e51-aca1-f8ba8a3ee621` 已在独立 Desktop 重启后恢复并复用，质量测试、修复与两轮针对性返工后共有 9 轮 response、116 steps，空队列。配置仍为 cordis / deepseek-official / deepseek-flash / high / workspace-write / never。Life 质量修复已推至 PR #2 `fc977b1`，真实隔离宿主验收见 [质量记录](../verification/LIFE_QUALITY_FIX_2026-10-25.md)。后续继续在同一会话分派 v1.0 任务；下文五轮和 82 steps 是账号切换时快照。

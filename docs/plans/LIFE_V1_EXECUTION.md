@@ -8,6 +8,8 @@
 
 ## 0.2 纵切：真正无用户输入唤醒
 
+状态更新：SQLite v3 wake ledger 已在 Life PR #2 `b21ecb2` 完成且真实开发库迁移验收。可持久准备/领取/准入/记录 wake，但还没有 Host 自动投递与真实 turn 证据；下一步从第 2 点的 Host 部分继续。见 [v3 验收](../verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。
+
 1. 在独立开发 DSH 中验证 Host 调用的真实语义。已实测：`sessionController.prompt` 可无人工输入唤醒并完成 turn，但持久来源为 `user` 且返回 `accepted` 不代表执行；受控 Host `resolveAgent → followup → sessions.flush` 可保留 `amadeus-life` 来源与 wake ID 并完成 turn。私有探针构造错误的初次调用曾产生缺少 `role` 的消息和失败 turn，已保留并纠正；详情见 [Host 唤醒研究](../verification/LIFE_HOST_WAKE_SMOKE_2026-10-25.md)。
 2. SQLite v2→v3 只增量迁移，保留全部意图、活动和 outbox。新增持久 wake ledger：稳定 wake ID、目标 Session、来源 scope/意图 revision、状态、领取、准入、执行、失败与对账。入队前重查意图/权限；忙碌会话只排队，不 steer/覆盖 turn；`accepted`、持久 inbox 和已执行 turn 分开记录。取消、改期、过期使旧 wake 无效。
 3. 先让到期意图自动唤醒，再加入无待办时的空闲自主机会。空闲机会需管理员启用的可信 Persona/Session 绑定、低成本 eligibility 检查、频率与 token 预算、退避和可选择休息；不把每个 tick 变为模型调用。真实隔离 DSH 验证无人输入也能启动，模型可选择保持安静。

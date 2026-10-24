@@ -1,5 +1,11 @@
 # Amadeus 项目交接
 
+## 最新检查点：Life SQLite v3 wake ledger（2026-10-25）
+
+- Life PR #2 已更新至 `b21ecb2`，仍未合并。原 cordis Creator 完成 v2→v3 增量迁移及持久 `intent_due` ledger；Codex 的三项失败回归由同一会话返工。独立 `node --test` 为 66/66、`npm test` 四组均通过。见 [v3 验收](docs/verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。
+- 停止经核对的独立 DSH Desktop，冷备份原 SQLite/WAL/SHM 并逐文件核对哈希，再启动同一隔离实例。真实开发库从 schema 2 迁到 3，9 意图、4 事件、8 活动与租约保留，业务不可变字段摘要一致；原 Creator Session 与 Life bundle 可恢复。私有备份留在忽略目录，生产未动。
+- 该检查点只有持久 wake 状态层，尚无 Life 自动投递、执行证据核对或闲暇自主机会。下一步接官方 Host adapter，随后继续身份、Provider、注意力、预算与 v1.0 十场景。DeepSeek 官方余额耗尽时按用户要求改用 OpenCode Go V4.1 Flash，但隔离模型目录目前仅官方 Provider 可路由，切换须先验证隔离接入。
+
 ## 最新检查点：Life 0.1.0 质量修复完成，v1.0 连续开发中（2026-10-25）
 
 - Life 原 Creator Session 已恢复并复用，现为 9 轮 completed、116 steps；仍为 cordis / deepseek-official / deepseek-flash / High / Workspace Write。Workspace 列表未登记此 Session 的旧差异仍在，但按 ID 可读，不能据此新建。

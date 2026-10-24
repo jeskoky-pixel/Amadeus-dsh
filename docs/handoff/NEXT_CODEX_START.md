@@ -1,5 +1,9 @@
 # 新 Codex 唯一启动入口
 
+## 2026-10-25 Life v3 检查点
+
+Life PR #2 已至 `b21ecb2`，SQLite v2→v3 wake ledger 通过 66/66 独立标准测试和真实隔离 DSH 冷备份、迁移、重启验收。原 Creator Session、Workspace、SQLite 保留；自动 Host 唤醒、idle、自主预算等尚未接入。下一段按 [主仓 v3 验收](../verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md) 接续真实 Host adapter，不要重复实现 0.1 质量修复。下方早期快照按当时历史理解。
+
 ## 2026-10-25 后续状态
 
 原 Life Creator Session 已恢复并继续开发，四项 0.1.0 质量缺口现已修复；失败回归提交 `889be0a`、修复提交 `92fc18b`、Life PR #2 质量交付 `fc977b1`。独立 47/47 测试与真实隔离 DSH 生命周期/重启恢复验收见 [主仓质量记录](../verification/LIFE_QUALITY_FIX_2026-10-25.md)。用户已授权连续开发至 Life v1.0；下一步研究并接入真实官方 DSH 无用户输入自动唤醒，再推进身份、Provider、注意力与预算。以下初始交接文字保留为当时快照，不要把其中“四项尚未修复、五轮会话”当作当前状态。

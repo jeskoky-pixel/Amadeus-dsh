@@ -1,5 +1,9 @@
 # 仓库与克隆映射
 
+## 2026-10-25 Life v3 增量
+
+Life 活跃开发克隆与 `plugins/amadeus-life/` 均已同步到 `codex/life-core` 的 `b21ecb299c5fbcc27d5a27edfd41bef3b16a5b8a`；Life PR #2 未合并。其余插件无此次代码更动。主仓 PR #2 的最新 SHA 请以当前 `git rev-parse HEAD` / PR head 核对；下表仍是更早快照。
+
 ## 2026-10-25 Life 增量
 
 九仓初始路径、远端与分支映射仍见下表。Life 开发克隆和 `plugins/amadeus-life/` 已同步到 `codex/life-core` 的 `fc977b1`；Life PR #2 未合并。主仓 `codex/life-development` 当前 HEAD 请用本地 `git rev-parse HEAD` 与 PR #2 核对；其余插件未参与本次质量修复。下表的交接 HEAD 为此前快照，不能覆盖当前 Git 检查。

@@ -1,5 +1,9 @@
 # Amadeus 当前状态
 
+## 2026-10-25 Life SQLite v3 增量
+
+Life PR #2 当前 `b21ecb2`：持久 `intent_due` wake ledger、v2→v3 增量迁移，Codex 三项失败回归经原 Creator 返工，66/66 独立标准测试通过。真实隔离开发库在冷备份后从 v2 成功迁至 v3，原意图/事件/活动保留；原 Session 可恢复，Life bundle active。见 [v3 验收](../verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。Host 自动投递、真实执行证据、idle、身份、Provider、注意力和预算仍待开发；下文较早的 schema 2 快照不代表现状。
+
 ## 2026-10-25 质量修复后更新
 
 Life PR #2 的 0.1.0 四项缺口已修复：测试先失败 11/14，原 Creator 实施修复并经 Codex 返工审查，现全套 47/47；当前 Life 交付 SHA `fc977b1`，schema 仍为 2。真实隔离 DSH 启停、卸载/重装、强制重启恢复复验通过，原 Session/Workspace/数据库保留。详细证据见 [Life 质量关卡](../verification/LIFE_QUALITY_FIX_2026-10-25.md)。自动唤醒、Persona、Provider、注意力与预算尚未实现；用户已授权持续推进到 v1.0。下文“尚未修复”是接手前历史记录。
