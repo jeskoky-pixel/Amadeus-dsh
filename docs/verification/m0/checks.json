@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-25",
+  "contractCopies": {
+    "count": 3,
+    "sha256": "377b8a42db38fcccebcf575004733825d4a0a57c7bc3220458f141158ec6026e",
+    "equal": true
+  },
+  "publishedWorkerArtifactHashesMatch": true,
+  "workerMutationScopePassed": true,
+  "completionEvidence": "exit 0 plus durable turn/end completed; JSON final has no reason",
+  "qqPublishedChecks": {
+    "passed": 16,
+    "failed": 0
+  },
+  "legacyBridgeIsolationRegression": {
+    "passed": 10,
+    "failed": 0
+  },
+  "notVerified": [
+    "independent headless NapCat version and OneBot chain",
+    "full QQ black-box platform scenarios",
+    "QQ/Life runtime integration",
+    "host privacy and network isolation adversarial tests"
+  ]
+}

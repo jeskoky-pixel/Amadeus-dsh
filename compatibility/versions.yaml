@@ -1,13 +1,22 @@
 schemaVersion: 1
-status: unverified
+status: m0_partial
 installable: false
-product_dsh: null
-worker_dsh: null
-qq_bridge_baseline: null
+product_dsh: '0.2.1-rc.3'
+worker_dsh: '0.2.1-rc.3'
+qq_bridge_baseline:
+  repository: https://github.com/Derpyu520/qq-bridge
+  commit: a49877f4e58d04e47532d44b803360d0f001160d
+  package_version: '0.2.1-r1'
+  local_modifications: true
+observed_qq_backend:
+  name: SnowLuma
+  version: '2.1.1'
 napcat: null
-contract_version: null
+contract_version: '0.1-draft'
 verified_combinations: []
 notes:
-  - Repository initialization only; no plugin releases exist.
-  - Real DSH, QQ bridge and NapCat versions must be checked during M0.
-  - This is a planning record, not an installable dependency lockfile.
+  - No production plugin releases or verified runtime combinations exist.
+  - Independent headless NapCat version and connection remain unverified.
+  - Desktop installer 3.5.4 is not a NapCat core version.
+  - Headless permissions use profile config; CLI flags in the research example are absent.
+  - This is an evidence record, not an installable dependency lockfile.
