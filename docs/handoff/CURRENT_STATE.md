@@ -15,6 +15,8 @@
 
 历史真实隔离 DSH 安装/禁用/启用/卸载/重装/强制重启、原 Creator 五次 Life 工具调用已验证。临时探针已移除，Life 留在开发 profile；本轮没有再次扰动宿主启停，API listBundles 仍确认启用。交接轮重新执行 node --test test/life-core.test.js test/revision.test.js，29 passed / 0 failed / exit 0，Node 22.23.2。该测试集不能覆盖全部外部审查缺陷。
 
+原 Creator 的 cwd 正确且可按 Session ID 读取，但 Workspace.sessionIds 为空；不要通过工作区列表空推定会话不存在，详见 DSH_DEVELOPMENT。
+
 原 DSH Creator 五轮完成、82 model steps；uncached input 96,313、cache input 12,036,352、output 141,506。用量是可观测事实，实际金额未核供应商账单，不把缓存假设为免费。空 tick 不调用模型。
 
 ## 四项缺口：尚未修复

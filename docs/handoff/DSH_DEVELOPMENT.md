@@ -8,6 +8,7 @@
 - 原 Creator session-fa594d5f-9c84-4e51-aca1-f8ba8a3ee621，preset cordis；provider deepseek-official、route deepseek-flash、reasoning high。官方前端 1017 标签匹配已从安装源核实，后端没有公开不可变构建 ID，不额外臆造。
 - 独立 DSH_HOME=private/life-development/dsh-home，Electron userData=private/life-development/electron-data，profile=desktop；不是生产 home。sandbox workspace-write；approval never；permission defaultPreset 同样 workspace-write，不开 Full Access。
 - 真实 profile 依赖 link 到独立 Life 开发克隆；Plugin Manager bundles 含 @amadeus/life，enabled。测试/开发 SQLite 由此独立 home 保存。会话、权限和 workspace 存储均在独立 home；Codex 账号与 DSH provider 认证是分开的逻辑配置，但账号切换后的访问仍需实测。
+- 重要现场差异：workspace 存储中上述工作区确实存在、路径有效，但其 sessionIds 是空数组；原 Session 不在任何 Workspace 的 sessionIds 中。session/projections 仍可按原 ID读取，workingDirectory 精确指向开发克隆。此前 session/create({cwd,agentPreset}) 建了可恢复会话，但没有证明完成 Workspace 列表归属。不得因工作区列表空而重建/丢弃会话；本轮保留现状，尚未验证会话绑定/迁移API。
 - 本轮 API 可访问，seq=721，5 轮有 response，历史 durable turn/end 均 completed，82 steps；inbox next-turn/next-step 与 userQuestions 为空。没有派新任务，不能仅凭“prompt 已接受”认定运行完成。
 
 ## 经验证的协作步骤
