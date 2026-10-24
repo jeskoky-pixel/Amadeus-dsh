@@ -1,6 +1,12 @@
 # Amadeus 项目交接
 
 
+## 最新检查点：Life v1 最终加固与单屏设置（2026-10-25）
+
+- Life PR #2 已推送 `e9e0764`，原 Creator 修复五项最终审查问题并补安全设置入口；Codex 独立标准测试 161/161、`npm test` 十一组全过。SQLite v9 真实隔离开发库冷迁移、历史数据摘要、插件生命周期、无人输入活动闭环、旧工具拒绝、预算拒绝、身份重绑拒绝及首次预设重启均通过。见 [最终加固报告](docs/verification/LIFE_V1_FINAL_HARDENING_2026-10-25.md)。
+- 原 Creator 26 轮完成，仍可读、空队列；开发 profile 已逐字节恢复。Life 包仍是未发布的 0.1.0 开发版，真实平台 Provider 与付款未验证，独立插件许可未定。Life 和主仓 PR #2 均保持开放未合并；生产 SnowLuma、QQ Bridge、DSH 未动。
+
+
 ## 最新检查点：Life v1.0 能力闭环 / SQLite v8（2026-10-25）
 
 - 原官方 cordis Creator 同一持续会话完成身份/场景、idle 自主唤醒、本地虚拟 Provider、注意力暂停、统一预算、活动并发与可信成本预留；Codex 独立审查、标准测试 137/137 与 `npm test` 八组通过。Life PR #2 已更新到 `7855cdd`，未合并。

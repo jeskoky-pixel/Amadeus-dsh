@@ -1,6 +1,11 @@
 # Codex ↔ DSH Creator 开发协议
 
 
+## 2026-10-25 Creator 第 24–26 轮
+
+原 cordis Creator 第 24 轮集中修复最终五项审查并增加安全设置；第 25 轮修复 Codex 的三项定点失败回归；第 26 轮补显式本地首次身份绑定。保持 deepseek-official/deepseek-flash、High、Workspace Write，结束时空队列。Codex 独立 161/161 与真实隔离 DSH v9 验收见 [报告](../verification/LIFE_V1_FINAL_HARDENING_2026-10-25.md)。后续仍复用此 Session；以下较旧配置/状态为历史快照。
+
+
 ## 2026-10-25 Creator 第 23 轮
 
 原 cordis Session 第 23 轮完成预算并发与成本预留任务；仍为 deepseek-official/deepseek-flash、High、Workspace Write，空队列。开发树提交 `7855cdd`。Codex 另行完成 137/137 标准测试、真实隔离 DSH v7→v8 冷迁移与重启恢复。此前第 18 轮等快照为历史；后续仍优先复用原 Session。

@@ -1,6 +1,11 @@
 # 新 Codex 唯一启动入口
 
 
+## 2026-10-25 最新：Life v1 最终加固已验收
+
+Life PR #2 `e9e0764`：五项最终审查缺陷和三项集中复审边界已修复；Codex 161/161 标准测试、真实隔离 DSH v8→v9 冷迁移、无人输入本地活动、旧工具拒绝、预算/重绑拒绝及安全首次设置通过。主仓 [报告](../verification/LIFE_V1_FINAL_HARDENING_2026-10-25.md)。原 cordis Creator Session 26 轮完成、空队列，开发 profile 已恢复。以下旧快照均按历史理解，不要重复质量修复；未发布、未部署、未合并。
+
+
 ## 2026-10-25 最新 Life v1 检查点
 
 Life PR #2 已推送 `7855cdd`，schema v8 与 v1 功能闭环的 137/137 确定性测试、真实隔离 DSH idle/本地活动工具、v7→v8 冷迁移验收均完成。主仓验收见 [Life v1 记录](../verification/LIFE_V1_CAPABILITY_2026-10-25.md)。原 Creator Session 23 轮完成、仍可读；活跃开发树与普通 Life 克隆已同步。没有发布、部署、合并、真实外发或付款。下面较旧快照按历史理解。

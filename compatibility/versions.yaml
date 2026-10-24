@@ -1,5 +1,5 @@
 schemaVersion: 1
-status: life_core_open_quality_gaps_qq_m0_partial
+status: life_v1_hardened_development_qq_m0_partial
 installable: false
 product_dsh: '0.2.1-rc.3'
 worker_dsh: '0.2.1-rc.3'
@@ -15,14 +15,19 @@ napcat: null
 contract_version: '0.1-draft'
 verified_combinations:
   - dsh: '0.2.1-rc.3'
+    life: '0.1.0-dev-schema9'
+    scope: isolated_official_desktop
+    commit: e9e0764955f7eb5e260e32e2622729463b2f589c
+    other_amadeus_plugins_installed: false
+  - dsh: '0.2.1-rc.3'
     life: '0.1.0'
     scope: isolated_official_desktop
     commit: 46064e0856fc980ddd2d3e10e5d46afa94e3862c
     other_amadeus_plugins_installed: false
 notes:
-  - Four Life quality gaps remain open; previous tests do not cover all trust, association, close, and date boundaries.
-  - Life core installation and persistence were verified in isolated Desktop only; full-product installable remains false.
-  - Life emits local reconsideration events; authorized automatic wake and external providers are not implemented.
+  - Life quality gaps and five final review defects have regression coverage; 161/161 standard tests pass.
+  - Isolated Desktop verified automatic wake, local virtual Provider activity, schema 8 to 9 migration, plugin lifecycle, and first-run setup. Full-product installable remains false because no release or plugin license is selected.
+  - External platform Providers, actual payment, and production deployment are not implemented or verified.
   - Independent headless NapCat version and connection remain unverified.
   - Desktop installer 3.5.4 is not a NapCat core version.
   - Headless permissions use profile config; CLI flags in the research example are absent.

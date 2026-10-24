@@ -1,6 +1,11 @@
 # Amadeus 当前状态
 
 
+## 2026-10-25 Life v1 最终加固状态
+
+Life PR #2 `e9e0764`，schema v9，161/161 标准测试通过，真实隔离 DSH 迁移、生命周期、无人输入本地活动、旧工具/预算/重绑拒绝和首次预设重启通过。五项最终缺陷及额外审查边界见 [报告](../verification/LIFE_V1_FINAL_HARDENING_2026-10-25.md)。包仍为 0.1.0 开发版，无正式 release/许可选择/生产部署/真实平台 Provider。PR 未合并。
+
+
 ## 2026-10-25 Life v1 能力检查点
 
 Life PR #2 `7855cdd`：schema v8、统一身份与场景、idle wake、受控本地 Provider、注意力/预算/并发、可信成本预留接口。Codex 标准测试 137/137，八组 `npm test` 通过；真实隔离 DSH v7→v8 冷迁移与原会话恢复通过。开发版包仍 0.1.0，真实平台与支付 Provider 未接入，PR 未合并。详见 [验收](../verification/LIFE_V1_CAPABILITY_2026-10-25.md)。
