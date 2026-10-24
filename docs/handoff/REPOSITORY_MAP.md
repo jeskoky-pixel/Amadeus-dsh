@@ -1,5 +1,9 @@
 # 仓库与克隆映射
 
+## 2026-10-25 v4 增量
+
+Life 活跃开发克隆已推送 `codex/life-core` 的 `4f690c1304bd31c1b8772b2afa3bc000983b9d29`，Life PR #2 开放、未合并。普通 `plugins/amadeus-life/` 克隆已快进至 `52d6284`，尚需待下一次安全同步到当前 HEAD；不可 reset 其余工作树。主仓此轮仅更新交接及验收文档；下表是较早库存快照。
+
 ## 2026-10-25 Host adapter 增量
 
 Life 活跃开发克隆与 `plugins/amadeus-life/` 已同步至 `codex/life-core` 的 `ce93ff98b3df44490f1305158fa85c64a63db47e`，Life PR #2 未合并。主仓本次文档提交 SHA 以当前 PR #2 / `git rev-parse HEAD` 核对；其余插件没有本次代码改动。下表为早期库存快照。

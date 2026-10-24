@@ -8,6 +8,8 @@
 
 ## 0.2 纵切：真正无用户输入唤醒
 
+状态更新：`52d6284` 已增加 SQLite v4 消费证据和安全迁移，真实隔离开发库迁移通过。`4f690c1` 已提交同 turn 取消的失败回归；原 Creator 正把官方 Session 事件接入持久证据并处理 pre-admission 与崩溃对账。当前全套测试预期暂不通过，见 [v4 检查点](../verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。下一关仍是 idle 无待办机会，之后依次推进身份、Provider、注意力与预算；不以 v4 为完成点。
+
 状态更新：Life PR #2 `ce93ff9` 已使合成到期意图在无人工新消息时真正唤醒隔离 DSH Session；模型读取 Life 后自主取消，turn completed、重启不重投。见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。下一段先拆分“wake 已消费”与“旧意图已失效”的记录并对账崩溃窗口，再实现 idle 自主机会。完整 v1.0 未完成。
 
 状态更新：SQLite v3 wake ledger 已在 Life PR #2 `b21ecb2` 完成且真实开发库迁移验收。可持久准备/领取/准入/记录 wake，但还没有 Host 自动投递与真实 turn 证据；下一步从第 2 点的 Host 部分继续。见 [v3 验收](../verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。

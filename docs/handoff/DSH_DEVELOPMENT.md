@@ -1,5 +1,9 @@
 # Codex ↔ DSH Creator 开发协议
 
+## 2026-10-25 v4 / 第 18 轮
+
+原 Session 第 17 轮完成、232 steps、空队列时，Codex 独立核查 v4 首稿并提交 `52d6284`。第 18 轮已派发 Host 事件接线及保守崩溃对账，当前不要另建 Creator 或派重复任务。先行失败回归 H20 为 `4f690c1`，定点运行 exit 1。仍是 cordis / deepseek-official / deepseek-flash / High / Workspace Write；若官方余额耗尽，用户授权改用 OpenCode Go V4.1 Flash，但必须先在隔离 profile 正常配置和验证，不复制凭据、不改生产。
+
 ## 2026-10-25 Host adapter 增量
 
 原 cordis Creator Session 持续到第 16 轮 completed、210 steps，仍为 deepseek-official / deepseek-flash / High / Workspace Write。Life PR #2 `ce93ff9`。真实隔离 Desktop 发现普通 `ctx.get('sessionController')` 在 Life 作用域不可见；同会话返工为 `ctx.inject(['sessionController','sessions'], ...)` 可选绑定，保留服务缺失时 Life 核心。真实合成 Session 的 wake 在第 2 turn 消费并 completed，模型只调用 Life 工具后取消意图；重复 drive/重启无重投。完成后逐字节恢复独立 profile patch，私有探针撤载。后续继续原 Session，不重建；详见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。

@@ -1,5 +1,10 @@
 # Amadeus 项目交接
 
+## 最新检查点：Life v4 消费证据与 Host 接线返工中（2026-10-25）
+
+- Life PR #2 已至 `4f690c1`，仍未合并。`52d6284` 提交 SQLite v4 消费/turn-end 证据接口与安全迁移；此前无 Host 接线的独立测试 100/100，真实隔离库 v3→v4 迁移及重启通过，原数据和 Creator Session 保留。随后 `4f690c1` 单独提交了真实 Host 同 turn 取消的失败回归 H20（定点运行 exit 1）；当前全套测试预期暂不通过，须待原 Creator 修复。见 [v4 验收](docs/verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。
+- 原 cordis Creator 第 18 轮已接收 Host 消费证据与崩溃对账任务，沿用原独立 Workspace、deepseek-official/deepseek-flash、High、Workspace Write。任务文件留在本机忽略目录。官方余额不足时，按用户授权在隔离开发环境验证 OpenCode Go DeepSeek V4.1 Flash 后切换；当前尚未切换。主仓 PR #2 尚待本检查点推送，以下较早快照按历史理解。
+
 ## 最新检查点：Life 真实隔离 Host 唤醒首段（2026-10-25）
 
 - Life PR #2 已至 `ce93ff9`，原 Creator 实现默认关闭、管理员 Session allowlist 的到期 wake Host adapter；Codex 审查返工后标准 85/85，`npm test` 全通过。见 [Host 首段验收](docs/verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。PR 未合并。

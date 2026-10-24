@@ -1,5 +1,9 @@
 # Amadeus 当前状态
 
+## 2026-10-25 Life v4 接线中
+
+Life PR #2 `4f690c1`：v4 持久消费/turn-end 证据接口与 v2/v3→v4 安全迁移已提交，真实隔离库迁移/重启通过。Host 仍未接线；H20 失败回归先行提交，当前完整测试预期失败。原 Creator 第 18 轮正在修复实时事件和崩溃对账。主仓当前提交请以 `git rev-parse HEAD` 与 PR #2 核查；详细边界见 [v4 记录](../verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。
+
 ## 2026-10-25 Life Host 唤醒首段
 
 Life PR #2 `ce93ff9`：到期意图 Host adapter 已默认关闭、管理员 allowlist 限定，标准 85/85 测试通过。真实隔离 DSH 的合成 Session 无用户新消息时收到 `amadeus-life` wake，在 completed turn 读取 Life 并自主取消意图；无外部工具，重启不重投。当前 wake ledger 对同 turn 内取消只记录 superseded，消费与决策事实需拆分；admitted/uncertain 对账、idle、身份、Provider、注意力和预算仍待实现。见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。

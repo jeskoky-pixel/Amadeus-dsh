@@ -1,5 +1,9 @@
 # 新 Codex 唯一启动入口
 
+## 2026-10-25 Life v4 当前工作
+
+Life PR #2 当前 `4f690c1`：`52d6284` 已保存 v4 wake 消费证据和真实隔离 SQLite 迁移，`4f690c1` 是 Host 同 turn 取消的失败回归。原 Creator 第 18 轮正在把可信 Session 事件接入 v4 并处理 flush/admission 崩溃对账；查看本机 `private/life-development/status-light.mjs` 与当前工作树，勿清理未提交修改。此前无 Host 接线的 100/100 与真实迁移见 [v4 记录](../verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。余额不足时先在独立 profile 核实 OpenCode Go 路由，不能改生产配置。下方早期快照按历史理解。
+
 ## 2026-10-25 真实 Host 唤醒检查点
 
 Life PR #2 已至 `ce93ff9`，默认关闭且 allowlist 受控的官方 Host wake adapter 已通过 85/85 测试与真实隔离 DSH 合成 Session 投递、消费、取消和重启不重投验收；原 profile 已恢复，原 Creator Session/Workspace/SQLite 保留。见 [Host 首段验收](../verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。下一段处理同一 turn 内取消导致 wake 只记 superseded 的双重事实、崩溃对账、idle 自主机会，再继续 Life v1.0；下方较早快照按历史理解。
