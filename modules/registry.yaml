@@ -6,39 +6,55 @@ modules:
     repository: https://github.com/jeskoky-pixel/amadeus-qq
     priority: P0
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null
   - id: life
     repository: https://github.com/jeskoky-pixel/amadeus-life
     priority: P0
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null
   - id: memory
     repository: https://github.com/jeskoky-pixel/amadeus-memory
     priority: P1
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null
   - id: state
     repository: https://github.com/jeskoky-pixel/amadeus-state
     priority: P1
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null
   - id: browser
     repository: https://github.com/jeskoky-pixel/amadeus-browser
     priority: P1
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null
   - id: bilibili
     repository: https://github.com/jeskoky-pixel/amadeus-bilibili
     priority: P2
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null
   - id: android
     repository: https://github.com/jeskoky-pixel/amadeus-android
     priority: P2
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null
   - id: games
     repository: https://github.com/jeskoky-pixel/amadeus-games
     priority: P3
     status: scaffold_only
+    visibility: public
+    license_status: pending_owner_decision
     release: null

@@ -13,16 +13,16 @@
 | 仓库 | 职责 | 优先级 | 状态 |
 | --- | --- | --- | --- |
 | [Amadeus-dsh](https://github.com/jeskoky-pixel/Amadeus-dsh) | 项目主入口与集成文档 | 基础 | 公开；文档初始化 |
-| [amadeus-qq](https://github.com/jeskoky-pixel/amadeus-qq) | 外部 NapCat 适配、连续交流、媒体与主动发送 | P0 | 私有；仅初始化 |
-| [amadeus-life](https://github.com/jeskoky-pixel/amadeus-life) | 注意力、心跳、活动、未来意图与预算协调 | P0 | 私有；仅初始化 |
-| [amadeus-memory](https://github.com/jeskoky-pixel/amadeus-memory) | 授权的跨场景经历、关系与记忆后端适配 | P1 | 私有；仅初始化 |
-| [amadeus-state](https://github.com/jeskoky-pixel/amadeus-state) | 心情、精力、兴趣与状态演化 | P1 | 私有；仅初始化 |
-| [amadeus-browser](https://github.com/jeskoky-pixel/amadeus-browser) | 受控浏览与长时间浏览活动 | P1 | 私有；仅初始化 |
-| [amadeus-bilibili](https://github.com/jeskoky-pixel/amadeus-bilibili) | 视频阅读、评论、收藏与获授权互动 | P2 | 私有；仅初始化 |
-| [amadeus-android](https://github.com/jeskoky-pixel/amadeus-android) | 绑定安卓设备与应用操作 | P2 | 私有；仅初始化 |
-| [amadeus-games](https://github.com/jeskoky-pixel/amadeus-games) | 游戏能力集成与游戏活动提供器 | P3 | 私有；仅初始化 |
+| [amadeus-qq](https://github.com/jeskoky-pixel/amadeus-qq) | 外部 NapCat 适配、连续交流、媒体与主动发送 | P0 | 公开；仅初始化 |
+| [amadeus-life](https://github.com/jeskoky-pixel/amadeus-life) | 注意力、心跳、活动、未来意图与预算协调 | P0 | 公开；仅初始化 |
+| [amadeus-memory](https://github.com/jeskoky-pixel/amadeus-memory) | 授权的跨场景经历、关系与记忆后端适配 | P1 | 公开；仅初始化 |
+| [amadeus-state](https://github.com/jeskoky-pixel/amadeus-state) | 心情、精力、兴趣与状态演化 | P1 | 公开；仅初始化 |
+| [amadeus-browser](https://github.com/jeskoky-pixel/amadeus-browser) | 受控浏览与长时间浏览活动 | P1 | 公开；仅初始化 |
+| [amadeus-bilibili](https://github.com/jeskoky-pixel/amadeus-bilibili) | 视频阅读、评论、收藏与获授权互动 | P2 | 公开；仅初始化 |
+| [amadeus-android](https://github.com/jeskoky-pixel/amadeus-android) | 绑定安卓设备与应用操作 | P2 | 公开；仅初始化 |
+| [amadeus-games](https://github.com/jeskoky-pixel/amadeus-games) | 游戏能力集成与游戏活动提供器 | P3 | 公开；仅初始化 |
 
-私有插件仓库目前仅对获授权账号可见。P0—P3 表示计划顺序，不代表开发已经开始。`amadeus-sdk` 暂不独立建仓，基础契约稳定后再决定。
+全部 8 个插件仓库已公开，便于网页端按 PR 或提交版本审阅。P0—P3 表示计划顺序，不代表开发已经开始。`amadeus-sdk` 暂不独立建仓，基础契约稳定后再决定。
 
 ## 文档入口
 
