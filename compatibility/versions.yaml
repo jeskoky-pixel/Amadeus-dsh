@@ -1,5 +1,5 @@
 schemaVersion: 1
-status: life_core_verified_qq_m0_partial
+status: life_core_open_quality_gaps_qq_m0_partial
 installable: false
 product_dsh: '0.2.1-rc.3'
 worker_dsh: '0.2.1-rc.3'
@@ -20,6 +20,7 @@ verified_combinations:
     commit: 46064e0856fc980ddd2d3e10e5d46afa94e3862c
     other_amadeus_plugins_installed: false
 notes:
+  - Four Life quality gaps remain open; previous tests do not cover all trust, association, close, and date boundaries.
   - Life core installation and persistence were verified in isolated Desktop only; full-product installable remains false.
   - Life emits local reconsideration events; authorized automatic wake and external providers are not implemented.
   - Independent headless NapCat version and connection remain unverified.

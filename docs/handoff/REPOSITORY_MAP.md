@@ -1,0 +1,34 @@
+# 仓库与克隆映射
+
+2026-10-25：以下是实际 git fetch/status/remote/worktree/branch 与 GitHub open PR 查询结果。公开路径以项目根为基准；绝对路径只保存在本机 private/handoff。九仓均公开、当前可 ADMIN；初始无未提交修改。本轮所有插件 handoff 已推送。
+
+| 仓库/remote | 本地目录 | 当前分支 | 精确文档交付 HEAD | 打开 PR |
+| --- | --- | --- | --- | --- |
+| [Amadeus-dsh](https://github.com/jeskoky-pixel/Amadeus-dsh) | `.` | `codex/life-development` | 交接前 `073164a2f637fb207b5bd580ad2416d870800765`；交接提交见本文件 git log/PR head | #2 + 草稿 #1 |
+| [amadeus-android](https://github.com/jeskoky-pixel/amadeus-android) | `plugins/amadeus-android/` | `main` | `f8aa4e583de3272ac6b3224f84e9953bb0ae2b87` | 无 |
+| [amadeus-bilibili](https://github.com/jeskoky-pixel/amadeus-bilibili) | `plugins/amadeus-bilibili/` | `main` | `e3eefdaa7108ee4ff3f794b552ed5fd542b39bb3` | 无 |
+| [amadeus-browser](https://github.com/jeskoky-pixel/amadeus-browser) | `plugins/amadeus-browser/` | `main` | `e64379eed3457d7e5dffb24363018646f52b93c8` | 无 |
+| [amadeus-games](https://github.com/jeskoky-pixel/amadeus-games) | `plugins/amadeus-games/` | `main` | `85c537f7f946cafd21cc9de0840e23715e6dddee` | 无 |
+| [amadeus-life](https://github.com/jeskoky-pixel/amadeus-life) | `plugins/amadeus-life/` | `codex/life-core` | `61663064d9056a932ac4a5c984bea6e43f771b08` | [#2](https://github.com/jeskoky-pixel/amadeus-life/pull/2) / [#1](https://github.com/jeskoky-pixel/amadeus-life/pull/1) |
+| [amadeus-memory](https://github.com/jeskoky-pixel/amadeus-memory) | `plugins/amadeus-memory/` | `main` | `01e83bec483a3ca799709423972933d53996a578` | 无 |
+| [amadeus-qq](https://github.com/jeskoky-pixel/amadeus-qq) | `plugins/amadeus-qq/` | `codex/m0-baseline` | `a0abc9f534daa0a7a081158b579f9d68f0ac0473` | [#1](https://github.com/jeskoky-pixel/amadeus-qq/pull/1) |
+| [amadeus-state](https://github.com/jeskoky-pixel/amadeus-state) | `plugins/amadeus-state/` | `main` | `a7f7fbbbb5e17982fd68007f8a6f62edf80d1d0f` | 无 |
+
+## 独立克隆、worktree 与其他分支
+
+九个常规克隆的 git worktree list 均只有各自单一工作树，没有额外 linked worktree。额外发现四个实际独立克隆（不是 worktree）：
+
+- `private/life-development/workspace/amadeus-life/`：真正安装进独立 Desktop 的开发克隆，codex/life-core；已 fast-forward 到上表 Life 文档 HEAD；常规 plugins 克隆供浏览/独立核查，后续代码优先在开发克隆改，推送后同步另一个。
+- `private/life-development/maintenance/Amadeus-dsh/`：main，a8c607fa9871e1b2dde9c7769e1ec5ffb9408772。
+- `private/life-development/maintenance/amadeus-life/`：main，4eafad29a22c7a4810d6999602c7bff44f7971bb。
+- `private/life-development/maintenance/amadeus-qq/`：main，7522872e43ab9bd80542f890b5e34a1ab6a20040。
+
+以上维护克隆本轮未修改、未作为活跃开发目录。profile/node_modules/@amadeus/life 是开发克隆的 link，不是第四个 Life 实现。扫描项目树排除 node_modules/运行数据后未发现其他仓库；未做全电脑无限搜索。
+
+主仓库保留本地 codex/m0-baseline=099c2663d85c196577b20f98a227d508dc7b6569、main=c191552（落后 origin/main，不得误用）；Life 保留 codex/m0-baseline=73afbb53bafdebe50db9a3a284371e18b5320812、旧本地 main；QQ 保留旧本地 main。完整 branch -vv/worktree 原始安全检查仅在 private/handoff/git-inventory.before.json。其他六仓仅 main，只有文档初始化。
+
+默认 main 与功能分支不同，GitHub 网页审阅必须选 PR/开发分支。主 PR #2 包含原 M0 基线与 Life 总结，Life PR #2 包含实际核心。当前不创建重复 PR，不合并。
+
+## 同步检查
+
+本次已 fetch 所有常规仓库和四个独立克隆；后续推送逐分支以 ls-remote 核验。本机 FINAL_DELIVERY.json 保存最终九仓 HEAD、远端 SHA/同步结果和全部打开 PR。主仓库最终 SHA 无法写进自身同一提交，使用 `git log -1 --format=%H -- docs/handoff/REPOSITORY_MAP.md` 或 PR head 获取；插件表不受此限制。

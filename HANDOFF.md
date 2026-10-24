@@ -1,5 +1,12 @@
 # Amadeus 项目交接
 
+## 账号切换：先读这里（2026-10-25）
+
+唯一启动入口：[NEXT_CODEX_START](docs/handoff/NEXT_CODEX_START.md)；另见 CURRENT_STATE、DSH_DEVELOPMENT、REPOSITORY_MAP。本机 private/handoff 保存真实绝对路径、恢复步骤、初始 Git 库存、复现与最终交付 SHA；已忽略，不上传。九仓实查初始干净，原 DSH 会话可读、5轮完成且无排队任务。
+
+本轮只做交接，未修复功能。Life 29旧测试重跑通过，但四项质量缺口已核查/部分合成复现，仍待修复：伪造 running 完成、关联对象 scope/存在性、公开 close 遗留 lease、非法日期/ADR schema。历史“已验收”仅限原测试与集成范围，不能视为这些边界完整。下一轮先失败回归→原 Creator 修复→Codex 独立全套及真实开发 DSH 启停→更新既有PR。质量完成后规划0.2.0并持续到Life v1.0，不转其他插件，不触生产。
+
+
 更新日期：2026-10-25（Asia/Shanghai）。**Life 0.1.0 开发版核心已验收；QQ 路线 M0 仍部分完成，二者分别记录。**
 
 ## 最新：Life 独立开发交付
