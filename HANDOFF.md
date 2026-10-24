@@ -1,5 +1,12 @@
 # Amadeus 项目交接
 
+
+## 最新检查点：Life v1.0 能力闭环 / SQLite v8（2026-10-25）
+
+- 原官方 cordis Creator 同一持续会话完成身份/场景、idle 自主唤醒、本地虚拟 Provider、注意力暂停、统一预算、活动并发与可信成本预留；Codex 独立审查、标准测试 137/137 与 `npm test` 八组通过。Life PR #2 已更新到 `7855cdd`，未合并。
+- 真实隔离 DSH 已验证无新用户消息 idle turn、模型选择本地活动工具，以及停启/恢复；v7→v8 冷迁移后完整性 `ok`、12 张历史表旧列摘要和行数一致，原 Creator Session 仍可读。主仓 PR #2 保存本验收。详见 [v1 验收](docs/verification/LIFE_V1_CAPABILITY_2026-10-25.md)。
+- 包仍是 0.1.0 开发版，未发布、未部署、未连接真实平台或支付 Provider；付费能力只有受信任的本地预留接口。生产 SnowLuma、QQ Bridge、DSH 未改；两 PR 均保留开放。
+
 ## 最新检查点：Life v4 消费证据与 Host 接线返工中（2026-10-25）
 
 - Life PR #2 已至 `4f690c1`，仍未合并。`52d6284` 提交 SQLite v4 消费/turn-end 证据接口与安全迁移；此前无 Host 接线的独立测试 100/100，真实隔离库 v3→v4 迁移及重启通过，原数据和 Creator Session 保留。随后 `4f690c1` 单独提交了真实 Host 同 turn 取消的失败回归 H20（定点运行 exit 1）；当前全套测试预期暂不通过，须待原 Creator 修复。见 [v4 验收](docs/verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。

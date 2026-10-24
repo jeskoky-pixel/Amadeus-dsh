@@ -1,5 +1,10 @@
 # Amadeus 当前状态
 
+
+## 2026-10-25 Life v1 能力检查点
+
+Life PR #2 `7855cdd`：schema v8、统一身份与场景、idle wake、受控本地 Provider、注意力/预算/并发、可信成本预留接口。Codex 标准测试 137/137，八组 `npm test` 通过；真实隔离 DSH v7→v8 冷迁移与原会话恢复通过。开发版包仍 0.1.0，真实平台与支付 Provider 未接入，PR 未合并。详见 [验收](../verification/LIFE_V1_CAPABILITY_2026-10-25.md)。
+
 ## 2026-10-25 Life v4 接线中
 
 Life PR #2 `4f690c1`：v4 持久消费/turn-end 证据接口与 v2/v3→v4 安全迁移已提交，真实隔离库迁移/重启通过。Host 仍未接线；H20 失败回归先行提交，当前完整测试预期失败。原 Creator 第 18 轮正在修复实时事件和崩溃对账。主仓当前提交请以 `git rev-parse HEAD` 与 PR #2 核查；详细边界见 [v4 记录](../verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。

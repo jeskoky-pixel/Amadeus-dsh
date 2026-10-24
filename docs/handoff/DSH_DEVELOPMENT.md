@@ -1,5 +1,10 @@
 # Codex ↔ DSH Creator 开发协议
 
+
+## 2026-10-25 Creator 第 23 轮
+
+原 cordis Session 第 23 轮完成预算并发与成本预留任务；仍为 deepseek-official/deepseek-flash、High、Workspace Write，空队列。开发树提交 `7855cdd`。Codex 另行完成 137/137 标准测试、真实隔离 DSH v7→v8 冷迁移与重启恢复。此前第 18 轮等快照为历史；后续仍优先复用原 Session。
+
 ## 2026-10-25 v4 / 第 18 轮
 
 原 Session 第 17 轮完成、232 steps、空队列时，Codex 独立核查 v4 首稿并提交 `52d6284`。第 18 轮已派发 Host 事件接线及保守崩溃对账，当前不要另建 Creator 或派重复任务。先行失败回归 H20 为 `4f690c1`，定点运行 exit 1。仍是 cordis / deepseek-official / deepseek-flash / High / Workspace Write；若官方余额耗尽，用户授权改用 OpenCode Go V4.1 Flash，但必须先在隔离 profile 正常配置和验证，不复制凭据、不改生产。

@@ -1,5 +1,10 @@
 # 新 Codex 唯一启动入口
 
+
+## 2026-10-25 最新 Life v1 检查点
+
+Life PR #2 已推送 `7855cdd`，schema v8 与 v1 功能闭环的 137/137 确定性测试、真实隔离 DSH idle/本地活动工具、v7→v8 冷迁移验收均完成。主仓验收见 [Life v1 记录](../verification/LIFE_V1_CAPABILITY_2026-10-25.md)。原 Creator Session 23 轮完成、仍可读；活跃开发树与普通 Life 克隆已同步。没有发布、部署、合并、真实外发或付款。下面较旧快照按历史理解。
+
 ## 2026-10-25 Life v4 当前工作
 
 Life PR #2 当前 `4f690c1`：`52d6284` 已保存 v4 wake 消费证据和真实隔离 SQLite 迁移，`4f690c1` 是 Host 同 turn 取消的失败回归。原 Creator 第 18 轮正在把可信 Session 事件接入 v4 并处理 flush/admission 崩溃对账；查看本机 `private/life-development/status-light.mjs` 与当前工作树，勿清理未提交修改。此前无 Host 接线的 100/100 与真实迁移见 [v4 记录](../verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。余额不足时先在独立 profile 核实 OpenCode Go 路由，不能改生产配置。下方早期快照按历史理解。

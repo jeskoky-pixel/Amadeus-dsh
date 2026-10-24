@@ -1,0 +1,11 @@
+# Life v1.0 capability acceptance (2026-10-25)
+
+Life PR #2 `7855cddbbe376216afd6d093c8846fa71f770094` implements the v1 capability loop on the existing `codex/life-core` branch. The package remains a 0.1.0 development build; no release or production deployment occurred.
+
+The original official DSH Desktop cordis Creator Session implemented Persona/Scene/Session binding, explicit sharing, idle wake, local virtual Activity Provider, attention pause, usage accounting, activity concurrency and trusted paid-cost reservation. New autonomous capabilities are disabled unless an administrator enables them. No external Provider, payment, platform send, or second Agent was invoked.
+
+Codex independently ran `node --test test/*.test.js`: **137 passed, 0 failed**. `npm test` passed all eight groups (18, 20, 9, 19, 28, 24, 15, 4). Two independent workers race against one persisted activity slot; exactly one succeeds. The v7→v8 rollback and prior-version migrations have deterministic tests.
+
+The isolated real DSH host previously completed an idle turn without a new user message, and a later due-intent turn selected `life_activity_start`, `life_activity_status`, and `life_activity_finish` against `LocalVirtualProvider`. The Session, workspace, SQLite database, and original Creator configuration remained intact. After the v8 change, Codex stopped only the verified isolated Desktop process tree, cold copied SQLite/WAL/SHM and verified each SHA-256, then restarted that instance. The developer database migrated **v7→v8**; `PRAGMA integrity_check` returned `ok` before and after. Existing columns in 12 historical tables had matching ordered row digests and counts, including 11 intents, 9 activities, 4 wakes, and 8 usage events. Life remained installed; the original Creator Session was readable with an empty queue after restart. Private backups and the verification script remain under the ignored `private/handoff/` directory.
+
+The cost API is a reservation ledger for future trusted integrations. Actual billing, external Provider reconciliation, payments, and platform actions are outside this acceptance. The prior real idle/activity tool run occurred on schema v7; v8 was verified with deterministic tests and an actual host restart/migration, not a second model-driven activity turn.

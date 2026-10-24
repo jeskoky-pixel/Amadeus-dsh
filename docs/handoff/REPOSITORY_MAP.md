@@ -1,5 +1,10 @@
 # 仓库与克隆映射
 
+
+## 2026-10-25 Life v1 增量
+
+Life 活跃开发克隆和 `plugins/amadeus-life/` 均为 `codex/life-core` 的 `7855cddbbe376216afd6d093c8846fa71f770094`；Life PR #2 开放。主仓 `codex/life-development` 更新了 v1 验收与交接文档，PR #2 保持开放。下方旧库存为历史快照；其他插件未参与本轮开发。
+
 ## 2026-10-25 v4 增量
 
 Life 活跃开发克隆已推送 `codex/life-core` 的 `4f690c1304bd31c1b8772b2afa3bc000983b9d29`，Life PR #2 开放、未合并。普通 `plugins/amadeus-life/` 克隆已快进至 `52d6284`，尚需待下一次安全同步到当前 HEAD；不可 reset 其余工作树。主仓此轮仅更新交接及验收文档；下表是较早库存快照。
