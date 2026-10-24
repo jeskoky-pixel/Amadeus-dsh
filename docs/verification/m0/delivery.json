@@ -1,0 +1,35 @@
+{
+  "milestone": "M0",
+  "status": "partial",
+  "date": "2026-10-25",
+  "branch": "codex/m0-baseline",
+  "repositories": [
+    {
+      "repository": "jeskoky-pixel/amadeus-qq",
+      "headSha": "4273933902cf2227e2a37a2bc546b496345dc07a",
+      "pullRequest": "https://github.com/jeskoky-pixel/amadeus-qq/pull/1",
+      "draft": true,
+      "checks": "16/16; legacy bridge fixture 10/10 separately"
+    },
+    {
+      "repository": "jeskoky-pixel/amadeus-life",
+      "headSha": "ed71794c4502caf1e91d14fa7e25aac945c176b2",
+      "pullRequest": "https://github.com/jeskoky-pixel/amadeus-life/pull/1",
+      "draft": true,
+      "checks": "contract copy consistency; runtime not_run"
+    }
+  ],
+  "mainRepository": {
+    "repository": "jeskoky-pixel/Amadeus-dsh",
+    "report": "docs/verification/m0/REPORT.md",
+    "headShaLocation": "PR body and user-facing delivery; not self-referentially embedded in commit"
+  },
+  "blocked": [
+    "Independent headless NapCat version and real OneBot chain unverified"
+  ],
+  "unrun": [
+    "Full real-platform QQ black-box scenarios",
+    "QQ/Life runtime integration",
+    "Host privacy and network egress adversarial isolation"
+  ]
+}
