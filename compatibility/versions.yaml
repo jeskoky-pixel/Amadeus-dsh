@@ -1,5 +1,5 @@
 schemaVersion: 1
-status: m0_partial
+status: life_core_verified_qq_m0_partial
 installable: false
 product_dsh: '0.2.1-rc.3'
 worker_dsh: '0.2.1-rc.3'
@@ -13,9 +13,15 @@ observed_qq_backend:
   version: '2.1.1'
 napcat: null
 contract_version: '0.1-draft'
-verified_combinations: []
+verified_combinations:
+  - dsh: '0.2.1-rc.3'
+    life: '0.1.0'
+    scope: isolated_official_desktop
+    commit: 46064e0856fc980ddd2d3e10e5d46afa94e3862c
+    other_amadeus_plugins_installed: false
 notes:
-  - No production plugin releases or verified runtime combinations exist.
+  - Life core installation and persistence were verified in isolated Desktop only; full-product installable remains false.
+  - Life emits local reconsideration events; authorized automatic wake and external providers are not implemented.
   - Independent headless NapCat version and connection remain unverified.
   - Desktop installer 3.5.4 is not a NapCat core version.
   - Headless permissions use profile config; CLI flags in the research example are absent.

@@ -1,6 +1,16 @@
 # Amadeus 项目交接
 
-更新日期：2026-10-25（Asia/Shanghai）。**M0 部分完成，不能标记整体通过。**
+更新日期：2026-10-25（Asia/Shanghai）。**Life 0.1.0 开发版核心已验收；QQ 路线 M0 仍部分完成，二者分别记录。**
+
+## 最新：Life 独立开发交付
+
+- [Life PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2)，Head 46064e0856fc980ddd2d3e10e5d46afa94e3862c。主要实现由独立官方 DSH Desktop 的 cordis Creator 完成，非 headless；模型 deepseek-official/deepseek-flash，High，官方 1017 标签匹配已核实。
+- 独立会话 session-fa594d5f-9c84-4e51-aca1-f8ba8a3ee621，原会话两次返工；29/29 自动化测试通过，真实 DSH 安装、禁用/启用、卸载/重装、强制重启恢复和原 Creator 工具调用均通过。
+- 正常本地克隆 plugins/amadeus-life/ 已切换 codex/life-core，README、HANDOFF、代码和证据已同步。活跃开发实例使用独立克隆 private/life-development/workspace/amadeus-life/；独立 home/userData、Cookie、模型原始日志等保持忽略，临时探针已撤销。
+- 生命周期、SQLite schema v2、作用域、参数越权、取消确认和实际并发均有具体回归。Life 只有本地 outbox，不自动唤醒 DSH 或外发；授权 wake/provider/预算适配尚未实现。
+- 生产 QQ Bridge、SnowLuma、DSH 配置与个人数据未改，本轮没有真实平台发送。用户要求停止 Computer Use 后，后续均由后台正式接口完成。
+- 9 个仓库已核查，默认分支的旧私有说明已在独立维护提交修正；只有主仓库有既定 MIT，8 个插件许可仍待拥有者明确。[维护记录](docs/verification/REPOSITORY_MAINTENANCE_2026-10-25.md)
+- 完整入口见 [Life 阶段交付卡](docs/reviews/LIFE_CORE_0.1.0.md)。下一步继续限定 Life 的授权事件消费/唤醒适配，或按用户后续要求安排；不要擅自转去改造生产 QQ。
 
 ## 本轮 M0 交接
 
@@ -8,9 +18,9 @@
 - 找到 NapCatQQ Desktop 3.5.4 安装器与桌面目录，未定位可确认的独立无头 NapCat。用户曾部署过但不确定是否删除；不能推定已删除，也不能将桌面壳当核心版本。
 - QQ 仓库保存 20 个脱敏历史工具事件、当前桥隔离回归 10/10 摘要、DSH 事件形状校验演示；发布位置检查 16/16 通过。
 - 独立 DSH 开发执行器首稿被 Codex 以语法错误拒绝，同会话修订后通过 12/12；真实工具、范围、持久 completed 与产物哈希已核查。
-- 主仓库与 QQ / Life 保存一致的最小接口草案。尚未实现运行时总线或 Life 调度，不把形状校验通过当作权限/集成通过。
+- 主仓库与 QQ / Life 保存一致的最小接口草案。M0 当时尚未实现运行时总线或 Life 调度；后续 Life 核心以本页最新交付为准，跨插件总线仍未实现，不把形状校验通过当作权限/集成通过。
 - 报告见 [M0 验收](docs/verification/m0/REPORT.md)，任务见 [T-004](docs/tasks/T-004.md)，精确分仓版本见本轮报告目录的 delivery.json。
-- 当前分支 codex/m0-baseline。插件仓库已按用户 2026-10-25 的明确要求全部公开，未修改生产桥、未安装 NapCat、未对真实 QQ 发测试消息。
+- M0 历史分支 codex/m0-baseline；主仓库本轮交付分支 codex/life-development，Life 为 codex/life-core。插件仓库已按用户 2026-10-25 的明确要求全部公开，未修改生产桥、未安装 NapCat、未对真实 QQ 发测试消息。
 
 本地私有证据位于主项目忽略目录 private/m0/；wrapper 原始日志另留在本机 CodexDshDelegator 运行目录。不得将其整体上传或加载进公共运行上下文。
 
@@ -49,7 +59,7 @@
 
 完整远端地址见 README 和 `modules/registry.yaml`。以上路径相对于主仓库根目录，插件不是主仓库子模块。
 
-## 后续：补齐 M0，再推进 M1
+## QQ 路线剩余事项（不阻塞 Life 独立开发）
 
 - 定位或安排部署独立无头 NapCat，核实核心版本与测试链路，保留当前 SnowLuma 工作路径。
 - 确定测试账号/群，补看图、引用、跨群、活动中接消息、收尾再唤醒与断线不双发的完整黑盒实测。
@@ -61,7 +71,7 @@ Codex 负责拆解、审查、验收与提交；DSH 承担有边界的开发任�
 ## 未运行与限制
 
 - DSH 与现用 bridge / SnowLuma 已核实；独立 NapCat 未核实，安装包源码 commit 未知。
-- 除事件形状演示校验器外，尚无生产插件实现、打包配置、安装/升级/卸载流程或正式发布。
+- Life 有已验收的开发核心与安装/卸载路径；其他插件仍为初始化或演示，尚无完整产品正式发布。
 - 尚未验证连续对话、跨场景权限、降级、活动取消、记忆或实际设备操作。
 - 当前兼容表只记录未知状态，不承诺任意插件版本能组合运行。
 - 插件尚未选择独立许可证；主仓库 MIT 不自动覆盖其他仓库与第三方代码。

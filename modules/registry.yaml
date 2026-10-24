@@ -12,7 +12,10 @@ modules:
   - id: life
     repository: https://github.com/jeskoky-pixel/amadeus-life
     priority: P0
-    status: contract_draft_only
+    status: core_verified_in_isolated_dsh
+    development_version: '0.1.0'
+    reviewed_commit: 46064e0856fc980ddd2d3e10e5d46afa94e3862c
+    review: https://github.com/jeskoky-pixel/amadeus-life/pull/2
     visibility: public
     license_status: pending_owner_decision
     release: null
