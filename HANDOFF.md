@@ -1,5 +1,13 @@
 # Amadeus 项目交接
 
+## 最新检查点（2026-10-26）：三个独立插件已提交，联合验收暂缓
+
+- Life `@amadeus/life@1.0.0`：原 [PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2) 保持 OPEN，面向用户的 README/HANDOFF 更新至 `9429a67`。Codex 独立 178/178 测试通过；文档更新后重建的候选包 SHA-256 `6b9ef52fa1b1dfafb80a2ac4d9fc5a70e8d7d23e0104b259b2d0b0e3167f2654`。全新隔离 Desktop 对同一运行时代码的设置、首次配置、合成意图与本地活动、备份恢复、重启和生命周期通过。
+- Memory `@modusensus/dsh-mneme@0.9.5-amadeus.1`：原 [PR #1](https://github.com/jeskoky-pixel/amadeus-memory/pull/1) 保持 OPEN。Codex 独立产品门禁 490/490，并发初始化定向复跑 3/3；主要实现基于 `fa87de7`，重打包流程与用户文档在同一 PR 后续提交。提交后重建包 SHA-256 `e861c5cfab215968fd401abc8c4c358fbaf4a8517f9b0b4aaba25b53fa7ad4c1`，元数据记录对应 HEAD 且工作树干净。隔离 Desktop 对同一运行时代码的记忆 GUI、归档恢复、Tag 权重、参数保存/重启、备份恢复和卸载重装数据保留通过。上游专用完整 sweep 仍有发行夹具与 Windows 能力限制，未声明全绿。
+- State `@amadeus/state@1.0.0`：原 [PR #1](https://github.com/jeskoky-pixel/amadeus-state/pull/1) 保持 OPEN，面向用户的 README/HANDOFF 更新至 `16c93eb`。Codex 独立 108 pass/1 skip/0 fail，`check` 与包校验通过；文档更新后重建的候选包 SHA-256 `782f36651ad82a2a9130b957be9572e28f786fffbea2c68a7e2cc23e4b526ffe`。全新隔离 Desktop 对同一运行时代码的设置、兴趣、GUI 备份/恢复、参数保存/重启与生命周期通过。
+- 用户在 2026-10-26 明确要求**不继续三插件联合运行**，因为后续还可能修改。之前曾启动全新联合隔离 Profile，三个 tarball 安装并各自 Host 返回 200；随即按新指示停止，保留本机证据。这是阶段性探针，**不是最终联合验收 PASS**。所有隔离 QA Desktop 已停止；默认 DSH 与原开发 Creator 会话保持原状。未合并 PR、未公开发行或部署生产。
+- Memory 早期 QA 数据目录误连事件已完成只读影响审计，不能断言绝对零影响；生产库未修改、未回滚。敏感副本、Cookie、数据库和原始日志只在本机忽略目录。下方旧 commit、测试数及“尚无插件”的历史文字不代表当前状态；后续接手先核对三个 PR 与本节。
+
 ## 当前接手状态：三插件产品化（2026-10-25）
 
 Life 1.0.0 已在原 [Life PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2) 更新到 `1c2a2e2`；State 1.0.0 在原 [State PR #1](https://github.com/jeskoky-pixel/amadeus-state/pull/1) 更新到 `633adc0`；Memory 增强版在原 [Memory PR #1](https://github.com/jeskoky-pixel/amadeus-memory/pull/1) 更新到 `0004c17`。本主仓 [PR #2](https://github.com/jeskoky-pixel/Amadeus-dsh/pull/2) 保存脱敏的总体验收，三插件详细门槛见 [产品化验收报告](docs/verification/THREE_PLUGIN_PRODUCTIZATION_2026-10-25.md)。

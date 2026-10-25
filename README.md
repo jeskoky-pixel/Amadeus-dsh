@@ -1,54 +1,36 @@
 # Amadeus
 
-基于官方 DeepSeek Harness（DSH）的持续陪伴系统，目标是在不同场景维持统一人格、积累获授权的共同经历，并通过 QQ、浏览器、手机等能力开展真实活动。
+Amadeus 是一组基于官方 DeepSeek Harness（DSH）的独立插件，希望让助手在授权范围内保持连续的生活上下文。每个插件可以单独安装；本主仓库记录产品路线、接口约定、兼容性与验收，不包含插件源码。
 
-**当前状态（存在待修质量缺口）：Life 0.1.0 开发版核心已完成，29 项测试与隔离真实 DSH Desktop 安装/恢复验收通过。QQ 路线的 M0 仍部分完成，独立无头 NapCat 尚未确认；没有部署生产或真实平台外发。**
+## 现有插件
 
-账号切换请从 [新 Codex 启动入口](docs/handoff/NEXT_CODEX_START.md) 进入。Life 四项质量缺口尚未修复，29 项旧测试通过不代表这些边界正确，详见 [当前状态](docs/handoff/CURRENT_STATE.md)。
+| 插件 | 使用者能做什么 | 当前状态 |
+| --- | --- | --- |
+| [Life](https://github.com/jeskoky-pixel/amadeus-life) | 管理未来意图、本地活动、心跳、注意力与自主预算；通过 DSH 设置查看状态、修改参数和备份 | 1.0.0 候选版，[PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2) 审阅中 |
+| [Memory](https://github.com/jeskoky-pixel/amadeus-memory) | 保存与检索获授权记忆，管理标签/实体权重、自动记忆、Embedding、备份和原 Mneme 面板 | 0.9.5-amadeus.1 候选版，[PR #1](https://github.com/jeskoky-pixel/amadeus-memory/pull/1) 审阅中 |
+| [State](https://github.com/jeskoky-pixel/amadeus-state) | 维护情绪、精力、好奇心和兴趣，在设置页预览、调整、备份和恢复 | 1.0.0 候选版，[PR #1](https://github.com/jeskoky-pixel/amadeus-state/pull/1) 审阅中 |
 
-## 项目组织
+这些候选版已分别在隔离 DSH Desktop 中从安装包进行过 GUI 与数据生命周期验收。三个插件的最终联合运行按当前开发计划暂缓；目前未公开发行、未部署生产，也未合并上述 PR。真实 QQ 发送、支付及外部活动需要单独授权和 Provider，不包含在这些候选版的验收结论中。
 
-采用“主仓库 + 独立插件仓库 + 统一接口规范”。一个能够独立安装、升级、卸载的插件原则上对应一个仓库；插件内部一起升级的普通功能不再拆仓。
+## 从哪里开始
 
-本仓库负责需求、架构、插件目录、兼容版本、安装组合与未来集成验收。插件代码在各自仓库维护，通过版本清单协同，不使用 Git Submodule 强绑定。
+1. 先阅读所需插件仓库的 README 和安装说明。Life、Memory、State 均可独立使用，不要求一次装齐。
+2. 在兼容的 DSH Desktop 中通过 Plugin Manager 安装经过核验的 tarball，并在 DSH 设置窗口打开对应页面。Memory 升级前先备份旧库，并在隔离测试中明确检查 `memoryDir`。
+3. 在 GUI 中查看运行状态、修改常用参数、保存并按页面提示重启；需要回退时使用各插件的备份和升级文档。
 
-| 仓库 | 职责 | 优先级 | 状态 |
-| --- | --- | --- | --- |
-| [Amadeus-dsh](https://github.com/jeskoky-pixel/Amadeus-dsh) | 项目主入口与集成文档 | 基础 | 公开；文档初始化 |
-| [amadeus-qq](https://github.com/jeskoky-pixel/amadeus-qq) | 外部 NapCat 适配、连续交流、媒体与主动发送 | P0 | 公开；M0 基线与契约演示 |
-| [amadeus-life](https://github.com/jeskoky-pixel/amadeus-life) | 意图、活动、本地复查事件与持久恢复；授权唤醒/预算后续接入 | P0 | 公开；0.1.0 开发核心已验收 |
-| [amadeus-memory](https://github.com/jeskoky-pixel/amadeus-memory) | 授权的跨场景经历、关系与记忆后端适配 | P1 | 公开；仅初始化 |
-| [amadeus-state](https://github.com/jeskoky-pixel/amadeus-state) | 心情、精力、兴趣与状态演化 | P1 | 公开；仅初始化 |
-| [amadeus-browser](https://github.com/jeskoky-pixel/amadeus-browser) | 受控浏览与长时间浏览活动 | P1 | 公开；仅初始化 |
-| [amadeus-bilibili](https://github.com/jeskoky-pixel/amadeus-bilibili) | 视频阅读、评论、收藏与获授权互动 | P2 | 公开；仅初始化 |
-| [amadeus-android](https://github.com/jeskoky-pixel/amadeus-android) | 绑定安卓设备与应用操作 | P2 | 公开；仅初始化 |
-| [amadeus-games](https://github.com/jeskoky-pixel/amadeus-games) | 游戏能力集成与游戏活动提供器 | P3 | 公开；仅初始化 |
+当前 tarball 是本地受控验收制品，公开下载与生产迁移仍待后续发行决定。不要从未合并的 PR 推断已有公开 Release。
 
-全部 8 个插件仓库已于 2026-10-25 根据用户要求公开，便于网页端按 PR 或提交版本审阅。P0—P3 表示计划顺序，不代表开发已经开始。`amadeus-sdk` 暂不独立建仓，基础契约稳定后再决定。
+## 其他模块
 
-## 文档入口
+- [QQ](https://github.com/jeskoky-pixel/amadeus-qq)：真实平台消息适配路线；尚未作为这组三插件的联合产品验收。
+- [Browser](https://github.com/jeskoky-pixel/amadeus-browser)、[Bilibili](https://github.com/jeskoky-pixel/amadeus-bilibili)、[Android](https://github.com/jeskoky-pixel/amadeus-android)、[Games](https://github.com/jeskoky-pixel/amadeus-games)：独立仓库，按后续路线开发。
 
-- [交接与下一步](HANDOFF.md)
-- [Life 0.1.0 交付与审查入口](docs/reviews/LIFE_CORE_0.1.0.md)
-- [M0 验收记录与未完成项](docs/verification/m0/REPORT.md)
-- [QQ ↔ Life 最小接口草案](docs/contracts/qq-life-v0.1.md)
-- [需求规格 v0.2](docs/AMADEUS_SPEC.md)
-- [多仓库架构约定](docs/ARCHITECTURE.md)
+## 项目文档
+
+- [交接与当前开发状态](HANDOFF.md)
+- [需求规格](docs/AMADEUS_SPEC.md)
+- [多仓库架构](docs/ARCHITECTURE.md)
 - [插件登记表](modules/registry.yaml)
-- [兼容与发布状态](compatibility/versions.yaml)
-- [仓库初始化检查与插件提交版本](docs/verification/REPOSITORY_SETUP.md)
+- [阶段性产品化验收](docs/verification/THREE_PLUGIN_PRODUCTIZATION_2026-10-25.md)
 
-## 必须保留的行为
-
-- 使用官方 DSH 作为推理与工具运行基础，不另建主 Agent 推理循环。
-- QQ 支持持续收发、工具操作、等待与续接；bridge 是交互效果基准，允许修改或重写实现。
-- NapCat 独立运行，只开发自己的适配器，不修改或捆绑 NapCat 本体；不提供退群动作。
-- 统一人格与隔离的场景上下文并存；记忆检索前授权，派生材料继承来源限制。
-- 可选插件缺失不拖垮无关能力；身份、授权或必要记录不可确认时，暂停受影响动作。
-- 活动与投递状态必须有证据，模拟验证不能代替真实平台验收。
-
-## 本地布局
-
-项目根目录是本主仓库。`plugins/` 下是独立克隆的插件仓库，各自包含 README、HANDOFF 和独立 `.git`，该目录被主仓库忽略。主仓库不会替插件提交或推送代码，也不记录插件工作树。
-
-Life 已在独立 DSH 开发配置中安装与验证，安装说明和 API 见 [Life PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2)。当前只产生本地复查事件，不自动唤醒模型或发消息。其他组件没有可安装实现，也没有完整产品的正式发布；QQ 的版本/链路与黑盒基线继续独立补齐，不阻塞 Life 的离线开发。
+Amadeus 使用 DSH 的模型、Session 和工具运行机制，不另建主推理循环。身份与权限不确定时，受影响的动作会停止或降级；可选插件缺席时，其余插件应保持独立可用。
