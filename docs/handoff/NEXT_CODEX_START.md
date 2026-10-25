@@ -1,5 +1,11 @@
 # 新 Codex 唯一启动入口
 
+## 2026-10-25 最新：Life / Memory / State 三插件产品化
+
+先看 [三插件验收报告](../verification/THREE_PLUGIN_PRODUCTIZATION_2026-10-25.md) 与三插件现有 PR。Life PR #2 已更新到 `1c2a2e2`，State PR #1 到 `633adc0`，Memory PR #1 到 `0004c17`。以下 Life 0.1.0、schema v8/v9 和旧测试数都是历史检查点，不得视为当前发行版本。Memory 完整测试仍有 21 项上游发版流水线断言失败；早期 QA 数据目录事故及恢复边界见报告。当前代码与实机证据以报告、GitHub PR head 和本机私有矩阵为准。三个 PR 未合并，未公开发布或部署生产。
+
+三份开发 Workspace 与原 Creator 会话保留在本机 `private/life-development`、`private/memory-development`、`private/state-development`；仅本机可用的认证、日志、数据库和验收截图留在忽略目录。下一次接手先读取实际文件与 Git 状态，不凭本段推测它们一定存在。
+
 
 ## 2026-10-25 最新：Life v1 最终加固已验收
 

@@ -1,5 +1,13 @@
 # Amadeus 项目交接
 
+## 当前接手状态：三插件产品化（2026-10-25）
+
+Life 1.0.0 已在原 [Life PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2) 更新到 `1c2a2e2`；State 1.0.0 在原 [State PR #1](https://github.com/jeskoky-pixel/amadeus-state/pull/1) 更新到 `633adc0`；Memory 增强版在原 [Memory PR #1](https://github.com/jeskoky-pixel/amadeus-memory/pull/1) 更新到 `0004c17`。本主仓 [PR #2](https://github.com/jeskoky-pixel/Amadeus-dsh/pull/2) 保存脱敏的总体验收，三插件详细门槛见 [产品化验收报告](docs/verification/THREE_PLUGIN_PRODUCTIZATION_2026-10-25.md)。
+
+Codex 在官方 QA DSH Desktop 0.2.1-rc.3 用 Plugin Manager 分别安装三个最终候选包，也在一个 Profile 同时安装。三设置入口和 Host API 共存；逐个停用时只有该插件路由退出，其余两者保持 200。Life 的 GUI 保存/非法值/取消/并发冲突/硬重启与卸载重装数据保留已实测。State 重复 slot 生命周期缺陷由原 Creator 修复后，三插件页面无相关浏览器错误。Memory 单页保存误报并发冲突已修复；最终独立库中保存、取消、默认、双页冲突、硬重启及卸载重装通过。其完整测试在 Codex 本机仍有 21 项上游发布流水线检查失败，不能把 targeted 129/129 通过写成全套通过。**Memory 早期 QA 的默认目录指向另一个未隔离的本地库；已停用、只读备份、改成两个独立空库。纠正前 Memory 数据验收作废，全部关键检查已在新库重做。**
+
+生产 DSH 进程、SnowLuma、QQ Bridge、真实平台外发和支付均未操作。生产 Memory Profile 配置指向另一数据目录；只读检查生产数据库健康，但不能据此断言所有历史影响为零。PR 未合并，未发布或部署。三插件主要编码均由各自持续的 cordis Creator 会话完成，Codex 独立复验。下方按日期排列的 Life 0.1.0/v8/v9 段落是历史检查点，不能覆盖本节。私有会话/数据库/日志只在本机忽略目录，不能上传。
+
 
 ## 最新检查点：Life v1 最终加固与单屏设置（2026-10-25）
 
