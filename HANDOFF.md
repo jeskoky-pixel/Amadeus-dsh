@@ -1,11 +1,93 @@
 # Amadeus 项目交接
 
-记录日期：2026-10-24（Asia/Shanghai）。本文件记录仓库初始化交付，不表示功能开发或 M0 已完成。
+## 最新检查点（2026-10-26）：三个独立插件已提交，联合验收暂缓
+
+- Life `@amadeus/life@1.0.0`：原 [PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2) 保持 OPEN，面向用户的 README/HANDOFF 更新至 `9429a67`。Codex 独立 178/178 测试通过；文档更新后重建的候选包 SHA-256 `6b9ef52fa1b1dfafb80a2ac4d9fc5a70e8d7d23e0104b259b2d0b0e3167f2654`。全新隔离 Desktop 对同一运行时代码的设置、首次配置、合成意图与本地活动、备份恢复、重启和生命周期通过。
+- Memory `@modusensus/dsh-mneme@0.9.5-amadeus.1`：原 [PR #1](https://github.com/jeskoky-pixel/amadeus-memory/pull/1) 保持 OPEN。Codex 独立产品门禁 490/490，并发初始化定向复跑 3/3；主要实现基于 `fa87de7`，重打包流程与用户文档在同一 PR 后续提交。提交后重建包 SHA-256 `e861c5cfab215968fd401abc8c4c358fbaf4a8517f9b0b4aaba25b53fa7ad4c1`，元数据记录对应 HEAD 且工作树干净。隔离 Desktop 对同一运行时代码的记忆 GUI、归档恢复、Tag 权重、参数保存/重启、备份恢复和卸载重装数据保留通过。上游专用完整 sweep 仍有发行夹具与 Windows 能力限制，未声明全绿。
+- State `@amadeus/state@1.0.0`：原 [PR #1](https://github.com/jeskoky-pixel/amadeus-state/pull/1) 保持 OPEN，面向用户的 README/HANDOFF 更新至 `16c93eb`。Codex 独立 108 pass/1 skip/0 fail，`check` 与包校验通过；文档更新后重建的候选包 SHA-256 `782f36651ad82a2a9130b957be9572e28f786fffbea2c68a7e2cc23e4b526ffe`。全新隔离 Desktop 对同一运行时代码的设置、兴趣、GUI 备份/恢复、参数保存/重启与生命周期通过。
+- 用户在 2026-10-26 明确要求**不继续三插件联合运行**，因为后续还可能修改。之前曾启动全新联合隔离 Profile，三个 tarball 安装并各自 Host 返回 200；随即按新指示停止，保留本机证据。这是阶段性探针，**不是最终联合验收 PASS**。所有隔离 QA Desktop 已停止；默认 DSH 与原开发 Creator 会话保持原状。未合并 PR、未公开发行或部署生产。
+- Memory 早期 QA 数据目录误连事件已完成只读影响审计，不能断言绝对零影响；生产库未修改、未回滚。敏感副本、Cookie、数据库和原始日志只在本机忽略目录。下方旧 commit、测试数及“尚无插件”的历史文字不代表当前状态；后续接手先核对三个 PR 与本节。
+
+## 当前接手状态：三插件产品化（2026-10-25）
+
+Life 1.0.0 已在原 [Life PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2) 更新到 `1c2a2e2`；State 1.0.0 在原 [State PR #1](https://github.com/jeskoky-pixel/amadeus-state/pull/1) 更新到 `633adc0`；Memory 增强版在原 [Memory PR #1](https://github.com/jeskoky-pixel/amadeus-memory/pull/1) 更新到 `0004c17`。本主仓 [PR #2](https://github.com/jeskoky-pixel/Amadeus-dsh/pull/2) 保存脱敏的总体验收，三插件详细门槛见 [产品化验收报告](docs/verification/THREE_PLUGIN_PRODUCTIZATION_2026-10-25.md)。
+
+Codex 在官方 QA DSH Desktop 0.2.1-rc.3 用 Plugin Manager 分别安装三个最终候选包，也在一个 Profile 同时安装。三设置入口和 Host API 共存；逐个停用时只有该插件路由退出，其余两者保持 200。Life 的 GUI 保存/非法值/取消/并发冲突/硬重启与卸载重装数据保留已实测。State 重复 slot 生命周期缺陷由原 Creator 修复后，三插件页面无相关浏览器错误。Memory 单页保存误报并发冲突已修复；最终独立库中保存、取消、默认、双页冲突、硬重启及卸载重装通过。其完整测试在 Codex 本机仍有 21 项上游发布流水线检查失败，不能把 targeted 129/129 通过写成全套通过。**Memory 早期 QA 的默认目录指向另一个未隔离的本地库；已停用、只读备份、改成两个独立空库。纠正前 Memory 数据验收作废，全部关键检查已在新库重做。**
+
+生产 DSH 进程、SnowLuma、QQ Bridge、真实平台外发和支付均未操作。生产 Memory Profile 配置指向另一数据目录；只读检查生产数据库健康，但不能据此断言所有历史影响为零。PR 未合并，未发布或部署。三插件主要编码均由各自持续的 cordis Creator 会话完成，Codex 独立复验。下方按日期排列的 Life 0.1.0/v8/v9 段落是历史检查点，不能覆盖本节。私有会话/数据库/日志只在本机忽略目录，不能上传。
+
+
+## 最新检查点：Life v1 最终加固与单屏设置（2026-10-25）
+
+- Life PR #2 已推送 `e9e0764`，原 Creator 修复五项最终审查问题并补安全设置入口；Codex 独立标准测试 161/161、`npm test` 十一组全过。SQLite v9 真实隔离开发库冷迁移、历史数据摘要、插件生命周期、无人输入活动闭环、旧工具拒绝、预算拒绝、身份重绑拒绝及首次预设重启均通过。见 [最终加固报告](docs/verification/LIFE_V1_FINAL_HARDENING_2026-10-25.md)。
+- 原 Creator 26 轮完成，仍可读、空队列；开发 profile 已逐字节恢复。Life 包仍是未发布的 0.1.0 开发版，真实平台 Provider 与付款未验证，独立插件许可未定。Life 和主仓 PR #2 均保持开放未合并；生产 SnowLuma、QQ Bridge、DSH 未动。
+
+
+## 最新检查点：Life v1.0 能力闭环 / SQLite v8（2026-10-25）
+
+- 原官方 cordis Creator 同一持续会话完成身份/场景、idle 自主唤醒、本地虚拟 Provider、注意力暂停、统一预算、活动并发与可信成本预留；Codex 独立审查、标准测试 137/137 与 `npm test` 八组通过。Life PR #2 已更新到 `7855cdd`，未合并。
+- 真实隔离 DSH 已验证无新用户消息 idle turn、模型选择本地活动工具，以及停启/恢复；v7→v8 冷迁移后完整性 `ok`、12 张历史表旧列摘要和行数一致，原 Creator Session 仍可读。主仓 PR #2 保存本验收。详见 [v1 验收](docs/verification/LIFE_V1_CAPABILITY_2026-10-25.md)。
+- 包仍是 0.1.0 开发版，未发布、未部署、未连接真实平台或支付 Provider；付费能力只有受信任的本地预留接口。生产 SnowLuma、QQ Bridge、DSH 未改；两 PR 均保留开放。
+
+## 最新检查点：Life v4 消费证据与 Host 接线返工中（2026-10-25）
+
+- Life PR #2 已至 `4f690c1`，仍未合并。`52d6284` 提交 SQLite v4 消费/turn-end 证据接口与安全迁移；此前无 Host 接线的独立测试 100/100，真实隔离库 v3→v4 迁移及重启通过，原数据和 Creator Session 保留。随后 `4f690c1` 单独提交了真实 Host 同 turn 取消的失败回归 H20（定点运行 exit 1）；当前全套测试预期暂不通过，须待原 Creator 修复。见 [v4 验收](docs/verification/LIFE_WAKE_CONSUMPTION_V4_2026-10-25.md)。
+- 原 cordis Creator 第 18 轮已接收 Host 消费证据与崩溃对账任务，沿用原独立 Workspace、deepseek-official/deepseek-flash、High、Workspace Write。任务文件留在本机忽略目录。官方余额不足时，按用户授权在隔离开发环境验证 OpenCode Go DeepSeek V4.1 Flash 后切换；当前尚未切换。主仓 PR #2 尚待本检查点推送，以下较早快照按历史理解。
+
+## 最新检查点：Life 真实隔离 Host 唤醒首段（2026-10-25）
+
+- Life PR #2 已至 `ce93ff9`，原 Creator 实现默认关闭、管理员 Session allowlist 的到期 wake Host adapter；Codex 审查返工后标准 85/85，`npm test` 全通过。见 [Host 首段验收](docs/verification/LIFE_HOST_WAKE_SLICE_2026-10-25.md)。PR 未合并。
+- 真正的隔离 DSH Session 已无人工新消息地消费 Life 的 `amadeus-life` wake，并在 completed turn 中调用 Life 工具后自行取消合成意图；无外部平台工具。重复 drive 与重启不重投，原 profile 已恢复且私有探针撤载。当前 ledger 将该 wake 记为 `superseded`，未独立留下“已消费”证据；下段需拆分消费与意图失效，并补 admitted/uncertain 崩溃对账，再推进 idle、身份、Provider、注意力和预算。
+
+## 最新检查点：Life SQLite v3 wake ledger（2026-10-25）
+
+- Life PR #2 已更新至 `b21ecb2`，仍未合并。原 cordis Creator 完成 v2→v3 增量迁移及持久 `intent_due` ledger；Codex 的三项失败回归由同一会话返工。独立 `node --test` 为 66/66、`npm test` 四组均通过。见 [v3 验收](docs/verification/LIFE_WAKE_LEDGER_V3_2026-10-25.md)。
+- 停止经核对的独立 DSH Desktop，冷备份原 SQLite/WAL/SHM 并逐文件核对哈希，再启动同一隔离实例。真实开发库从 schema 2 迁到 3，9 意图、4 事件、8 活动与租约保留，业务不可变字段摘要一致；原 Creator Session 与 Life bundle 可恢复。私有备份留在忽略目录，生产未动。
+- 该检查点只有持久 wake 状态层，尚无 Life 自动投递、执行证据核对或闲暇自主机会。下一步接官方 Host adapter，随后继续身份、Provider、注意力、预算与 v1.0 十场景。DeepSeek 官方余额耗尽时按用户要求改用 OpenCode Go V4.1 Flash，但隔离模型目录目前仅官方 Provider 可路由，切换须先验证隔离接入。
+
+## 最新检查点：Life 0.1.0 质量修复完成，v1.0 连续开发中（2026-10-25）
+
+- Life 原 Creator Session 已恢复并复用，现为 9 轮 completed、116 steps；仍为 cordis / deepseek-official / deepseek-flash / High / Workspace Write。Workspace 列表未登记此 Session 的旧差异仍在，但按 ID 可读，不能据此新建。
+- Life 四项缺口已先提交失败回归 `889be0a`（14 项中 11 项失败），再由原 Creator 主要修复 `92fc18b`，审查返工后全套 47/47 通过。Life PR #2 当前质量交付 `fc977b1`，未合并；主仓 PR #2 将同步本页与验收状态。详见 [质量关卡](docs/verification/LIFE_QUALITY_FIX_2026-10-25.md)。
+- 真实隔离 DSH 的加载、禁用/启用、卸载/重装、强制重启恢复通过；一次私有探针命令重放造成假失败，清除旧探针命令后复验通过。诊断探针已移除，Life 保持启用，原数据库、会话与工作空间保留。生产 SnowLuma、QQ Bridge、生产 DSH 未改，无真实平台外发。
+- 用户已一次授权持续推进 Life v1.0；质量关卡完成后立即研究并实现官方 DSH 自动唤醒，再推进统一 Persona、活动 Provider、注意力、预算与恢复。不以 0.2.0 为暂停点。此文件下方较早的“尚未修复”表述是账号交接时的历史状态，以本节和 Life 当前源码为准。
+- 已完成官方 Host 唤醒接口的隔离实测：无人工新输入的真实 DSH turn 与带 `amadeus-life` 来源的持久投递均成立；Life 自动调度与去重尚未实现。见 [Host 实测](docs/verification/LIFE_HOST_WAKE_SMOKE_2026-10-25.md) 和 [v1.0 连续路线](docs/plans/LIFE_V1_EXECUTION.md)。用户允许余额不足时改用 OpenCode Go 的 DeepSeek V4.1 Flash，但当前隔离模型目录仅显示官方路由可用，切换前须正常配置并验证，不复制认证或改生产。
+
+## 账号切换：先读这里（2026-10-25）
+
+唯一启动入口：[NEXT_CODEX_START](docs/handoff/NEXT_CODEX_START.md)；另见 CURRENT_STATE、DSH_DEVELOPMENT、REPOSITORY_MAP。本机 private/handoff 保存真实绝对路径、恢复步骤、初始 Git 库存、复现与最终交付 SHA；已忽略，不上传。九仓实查初始干净，原 DSH 会话可读、5轮完成且无排队任务。
+
+本轮只做交接，未修复功能。Life 29旧测试重跑通过，但四项质量缺口已核查/部分合成复现，仍待修复：伪造 running 完成、关联对象 scope/存在性、公开 close 遗留 lease、非法日期/ADR schema。历史“已验收”仅限原测试与集成范围，不能视为这些边界完整。下一轮先失败回归→原 Creator 修复→Codex 独立全套及真实开发 DSH 启停→更新既有PR。质量完成后规划0.2.0并持续到Life v1.0，不转其他插件，不触生产。
+
+
+更新日期：2026-10-25（Asia/Shanghai）。**Life 0.1.0 开发版核心已验收；QQ 路线 M0 仍部分完成，二者分别记录。**
+
+## 最新：Life 独立开发交付
+
+- [Life PR #2](https://github.com/jeskoky-pixel/amadeus-life/pull/2)，Head 46064e0856fc980ddd2d3e10e5d46afa94e3862c。主要实现由独立官方 DSH Desktop 的 cordis Creator 完成，非 headless；模型 deepseek-official/deepseek-flash，High，官方 1017 标签匹配已核实。
+- 独立会话 session-fa594d5f-9c84-4e51-aca1-f8ba8a3ee621，原会话两次返工；29/29 自动化测试通过，真实 DSH 安装、禁用/启用、卸载/重装、强制重启恢复和原 Creator 工具调用均通过。
+- 正常本地克隆 plugins/amadeus-life/ 已切换 codex/life-core，README、HANDOFF、代码和证据已同步。活跃开发实例使用独立克隆 private/life-development/workspace/amadeus-life/；独立 home/userData、Cookie、模型原始日志等保持忽略，临时探针已撤销。
+- 生命周期、SQLite schema v2、作用域、参数越权、取消确认和实际并发均有具体回归。Life 只有本地 outbox，不自动唤醒 DSH 或外发；授权 wake/provider/预算适配尚未实现。
+- 生产 QQ Bridge、SnowLuma、DSH 配置与个人数据未改，本轮没有真实平台发送。用户要求停止 Computer Use 后，后续均由后台正式接口完成。
+- 9 个仓库已核查，默认分支的旧私有说明已在独立维护提交修正；只有主仓库有既定 MIT，8 个插件许可仍待拥有者明确。[维护记录](docs/verification/REPOSITORY_MAINTENANCE_2026-10-25.md)
+- 完整入口见 [Life 阶段交付卡](docs/reviews/LIFE_CORE_0.1.0.md)。下一步继续限定 Life 的授权事件消费/唤醒适配，或按用户后续要求安排；不要擅自转去改造生产 QQ。
+
+## 本轮 M0 交接
+
+- 实际 DSH Desktop / CLI 为 0.2.1-rc.3；bridge 为 Derpyu520/qq-bridge@a49877f4e58d04e47532d44b803360d0f001160d + 本地修改，package 0.2.1-r1；当前运行后端为 SnowLuma 2.1.1。
+- 找到 NapCatQQ Desktop 3.5.4 安装器与桌面目录，未定位可确认的独立无头 NapCat。用户曾部署过但不确定是否删除；不能推定已删除，也不能将桌面壳当核心版本。
+- QQ 仓库保存 20 个脱敏历史工具事件、当前桥隔离回归 10/10 摘要、DSH 事件形状校验演示；发布位置检查 16/16 通过。
+- 独立 DSH 开发执行器首稿被 Codex 以语法错误拒绝，同会话修订后通过 12/12；真实工具、范围、持久 completed 与产物哈希已核查。
+- 主仓库与 QQ / Life 保存一致的最小接口草案。M0 当时尚未实现运行时总线或 Life 调度；后续 Life 核心以本页最新交付为准，跨插件总线仍未实现，不把形状校验通过当作权限/集成通过。
+- 报告见 [M0 验收](docs/verification/m0/REPORT.md)，任务见 [T-004](docs/tasks/T-004.md)，精确分仓版本见本轮报告目录的 delivery.json。
+- M0 历史分支 codex/m0-baseline；主仓库本轮交付分支 codex/life-development，Life 为 codex/life-core。插件仓库已按用户 2026-10-25 的明确要求全部公开，未修改生产桥、未安装 NapCat、未对真实 QQ 发测试消息。
+
+本地私有证据位于主项目忽略目录 private/m0/；wrapper 原始日志另留在本机 CodexDshDelegator 运行目录。不得将其整体上传或加载进公共运行上下文。
 
 ## 已完成
 
 - 已核实主仓库 `jeskoky-pixel/Amadeus-dsh` 存在，公开，默认分支 `main`，用户创建时已选择 MIT。
-- 已创建规划中的 8 个独立插件仓库，创建时私有，现已全部公开；默认分支 `main`。
+- 已创建规划中的 8 个独立插件仓库，创建时均为私有，现已按用户要求全部公开；默认分支 `main`。
 - 主仓库保存 README、规格副本、多仓库架构约定、插件目录、兼容状态及本交接文档。
 - 各插件本地克隆位于 `plugins/<仓库名>/`，各自维护 README 与 HANDOFF；主仓库忽略整个 `plugins/`。
 - README 与 HANDOFF 随所属仓库提交、推送；最终提交 SHA 以本次交付消息及 `git log` 为准。
@@ -18,7 +100,7 @@
 3. 通过固定版本的依赖与模块清单协作，不使用 Git Submodule；当前尚无可固定的插件发布版本。
 4. 身份、权限与契约先采用小型基础包；`amadeus-sdk` 是否独立发布，待接口稳定决定。
 5. 可选依赖必须真的可选，权限失败时拒绝受影响动作。
-6. 主仓库和全部 8 个插件均公开；后续修改可见性或生产部署需要明确指示。
+6. 主仓库与 8 个插件仓库均公开（2026-10-25 用户明确要求）。后续修改可见性或生产部署需要明确指示。
 
 ## 仓库与本地入口
 
@@ -37,21 +119,19 @@
 
 完整远端地址见 README 和 `modules/registry.yaml`。以上路径相对于主仓库根目录，插件不是主仓库子模块。
 
-## 后续第一步：M0
+## QQ 路线剩余事项（不阻塞 Life 独立开发）
 
-- 核实本机官方 DSH Desktop / CLI 版本、来源与可用接口。
-- 识别实际 QQ bridge 仓库、commit、本地修改，形成脱敏交互轨迹；文档列出的候选来源不能当作已安装基线。
-- 核实独立无头 NapCat 的来源、版本与测试链路，暂不修改生产桥。
-- 比较候选机制与实际兼容性，明确 QQ 连续活动的黑盒验收。
-- 在独立开发 home、配置和工作区中验证 DSH headless 小任务；开发执行器不继承生产 QQ、记忆或发布凭据。
+- 定位或安排部署独立无头 NapCat，核实核心版本与测试链路，保留当前 SnowLuma 工作路径。
+- 确定测试账号/群，补看图、引用、跨群、活动中接消息、收尾再唤醒与断线不双发的完整黑盒实测。
+- 对实际 DSH 接口和 QQ 复用/重构路线形成 ADR；研究 ref 不冒充安装包源码 commit。
 - 固定第一版身份、权限与模块契约，再给 QQ / Life 分派有范围和证据要求的实现任务。
 
 Codex 负责拆解、审查、验收与提交；DSH 承担有边界的开发任务。默认一个 worker，同一任务返工复用会话，不把这份仓库规划理解为已经启动多个 worker。
 
 ## 未运行与限制
 
-- 尚未核实产品 DSH、QQ bridge 和 NapCat 的实际版本。
-- 尚无插件实现、打包配置、安装/升级/卸载流程或正式发布。
+- DSH 与现用 bridge / SnowLuma 已核实；独立 NapCat 未核实，安装包源码 commit 未知。
+- Life 有已验收的开发核心与安装/卸载路径；其他插件仍为初始化或演示，尚无完整产品正式发布。
 - 尚未验证连续对话、跨场景权限、降级、活动取消、记忆或实际设备操作。
 - 当前兼容表只记录未知状态，不承诺任意插件版本能组合运行。
 - 插件尚未选择独立许可证；主仓库 MIT 不自动覆盖其他仓库与第三方代码。

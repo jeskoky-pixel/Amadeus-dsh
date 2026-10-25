@@ -1,13 +1,34 @@
 schemaVersion: 1
-status: unverified
+status: life_v1_hardened_development_qq_m0_partial
 installable: false
-product_dsh: null
-worker_dsh: null
-qq_bridge_baseline: null
+product_dsh: '0.2.1-rc.3'
+worker_dsh: '0.2.1-rc.3'
+qq_bridge_baseline:
+  repository: https://github.com/Derpyu520/qq-bridge
+  commit: a49877f4e58d04e47532d44b803360d0f001160d
+  package_version: '0.2.1-r1'
+  local_modifications: true
+observed_qq_backend:
+  name: SnowLuma
+  version: '2.1.1'
 napcat: null
-contract_version: null
-verified_combinations: []
+contract_version: '0.1-draft'
+verified_combinations:
+  - dsh: '0.2.1-rc.3'
+    life: '0.1.0-dev-schema9'
+    scope: isolated_official_desktop
+    commit: e9e0764955f7eb5e260e32e2622729463b2f589c
+    other_amadeus_plugins_installed: false
+  - dsh: '0.2.1-rc.3'
+    life: '0.1.0'
+    scope: isolated_official_desktop
+    commit: 46064e0856fc980ddd2d3e10e5d46afa94e3862c
+    other_amadeus_plugins_installed: false
 notes:
-  - Repository initialization only; no plugin releases exist.
-  - Real DSH, QQ bridge and NapCat versions must be checked during M0.
-  - This is a planning record, not an installable dependency lockfile.
+  - Life quality gaps and five final review defects have regression coverage; 161/161 standard tests pass.
+  - Isolated Desktop verified automatic wake, local virtual Provider activity, schema 8 to 9 migration, plugin lifecycle, and first-run setup. Full-product installable remains false because no release or plugin license is selected.
+  - External platform Providers, actual payment, and production deployment are not implemented or verified.
+  - Independent headless NapCat version and connection remain unverified.
+  - Desktop installer 3.5.4 is not a NapCat core version.
+  - Headless permissions use profile config; CLI flags in the research example are absent.
+  - This is an evidence record, not an installable dependency lockfile.

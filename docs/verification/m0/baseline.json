@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "dsh": {
+    "cliVersion": "0.2.1-rc.3",
+    "desktopPackageVersion": "0.2.1-rc.3",
+    "updaterOrigin": "https://download.deepseek.com/dsh-desk/feeds/win-x64/",
+    "channel": "nightly",
+    "sourceCommit": null,
+    "appAsarSha256": "04b32e3a872826ba15cfb2081c6a929a8d4ecaa65e09a2543e5a6b30e2eff1f0",
+    "payloadDigest": "e2cef445c262ce6e8d28480b5ebecc8b0c54c06bea7183374debfcf02f30eb7d",
+    "electronVersionFile": "44.7.0",
+    "nodeBundled": "24.21.0"
+  },
+  "qqBridge": {
+    "repository": "https://github.com/Derpyu520/qq-bridge.git",
+    "baseCommit": "a49877f4e58d04e47532d44b803360d0f001160d",
+    "packageVersion": "0.2.1-r1",
+    "dirty": true,
+    "localFileManifest": [
+      {
+        "path": "dsh/agent-presets/qq-chat-v2/agent.cordis.yml",
+        "sha256": "679d1c661b7f6b73577d60bb9711eebea0f903551ac06c5689a622fc8cdf4993"
+      },
+      {
+        "path": "plugins/qq-agent-presets/package.json",
+        "sha256": "465b45f5aeb5c475e95d5bd399c16718aba159850c6f535214faf39d83a9848d"
+      },
+      {
+        "path": "plugins/qq-agent-presets/presets/qq-chat-v2.patch.yml",
+        "sha256": "fdc9238ea9ffa20e4f70674da9bdd8570eefcebb34ac2a1b1d9ea1dc2acfbd77"
+      },
+      {
+        "path": "plugins/qq-agent-presets/presets/qq-chat.patch.yml",
+        "sha256": "f90d85d4df020859e781a0ba79b02a4082956737b290ba59b5594ab7943de9d6"
+      },
+      {
+        "path": "plugins/qq-agent-presets/qq-tool-restrict.mjs",
+        "sha256": "66237243541daf2e8a6fb6655c6eefcc229790b9c9cd2d88bd7f28a33b6e2271"
+      },
+      {
+        "path": "roles/Amadeus.md",
+        "sha256": "9ee40a9a2e368e76c32f53185551142665a19b28b66a1f7a15e8bf9b1d4afe18"
+      },
+      {
+        "path": "roles/小鲸鱼.md",
+        "sha256": "4ed5d4990a51d061682a88eb4aee7325eb3ff90930dd18030488efab7bb0e066"
+      },
+      {
+        "path": "scripts/test-amadeus-identity-contract.mjs",
+        "sha256": "f6fbec1f7cb4de167e3fba3084645c6beb2276fa984ca7c57ed95d11fae0d5ff"
+      },
+      {
+        "path": "scripts/test-tool-restrict-guard.mjs",
+        "sha256": "0e465c70f3bd3526a4bb4c5d0bd38a60ee4d6fc7c3e2223c213625cc97c0e9c3"
+      },
+      {
+        "path": "src/bridge.js",
+        "sha256": "e3c1657581f697cbfa35fecf538c9c32548ee986eda67a1a47927714db94a64d"
+      },
+      {
+        "path": "src/mcp-snowluma-safe.js",
+        "sha256": "f9ee04bc2add1d5549b026973f32efb32ef8cf2ce155e202a5d3ddd0819a41ad"
+      },
+      {
+        "path": "src/snowluma-watchdog.mjs",
+        "sha256": "a42b183298435fb6049a0120510152e94e86c1a92b00e0f3959314681cc765d6"
+      }
+    ],
+    "activeBridgeLockMatchedRunningNode": true,
+    "installedPresetVersion": "0.2.1-r3",
+    "snowlumaSdkVersion": "1.14.20",
+    "snowlumaMcpVersion": "1.14.20"
+  },
+  "qqBackend": {
+    "observedRuntime": "SnowLuma",
+    "version": "2.1.1",
+    "qqClientVersion": "9.9.36-53644",
+    "independentHeadlessNapCatVersion": null,
+    "status": "not_found_in_checked_locations",
+    "note": "QQ process path contains NapCatQQ Desktop, but running backend and manifest identify SnowLuma; no independent NapCat installation verified."
+  }
+}

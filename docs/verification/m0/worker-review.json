@@ -1,0 +1,104 @@
+{
+  "taskId": "T-004",
+  "workerDshVersion": "0.2.1-rc.3",
+  "providerModels": [
+    [
+      "opencode-go",
+      "deepseek-v4.1-flash"
+    ]
+  ],
+  "permissionMode": "workspace-write",
+  "approvalPolicy": "never",
+  "isolation": {
+    "provider": "opencode-go",
+    "model": "deepseek-v4.1-flash",
+    "credentialRef": "OPENCODE_GO_API_KEY",
+    "credentialsPersisted": false,
+    "productionProfileLoaded": false,
+    "productionPluginsLoaded": false,
+    "home": "isolated dev-home",
+    "permissionMode": "workspace-write",
+    "approvalPolicy": "never",
+    "childrenAllowed": 0
+  },
+  "firstAttempt": {
+    "processExit": 0,
+    "wrapperStatus": "SUCCESS",
+    "codexReview": "rejected_syntax_error",
+    "tests": "failed_to_load_module",
+    "note": "Worker success claim was not accepted."
+  },
+  "revision": {
+    "exitCode": 0,
+    "timeout": false,
+    "durationSeconds": 75.58,
+    "sessionReused": true
+  },
+  "sessionReused": true,
+  "durableTurnReasons": [
+    {
+      "kind": "completed"
+    },
+    {
+      "kind": "completed"
+    }
+  ],
+  "jsonFinalEventHasReason": false,
+  "observedToolNames": [
+    "edit",
+    "glob",
+    "read",
+    "write"
+  ],
+  "subagentsUsed": false,
+  "finalReview": {
+    "result": "passed",
+    "testsPassed": 12,
+    "testsFailed": 0,
+    "command": "node --test private/m0/worker-workspace/validate-envelope.test.mjs",
+    "cwdAlias": "main-repository-root"
+  },
+  "artifacts": {
+    "validate-envelope.mjs": "384f029617df62fb32d01fd2952088fc26d706de30052daf4df463db88b923ea",
+    "validate-envelope.test.mjs": "6ffba20f30bdcc1eb96029908abad0bbb51c462617ec5ab46c082aeb421440fb",
+    "RESULT.md": "ce7670e742c95faf771667cf2c346cdbe0ba86659bebc4e0ec4b7b2dfcdf7a03"
+  },
+  "limitations": [
+    "Shape-only demonstration, not a production plugin or authorization implementation.",
+    "Initial missing decoder was fixed in a private copy of the wrapper dependency environment; original skill was not modified.",
+    "The installed JSON final event has text only; completion checked through process exit and durable turn/end reasons."
+  ],
+  "mutationScopeReview": {
+    "observedPaths": [
+      "RESULT.md",
+      "validate-envelope.mjs"
+    ],
+    "withinAllowedScope": true,
+    "mutatingToolCalls": 6
+  },
+  "publishedArtifacts": {
+    "tools/validate-envelope.mjs": "384f029617df62fb32d01fd2952088fc26d706de30052daf4df463db88b923ea",
+    "tests/validate-envelope.test.mjs": "71b07f490ed34eeb9273761916f04603a199586fe96f86af64f59f834152e56c",
+    "docs/m0/worker-result.md": "ce7670e742c95faf771667cf2c346cdbe0ba86659bebc4e0ec4b7b2dfcdf7a03"
+  },
+  "publishedChecks": {
+    "command": "node --test plugins/amadeus-qq/tests/validate-envelope.test.mjs plugins/amadeus-qq/tests/continuous-trace.test.mjs",
+    "cwdAlias": "main-repository-root",
+    "exitCode": 0,
+    "testsPassed": 16,
+    "testsFailed": 0
+  },
+  "specTask": {
+    "id": "T-004",
+    "requirements": [
+      "R-18",
+      "R-19"
+    ],
+    "acceptance": [
+      "A-20"
+    ],
+    "revisionRounds": 1,
+    "initialDurationSeconds": 79.08,
+    "deadlineSecondsPerRun": 180
+  }
+}
