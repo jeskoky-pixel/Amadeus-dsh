@@ -23,7 +23,8 @@ Life 1.0.1、Memory 1.0.0、State 1.0.0、QQ 1.0.0 的最终候选包已在**同
 
 | 场景 | 本轮直接结果 | 证据边界 |
 | --- | --- | --- |
-| 四插件同时装载 | 四个管理/健康 API 同时返回 200；State 为 `ready`，Life 健康为 `ok`，Memory 数据库检查通过，QQ `enabled:true` 且传输关闭。安装与启用没有注册失败警告。 | 没有逐项枚举 Host 内部工具表或 Settings DOM。 |
+| 四插件同时装载 | 四个管理/健康 API 同时返回 200；State 为 `ready`，Life 健康为 `ok`，Memory 数据库检查通过，QQ `enabled:true` 且传输关闭。安装与启用没有注册失败警告。 | 没有逐项枚举 Host 内部工具表。 |
+| 原生 Settings | 在这个隔离 Desktop 提供的真实 Web 页面中，分别打开“Amadeus 记忆”“Amadeus 生活”“Amadeus 状态”“Amadeus QQ”；四页均渲染，Memory 显示管理内容，Life 显示健康 `ok`，State 显示版本 1.0.0/引擎正常，QQ 显示插件运行中和 OneBot 连接已禁用。 | 页面操作未改变生产设置；未逐项点击所有低频控件。 |
 | QQ ↔ Memory | 从**已安装 Memory 包**在隔离 SQLite 写入合成群 A、群 B、私聊记忆；关键词检索各群只见自己的 1 条，普通私聊只见自己的 1 条，可信 Owner 私聊可见 3 条，未绑定 Scene 为 0。重启和 Memory 停用/启用后隔离仍成立。 | 这是已安装包的 Scene 服务契约测试；本轮无 NapCat 事件，因此新的 QQ Host 事件绑定未在本 Profile 触发。此前同 Host 真实绑定 Session 的精确查询见 QQ 实机报告。 |
 | QQ 权限 | 合成群请求 Owner Agent 得到 403；授权合成私聊可设置 Owner Agent，群可设置 Enhanced。重启后两项持久；随后把 Owner 私聊降为 Safe Chat，群权限不变。 | 本轮未执行模型原生工具；此前隔离 Host 已实测 Owner `pwsh`、`read`、`web_fetch`、Life 工具和撤权拒绝。 |
 | Life 持久化 | 在新 DSH 创建合成 Session，通过本地管理员入口 Bootstrap 并创建远期 Intent；硬重启后同 Session/Intent 仍在。Wake delivery 保持关闭，没有外发。 | 该 Intent 的来源是管理员设置，不冒充 `life-tool:session`。可信工具来源、QQ 回执、重复/撤权由此前 Life 1.0.1 + QQ 的真实授权测试及 178 项回归覆盖；本轮未重新实测 Life→QQ Wake。 |
