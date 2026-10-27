@@ -1,13 +1,19 @@
 schemaVersion: 1
-status: unverified
-installable: false
-product_dsh: null
+status: isolated_v1_verified
+installable: true
+product_dsh: 0.2.1-rc.3
 worker_dsh: null
 qq_bridge_baseline: null
 napcat: null
 contract_version: null
-verified_combinations: []
+verified_combinations:
+  - name: first_four_plugins_v1
+    dsh: 0.2.1-rc.3
+    life: 1.0.1
+    memory: 1.0.0
+    state: 1.0.0
+    qq: 1.0.0
+    evidence: docs/verification/AMADEUS_V1_FOUR_PLUGIN_ACCEPTANCE.md
 notes:
-  - Repository initialization only; no plugin releases exist.
-  - Real DSH, QQ bridge and NapCat versions must be checked during M0.
-  - This is a planning record, not an installable dependency lockfile.
+  - Four independent tarballs passed isolated DSH Desktop installation; no production deployment or public release.
+  - This is an acceptance record, not an installable dependency lockfile or proof of long-running production stability.

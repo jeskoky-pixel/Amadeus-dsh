@@ -1,49 +1,27 @@
 # Amadeus
 
-基于官方 DeepSeek Harness（DSH）的持续陪伴系统，目标是在不同场景维持统一人格、积累获授权的共同经历，并通过 QQ、浏览器、手机等能力开展真实活动。
+Amadeus 基于官方 DeepSeek Harness（DSH）运行第一阶段的四个独立插件：Life、Memory、State 和 QQ。DSH 保持唯一的 Agent、Persona 与模型工具运行主体；插件分别提供活动与唤醒、记忆、状态和 QQ 交互，各自可以安装、停用和回滚。
 
-**当前状态：仓库与文档初始化。尚无可安装插件，未完成 DSH / QQ / NapCat 联调。**
+## 第一阶段 v1.0
 
-## 项目组织
+| 独立仓库 | 版本 | 主要能力 |
+| --- | --- | --- |
+| [Amadeus Life](https://github.com/jeskoky-pixel/amadeus-life) | 1.0.1 | 持久化活动与意图、预算、受控唤醒及原生设置页 |
+| [Amadeus Memory](https://github.com/jeskoky-pixel/amadeus-memory) | 1.0.0 | 基于 Mneme 的长期与近期记忆、实体图谱、Scene 隔离及可信读取授权 |
+| [Amadeus State](https://github.com/jeskoky-pixel/amadeus-state) | 1.0.0 | 心情、精力、好奇心与兴趣的持久演化 |
+| [Amadeus QQ](https://github.com/jeskoky-pixel/amadeus-qq) | 1.0.0 | 连续 QQ Session、NapCat 接口、媒体、Owner 工具、Scene 权限与 Web Console |
 
-采用“主仓库 + 独立插件仓库 + 统一接口规范”。一个能够独立安装、升级、卸载的插件原则上对应一个仓库；插件内部一起升级的普通功能不再拆仓。
+四个版本已通过[隔离官方 DSH Desktop 0.2.1-rc.3 联合验收](docs/verification/AMADEUS_V1_FOUR_PLUGIN_ACCEPTANCE.md)，并合并到各自的 `main`。具体版本、来源提交、安装包 SHA-256 和降级关系见[兼容矩阵](docs/FOUR_PLUGIN_COMPATIBILITY.md)。QQ 的授权 NapCat 实机结果、低频能力边界与长期运行限制见其[验收记录](https://github.com/jeskoky-pixel/amadeus-qq/blob/main/docs/verification/V1_REAL_NAPCAT_2026-10-27.md)。
 
-本仓库负责需求、架构、插件目录、兼容版本、安装组合与未来集成验收。插件代码在各自仓库维护，通过版本清单协同，不使用 Git Submodule 强绑定。
+本阶段建立稳定开发基线；**尚未部署到日常 DSH / QQ、公开创建 GitHub Release 或发布 npm 包**。生产迁移、数据备份与灰度仍需单独执行。不能把隔离 Profile 的结果当作长期生产负载结论。
 
-| 仓库 | 职责 | 优先级 | 状态 |
-| --- | --- | --- | --- |
-| [Amadeus-dsh](https://github.com/jeskoky-pixel/Amadeus-dsh) | 项目主入口与集成文档 | 基础 | 公开；文档初始化 |
-| [amadeus-qq](https://github.com/jeskoky-pixel/amadeus-qq) | 外部 NapCat 适配、连续交流、媒体与主动发送 | P0 | 公开；仅初始化 |
-| [amadeus-life](https://github.com/jeskoky-pixel/amadeus-life) | 注意力、心跳、活动、未来意图与预算协调 | P0 | 公开；仅初始化 |
-| [amadeus-memory](https://github.com/jeskoky-pixel/amadeus-memory) | 授权的跨场景经历、关系与记忆后端适配 | P1 | 公开；仅初始化 |
-| [amadeus-state](https://github.com/jeskoky-pixel/amadeus-state) | 心情、精力、兴趣与状态演化 | P1 | 公开；仅初始化 |
-| [amadeus-browser](https://github.com/jeskoky-pixel/amadeus-browser) | 受控浏览与长时间浏览活动 | P1 | 公开；仅初始化 |
-| [amadeus-bilibili](https://github.com/jeskoky-pixel/amadeus-bilibili) | 视频阅读、评论、收藏与获授权互动 | P2 | 公开；仅初始化 |
-| [amadeus-android](https://github.com/jeskoky-pixel/amadeus-android) | 绑定安卓设备与应用操作 | P2 | 公开；仅初始化 |
-| [amadeus-games](https://github.com/jeskoky-pixel/amadeus-games) | 游戏能力集成与游戏活动提供器 | P3 | 公开；仅初始化 |
+## 仓库与文档
 
-全部 8 个插件仓库已公开，便于网页端按 PR 或提交版本审阅。P0—P3 表示计划顺序，不代表开发已经开始。`amadeus-sdk` 暂不独立建仓，基础契约稳定后再决定。
+本仓库维护架构、插件目录、兼容版本与联合验收，不复制四个插件的源码，也不使用 Git Submodule 强绑定。各插件在自己的仓库维护独立数据和安装包。其他 [Browser](https://github.com/jeskoky-pixel/amadeus-browser)、[Bilibili](https://github.com/jeskoky-pixel/amadeus-bilibili)、[Android](https://github.com/jeskoky-pixel/amadeus-android) 与 [Games](https://github.com/jeskoky-pixel/amadeus-games) 仓库属于后续计划，不属于本次 v1.0 交付。
 
-## 文档入口
+- [联合验收报告](docs/verification/AMADEUS_V1_FOUR_PLUGIN_ACCEPTANCE.md)
+- [四插件兼容矩阵](docs/FOUR_PLUGIN_COMPATIBILITY.md)
+- [项目规格](docs/AMADEUS_SPEC.md)与[多仓库架构](docs/ARCHITECTURE.md)
+- [插件登记表](modules/registry.yaml)与[版本清单](compatibility/versions.yaml)
 
-- [交接与下一步](HANDOFF.md)
-- [需求规格 v0.2](docs/AMADEUS_SPEC.md)
-- [多仓库架构约定](docs/ARCHITECTURE.md)
-- [插件登记表](modules/registry.yaml)
-- [兼容与发布状态](compatibility/versions.yaml)
-- [仓库初始化检查与插件提交版本](docs/verification/REPOSITORY_SETUP.md)
-
-## 必须保留的行为
-
-- 使用官方 DSH 作为推理与工具运行基础，不另建主 Agent 推理循环。
-- QQ 支持持续收发、工具操作、等待与续接；bridge 是交互效果基准，允许修改或重写实现。
-- NapCat 独立运行，只开发自己的适配器，不修改或捆绑 NapCat 本体；不提供退群动作。
-- 统一人格与隔离的场景上下文并存；记忆检索前授权，派生材料继承来源限制。
-- 可选插件缺失不拖垮无关能力；身份、授权或必要记录不可确认时，暂停受影响动作。
-- 活动与投递状态必须有证据，模拟验证不能代替真实平台验收。
-
-## 本地布局
-
-项目根目录是本主仓库。`plugins/` 下是独立克隆的插件仓库，各自包含 README、HANDOFF 和独立 `.git`，该目录被主仓库忽略。主仓库不会替插件提交或推送代码，也不记录插件工作树。
-
-当前尚无安装命令、稳定契约版本或正式发布。后续先做 M0 实际环境与交互基线核查，再推进 P0 插件。
+安装前先核对目标 DSH 版本、四个 tarball 的 SHA-256 和独立数据目录。Memory 沿用 Mneme 的 Bundle ID `dsh-mneme`，同一数据库只能由一个实例写入。QQ 默认断开平台连接；Life 的外发 opt-in 只改变提示，实际发送由 QQ Scene Guard 授权。详细备份、灰度和回滚步骤见[联合报告](docs/verification/AMADEUS_V1_FOUR_PLUGIN_ACCEPTANCE.md)。
