@@ -6,6 +6,12 @@ worker_dsh: null
 qq_bridge_baseline: null
 napcat: null
 contract_version: null
+current_main_versions:
+  persona: 0.1.0
+  life: 1.1.0
+  memory: 1.0.1
+  state: 1.1.0
+  qq: 1.1.1
 verified_combinations:
   - name: first_four_plugins_v1
     dsh: 0.2.1-rc.3
@@ -30,6 +36,7 @@ verified_combinations:
     qq: 1.1.0
     evidence: docs/FIVE_PLUGIN_COMPATIBILITY.md
 notes:
+  - QQ 1.1.1 handoff was automation-tested; real NapCat/AstrBot/DSH Desktop handoff and five-plugin co-install were not retested for this patch.
   - Five plugins were installed together in isolated DSH Desktop; real NapCat and full Life/State behavior were not retested in that combination.
   - Persona long-history style expression has a documented model-context limitation accepted for this development baseline.
   - This is a compatibility and evidence record, not a dependency lockfile, production deployment approval, or public Release.
