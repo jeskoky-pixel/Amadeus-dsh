@@ -6,15 +6,15 @@
 
 | 插件 | 来源基线 | 候选版本 | 内部插件 ID | GitHub CI 预构建包 SHA-256 | 候选 Commit / PR |
 | --- | --- | --- | --- | --- | --- |
-| QQ | `1.1.1` | `@amadeus/qq@1.2.0` | `amadeus-qq` | `eae8a66349acfe3ac39c0a6e72dd8712d9eb774711b7631b595d6f4a73914cdc` | `22ba4c9` · [PR #5](https://github.com/jeskoky-pixel/amadeus-qq/pull/5) |
-| Memory | `1.0.1` | `@amadeus/memory@1.2.0` | `dsh-mneme` | `5c77bad78aa8d75dbb99098af80a3cb9383d73ace8930a85a4bbaad1959e9c4a` | `566e244` · [PR #6](https://github.com/jeskoky-pixel/amadeus-memory/pull/6) |
-| Life | `1.1.0` | `@amadeus/life@1.2.0` | `amadeus-life` | `8531147782408b4ceab677261eb5e88f262729ecb74da11413b64d3576249c0f` | `5e40c12` · [PR #5](https://github.com/jeskoky-pixel/amadeus-life/pull/5) |
-| State | `1.1.0` | `@amadeus/state@1.2.0` | `amadeus-state` | `967dbd123a4be6a276dad7a544006c24090323f558a5ad4a05c985775f8bee65` | `a0f25fc` · [PR #4](https://github.com/jeskoky-pixel/amadeus-state/pull/4) |
-| Persona | `0.1.0` | `@amadeus/persona@1.2.0` | `amadeus-persona` | `33cf0ce45bf831bcf065fb699217b07bdd778e30dffb3135ed07a22435ef7579` | `3ad3778` · [PR #2](https://github.com/jeskoky-pixel/amadeus-persona/pull/2) |
+| QQ | `1.1.1` | `@amadeus/qq@1.2.0` | `amadeus-qq` | `e0aec10b5b21286a52ea822f5f992c61bfab7ae510f32def20586e58e4ac5766` | `5e44e88` · [PR #5](https://github.com/jeskoky-pixel/amadeus-qq/pull/5) |
+| Memory | `1.0.1` | `@amadeus/memory@1.2.0` | `dsh-mneme` | `a903863e549d3ad481b4d4fd737fe369449a221cb4570b4c24bf6cf0a426e1fa` | `d1cebdb` · [PR #6](https://github.com/jeskoky-pixel/amadeus-memory/pull/6) |
+| Life | `1.1.0` | `@amadeus/life@1.2.0` | `amadeus-life` | `d1fc3851a805f29948cff044a9a8af9b66681ec6547a1d00768d503639f6e1e9` | `464ce19` · [PR #5](https://github.com/jeskoky-pixel/amadeus-life/pull/5) |
+| State | `1.1.0` | `@amadeus/state@1.2.0` | `amadeus-state` | `5e467f26a254a669530fae30e6d90f7ba3f729bbc491dd2ac9fec0564792e24b` | `a70628c` · [PR #4](https://github.com/jeskoky-pixel/amadeus-state/pull/4) |
+| Persona | `0.1.0` | `@amadeus/persona@1.2.0` | `amadeus-persona` | `bc8ccff91f3169b820b25ba34f5f994411724db619bdbd4597ead7e80bb952b9` | `e25824a` · [PR #2](https://github.com/jeskoky-pixel/amadeus-persona/pull/2) |
 
 表中 SHA-256 对应五个 PR 的 GitHub Actions 候选 `.tgz` artifact。它们与本地 `npm pack --ignore-scripts` 产物的文件名和文件内容一致；少数文本文件的 CRLF/LF 差异导致压缩包 SHA 不同，因此以可下载的 CI artifact 校验值为准。所有包均通过 `verify:release` 的 Manifest、Host/Client 入口、静态资源、截图清单、安装脚本与敏感路径/高置信密钥扫描。扫描不能替代人工隐私审查。
 
-五仓库另已在本地补齐 v1.2 发行说明，并为市场草案加入未来 `v1.2.0` GitHub Release 的固定 `.tgz` 地址。当前本地 HEAD 分别为 QQ `5e44e88`、Memory `d1cebdb`、Life `464ce19`、State `a70628c`、Persona `e25824a`。2026-10-30 的 GitHub HTTPS 连接故障使这些新提交暂未推送；上表远端 Commit 与 CI artifact 仍指向**补文档前**的候选。待网络恢复后需推送、等待 CI 重建并替换最终 SHA-256，再提交主仓库更新。
+五仓库已补齐 v1.2 发行说明，并为市场草案加入未来 `v1.2.0` GitHub Release 的固定 `.tgz` 地址。表中是最终推送的候选 Commit；五个新 CI 检查均通过，SHA-256 已按重新下载的 CI artifact 计算。GitHub Release 资产仍未创建，市场草案的固定地址目前不可安装。
 
 ## 测试过的宿主与功能
 
@@ -22,6 +22,7 @@
 - 五个独立隔离 `DSH_HOME` 分别用官方 `dsh plugin --profile web add <tgz>` 安装一个候选包。五次 Host 启动及认证后的 HTTP 首页均返回 200。
 - 联合隔离 Profile 依序安装 QQ、Memory、State、Life、Persona；合成后的 Bundle ID 各出现一次，Memory 保留 `dsh-mneme`。联合 Host 启动成功；QQ 保持未配置/暂停，未连接 NapCat 或向外发送。
 - 从五个 PR 下载 GitHub Actions 产出的 `.tgz` artifact，在另一个全新隔离 Profile 联合安装，Host 与 QQ/Persona Owner Console 均通过认证后的 HTTP 200；表中校验值对应这一组实际 CI 包。
+- 将最终五个 CI artifact 在第三个全新隔离 `DSH_HOME` 中经官方 `dsh plugin --profile web add` 联合安装，五个包均解析为 `1.2.0`，随后 Web Host 成功启动。最终提交仅变更发行说明、市场草案及 Persona 的文档打包清单；不重复把先前功能验收写成新一轮真实 QQ 验收。
 - QQ 和 Persona Owner Web Console 在真实 Edge 浏览器中加载；QQ 六页、Persona 五页及主题切换通过，无页面脚本异常。首次安装 Persona 为空卡，QQ 显示待配置状态。
 - 完整自动化回归：QQ 303 项（299 通过、4 跳过）；Memory 717/717；Life 209/209；State 141/141；Persona 49/49。QQ 的 4 项跳过原因以其测试报告为准，不能计为通过。
 
@@ -53,6 +54,5 @@
 2. 外部 DSH Market 对 GitHub 候选源的真实下载、安装和更新流程；未公开发行前没有可指向的正式版本。
 3. 五插件在真实 NapCat、实际 Workspace / Session、模型推理、Life 自主唤醒和长期记忆向量检索中的联合实机运行；没有触碰生产 Profile、QQ 或记忆数据库。
 4. npm Scope 权限、四个私有包的公开发行许可证、正式 `.tgz` 与 Release 版本绑定，均需发行前确认。
-5. 五仓库 v1.2 发行说明已准备，当前候选包仍须在最终 Commit 后重新生成、复核 SHA-256；已有表格哈希对应先前 CI artifact，不能当作最终发行包哈希。
 
 这些项目完成并复核最终包 SHA 后，才能请求用户的一次性公开发行确认；该确认之前不执行 npm publish、公开 GitHub Release 或外部市场收录 PR。
