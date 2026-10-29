@@ -2,7 +2,7 @@
 
 Amadeus 以官方 DeepSeek Harness（DSH）作为同一智能主体的运行基础。五个独立插件分别负责人格、记忆、当前状态、自主活动和 QQ 交流；可独立安装、停用与升级，不通过切换 Agent Preset 制造不同的“她”。
 
-**v1.2.0 内部发行候选**已完成预构建包和隔离 DSH 运行时的安装、升级与数据保留演练；公开 npm、GitHub Release 和外部 DSH Market 收录仍待发行确认。当前 GitHub `main` 中的稳定开发基线仍是下表旧版本，候选版本在各插件的 v1.2 PR 中。阅读 [v1.2 安装与升级](docs/V1_2_INSTALL_AND_UPGRADE.md)、[兼容矩阵](docs/V1_2_COMPATIBILITY.md)和[发行准备报告](AMADEUS_V1_2_RELEASE_READINESS.md)。
+**v1.2.0 内部发行候选**已完成预构建包和隔离 DSH 运行时的安装、升级与数据保留演练；本轮选择固定 GitHub Release 包作为发行源，不计划 npm 发布。公开 GitHub Release 和外部 DSH Market 收录仍待最终发行确认。当前 GitHub `main` 中的稳定开发基线仍是下表旧版本，候选版本在各插件的 v1.2 PR 中。阅读 [v1.2 安装与升级](docs/V1_2_INSTALL_AND_UPGRADE.md)、[兼容矩阵](docs/V1_2_COMPATIBILITY.md)和[发行准备报告](AMADEUS_V1_2_RELEASE_READINESS.md)。
 
 | 插件 | main 中的包版本 | 职责 |
 | --- | --- | --- |

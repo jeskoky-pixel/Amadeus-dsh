@@ -2,21 +2,21 @@
 
 日期：2026-10-30。状态：**内部候选与隔离 DSH 运行时验收中；未公开发行**。本报告记录实际完成的测试和仍待完成的 Desktop/Market 验收，不构成生产部署许可。
 
-项目主页与兼容矩阵的同步修改见 [Amadeus-dsh PR #6](https://github.com/jeskoky-pixel/Amadeus-dsh/pull/6)。五个包可从各自 PR 对应的 CI 运行下载：[QQ](https://github.com/jeskoky-pixel/amadeus-qq/actions/runs/40918838546)、[Memory](https://github.com/jeskoky-pixel/amadeus-memory/actions/runs/40918844393)、[Life](https://github.com/jeskoky-pixel/amadeus-life/actions/runs/40918867904)、[State](https://github.com/jeskoky-pixel/amadeus-state/actions/runs/40918857965)、[Persona](https://github.com/jeskoky-pixel/amadeus-persona/actions/runs/40918864993)。当前为 CI artifact，需要 GitHub 登录；正式固定 Release 下载地址尚未创建。
+项目主页与兼容矩阵的同步修改见 [Amadeus-dsh PR #6](https://github.com/jeskoky-pixel/Amadeus-dsh/pull/6)。五个包可从各自 PR 对应的 CI 运行下载：[QQ](https://github.com/jeskoky-pixel/amadeus-qq/actions/runs/40922905467)、[Memory](https://github.com/jeskoky-pixel/amadeus-memory/actions/runs/40918844393)、[Life](https://github.com/jeskoky-pixel/amadeus-life/actions/runs/40922901792)、[State](https://github.com/jeskoky-pixel/amadeus-state/actions/runs/40922901223)、[Persona](https://github.com/jeskoky-pixel/amadeus-persona/actions/runs/40922900718)。当前为 CI artifact，需要 GitHub 登录；正式固定 Release 下载地址尚未创建。
 
 ## 候选版本与安装包
 
 | 插件 | 来源基线 | 候选版本 | 内部插件 ID | GitHub CI 预构建包 SHA-256 | 候选 Commit / PR |
 | --- | --- | --- | --- | --- | --- |
-| QQ | `1.1.1` | `@amadeus/qq@1.2.0` | `amadeus-qq` | `e0aec10b5b21286a52ea822f5f992c61bfab7ae510f32def20586e58e4ac5766` | `5e44e88` · [PR #5](https://github.com/jeskoky-pixel/amadeus-qq/pull/5) |
+| QQ | `1.1.1` | `@amadeus/qq@1.2.0` | `amadeus-qq` | `e9fbe69cebbd9982a8834cac1a1e3f1f41457f560e8b520eef426bdef2bea01b` | `cae2f00` · [PR #5](https://github.com/jeskoky-pixel/amadeus-qq/pull/5) |
 | Memory | `1.0.1` | `@amadeus/memory@1.2.0` | `dsh-mneme` | `a903863e549d3ad481b4d4fd737fe369449a221cb4570b4c24bf6cf0a426e1fa` | `d1cebdb` · [PR #6](https://github.com/jeskoky-pixel/amadeus-memory/pull/6) |
-| Life | `1.1.0` | `@amadeus/life@1.2.0` | `amadeus-life` | `d1fc3851a805f29948cff044a9a8af9b66681ec6547a1d00768d503639f6e1e9` | `464ce19` · [PR #5](https://github.com/jeskoky-pixel/amadeus-life/pull/5) |
-| State | `1.1.0` | `@amadeus/state@1.2.0` | `amadeus-state` | `5e467f26a254a669530fae30e6d90f7ba3f729bbc491dd2ac9fec0564792e24b` | `a70628c` · [PR #4](https://github.com/jeskoky-pixel/amadeus-state/pull/4) |
-| Persona | `0.1.0` | `@amadeus/persona@1.2.0` | `amadeus-persona` | `bc8ccff91f3169b820b25ba34f5f994411724db619bdbd4597ead7e80bb952b9` | `e25824a` · [PR #2](https://github.com/jeskoky-pixel/amadeus-persona/pull/2) |
+| Life | `1.1.0` | `@amadeus/life@1.2.0` | `amadeus-life` | `596b88906b5e8e6386fd6fc498c76ab9a1867759c4f1ed7fdb48eb5e7dd1d641` | `19b7998` · [PR #5](https://github.com/jeskoky-pixel/amadeus-life/pull/5) |
+| State | `1.1.0` | `@amadeus/state@1.2.0` | `amadeus-state` | `3f7152574e093f5d575cccdd5c921c0dc399fa34d0b45b81ed8695b85136b0ed` | `2f51df7` · [PR #4](https://github.com/jeskoky-pixel/amadeus-state/pull/4) |
+| Persona | `0.1.0` | `@amadeus/persona@1.2.0` | `amadeus-persona` | `ccef7d121ae16ab6921907bfb0bd0ab6f642a8e6142f3ce6124a57b76ee7005b` | `e3ea6d4` · [PR #2](https://github.com/jeskoky-pixel/amadeus-persona/pull/2) |
 
 表中 SHA-256 对应五个 PR 的 GitHub Actions 候选 `.tgz` artifact。它们与本地 `npm pack --ignore-scripts` 产物的文件名和文件内容一致；少数文本文件的 CRLF/LF 差异导致压缩包 SHA 不同，因此以可下载的 CI artifact 校验值为准。所有包均通过 `verify:release` 的 Manifest、Host/Client 入口、静态资源、截图清单、安装脚本与敏感路径/高置信密钥扫描。扫描不能替代人工隐私审查。
 
-五仓库已补齐 v1.2 发行说明，并为市场草案加入未来 `v1.2.0` GitHub Release 的固定 `.tgz` 地址。表中是最终推送的候选 Commit；五个新 CI 检查均通过，SHA-256 已按重新下载的 CI artifact 计算。GitHub Release 资产仍未创建，市场草案的固定地址目前不可安装。
+五仓库已补齐 v1.2 发行说明，并为市场草案加入未来 `v1.2.0` GitHub Release 的固定 `.tgz` 地址。QQ、Life、State、Persona 的 MIT 许可决定已写入源码与包；表中对应当前推送的候选 Commit。五个 CI 检查均通过，SHA-256 已按重新下载的最新 CI artifact 计算。GitHub Release 资产仍未创建，市场草案的固定地址目前不可安装。
 
 ## 测试过的宿主与功能
 
@@ -24,7 +24,7 @@
 - 五个独立隔离 `DSH_HOME` 分别用官方 `dsh plugin --profile web add <tgz>` 安装一个候选包。五次 Host 启动及认证后的 HTTP 首页均返回 200。
 - 联合隔离 Profile 依序安装 QQ、Memory、State、Life、Persona；合成后的 Bundle ID 各出现一次，Memory 保留 `dsh-mneme`。联合 Host 启动成功；QQ 保持未配置/暂停，未连接 NapCat 或向外发送。
 - 从五个 PR 的首轮 GitHub Actions 下载 `.tgz` artifact，在另一个全新隔离 Profile 联合安装，Host 与 QQ/Persona Owner Console 均通过认证后的 HTTP 200。此项浏览器验证对应补发行说明前的 CI 包，不能冒充最终哈希所对应包的页面验收。
-- 将最终五个 CI artifact 在第三个全新隔离 `DSH_HOME` 中经官方 `dsh plugin --profile web add` 联合安装，五个包均解析为 `1.2.0`，随后 Web Host 成功启动。最终提交仅变更发行说明、市场草案及 Persona 的文档打包清单；不重复把先前功能验收写成新一轮真实 QQ 验收。
+- 将五个当前 CI artifact 在新的隔离 `DSH_HOME` 中经官方 `dsh plugin --profile web add` 联合安装，五个包均解析为 `1.2.0`，随后 Web Host 成功启动。四个 MIT 包的元数据标记 `MIT` 且实际包含 `LICENSE`；五个包逐文件与本地 pack 比对一致。此项不冒充 Desktop 图形安装或真实 QQ 验收。
 - QQ 和 Persona Owner Web Console 在真实 Edge 浏览器中加载；QQ 六页、Persona 五页及主题切换通过，无页面脚本异常。首次安装 Persona 为空卡，QQ 显示待配置状态。
 - 完整自动化回归：QQ 303 项（299 通过、4 跳过）；Memory 717/717；Life 209/209；State 141/141；Persona 49/49。QQ 的 4 项跳过原因以其测试报告为准，不能计为通过。
 
@@ -44,8 +44,7 @@
 
 ## 发行许可、npm Scope 与 Market
 
-- `npm whoami` 返回未登录；`@amadeus` Scope 的发布权限尚未证实。不得以当前候选包进行 npm 公开发布。
-- Memory 包保留上游许可记录与 MIT；QQ、Life、State、Persona 当前为 `private:true`，许可缺失或 `UNLICENSED`。公开发行许可证需由仓库所有者确认，不能擅自改成 MIT。
+- `npm whoami` 返回未登录；`@amadeus` Scope 的发布权限尚未证实。所有者选择 v1.2 **先走固定 GitHub Release `.tgz`**，本轮不进行 npm 发布，也不更改包名。四个此前未定许可的仓库 QQ、Life、State、Persona 已由所有者明确选择 MIT，Memory 保留原有 MIT 和上游许可记录。四包继续保留 `private:true` 作为 npm 防误发保护；发行包审计检查 `LICENSE` 实际入包。
 - 五个仓库均已设置 `dsh-plugin` GitHub Topic；`market/*.yml` 草案使用官方分类、双语简介、GitHub 托管图标，以及未来固定 `v1.2.0` Release 包地址。Memory 采用 `tree/main/dsh-mneme` 和 `owner/repo#dsh-mneme`。Release 资产目前尚不存在，条目不能提交外部目录或视为已上架/安全审计通过。
 - 按 Market 实际使用的 `github:` 源格式，QQ 的固定 Commit 已从 GitHub 安装成功。Memory 的 `#path:/dsh-mneme` 源安装多次失败；Life 的固定 Commit 安装也因 GitHub `HEAD` 超时及 Git fetch 无法连接 443 端口而失败。对应失败发生在下载阶段，未得到包内容或运行时错误证据；其他三个插件的 GitHub 源路径尚未验收。安装包本身的本地与 CI 路径均通过。
 - `Amadeus Suite` 元 Bundle 暂缓；当前优先五个独立包。尚未验证间接依赖、加载顺序与卸载语义，不使用 postinstall 脚本修改用户 Profile。
@@ -55,6 +54,6 @@
 1. 独立 DSH Desktop 图形插件管理器的点击安装、首次 GUI 配置、升级、禁用和卸载全流程；本轮使用的是同版 Desktop 附带的 CLI 与 Web Host。
 2. 外部 DSH Market 对 GitHub 候选源的真实下载、安装和更新流程；未公开发行前没有可指向的正式版本。
 3. 五插件在真实 NapCat、实际 Workspace / Session、模型推理、Life 自主唤醒和长期记忆向量检索中的联合实机运行；没有触碰生产 Profile、QQ 或记忆数据库。
-4. npm Scope 权限、四个私有包的公开发行许可证、正式 `.tgz` 与 Release 版本绑定，均需发行前确认。
+4. 最终 MIT 包与 Release 版本绑定、Desktop 图形安装和固定 Release 下载源仍需验收；npm Scope 不再阻塞本轮 GitHub Release 路线。
 
-这些项目完成并复核最终包 SHA 后，才能请求用户的一次性公开发行确认；该确认之前不执行 npm publish、公开 GitHub Release 或外部市场收录 PR。
+这些项目完成并复核最终包 SHA 后，才能请求用户的一次性公开发行确认；该确认之前不执行公开 GitHub Release 或外部市场收录 PR。本轮不执行 npm publish。

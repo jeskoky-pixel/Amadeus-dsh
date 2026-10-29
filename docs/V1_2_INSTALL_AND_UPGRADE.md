@@ -1,6 +1,6 @@
 # Amadeus v1.2.0 安装、升级和回滚
 
-目前是内部候选版。五个独立预构建包由各仓库 PR 的 Windows CI 产生；尚未公开发布 npm / GitHub Release，也未提交外部 DSH Market。宿主测试目标为官方 DSH Desktop `0.2.1-rc.3`。普通用户在公开发行后应从各自市场条目选择明确版本安装，不需要 Node 工具链或 Codex。
+目前是内部候选版。五个独立预构建包由各仓库 PR 的 Windows CI 产生；首发选择固定版本 GitHub Release 包，暂不使用 npm `@amadeus` Scope。Release 尚未公开创建，也未提交外部 DSH Market。宿主测试目标为官方 DSH Desktop `0.2.1-rc.3`。普通用户在公开发行后应从各自市场条目选择明确版本安装，不需要 Node 工具链或 Codex。
 
 | 插件 | GitHub 仓库 | 包位置 | 首次配置 |
 | --- | --- | --- | --- |
@@ -32,4 +32,4 @@
 
 ## Market 条目
 
-五个市场 YAML 草案均在各自仓库的 `market/`，Memory 使用子目录形式。市场正式收录、GitHub Release、npm 发布和 DSH Market 下载验收尚未发生；条目不可当作已上架链接。未来市场更新必须指向明确的已验收发行版本，避免使用浮动开发分支。
+五个市场 YAML 草案均在各自仓库的 `market/`，Memory 使用子目录形式和固定 Release tarball。市场正式收录、GitHub Release 和 DSH Market 下载验收尚未发生；条目不可当作已上架链接。未来市场更新必须指向明确的已验收发行版本，避免使用浮动开发分支。npm Scope 权限尚未核实，若以后改走 npm，应单独设计包名迁移，不在 v1.2 中改名。

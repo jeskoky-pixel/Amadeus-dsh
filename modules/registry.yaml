@@ -10,6 +10,7 @@ modules:
     candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
+    candidate_license_status: MIT
     release: null
   - id: life
     repository: https://github.com/jeskoky-pixel/amadeus-life
@@ -19,6 +20,7 @@ modules:
     candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
+    candidate_license_status: MIT
     release: null
   - id: memory
     repository: https://github.com/jeskoky-pixel/amadeus-memory
@@ -27,7 +29,8 @@ modules:
     version: 1.0.1
     candidate_version: 1.2.0
     visibility: public
-    license_status: pending_owner_decision
+    license_status: MIT
+    candidate_license_status: MIT
     release: null
   - id: state
     repository: https://github.com/jeskoky-pixel/amadeus-state
@@ -37,6 +40,7 @@ modules:
     candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
+    candidate_license_status: MIT
     release: null
   - id: persona
     repository: https://github.com/jeskoky-pixel/amadeus-persona
@@ -46,6 +50,7 @@ modules:
     candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
+    candidate_license_status: MIT
     release: null
   - id: browser
     repository: https://github.com/jeskoky-pixel/amadeus-browser
