@@ -1,5 +1,5 @@
 schemaVersion: 1
-status: isolated_v1_verified
+status: five_plugin_main_development_baseline
 installable: true
 product_dsh: 0.2.1-rc.3
 worker_dsh: null
@@ -14,6 +14,22 @@ verified_combinations:
     state: 1.0.0
     qq: 1.0.0
     evidence: docs/verification/AMADEUS_V1_FOUR_PLUGIN_ACCEPTANCE.md
+  - name: four_plugins_v1_1_main_baseline
+    dsh: 0.2.1-rc.3
+    life: 1.1.0
+    memory: 1.0.1
+    state: 1.1.0
+    qq: 1.1.0
+    evidence: https://github.com/jeskoky-pixel/amadeus-qq/blob/main/docs/verification/FOUR_PLUGIN_V11_JOINT_2026-10-28.md
+  - name: five_plugins_persona_v0_1_main_baseline
+    dsh: 0.2.1-rc.3
+    persona: 0.1.0
+    life: 1.1.0
+    memory: 1.0.1
+    state: 1.1.0
+    qq: 1.1.0
+    evidence: docs/FIVE_PLUGIN_COMPATIBILITY.md
 notes:
-  - Four independent tarballs passed isolated DSH Desktop installation; no production deployment or public release.
-  - This is an acceptance record, not an installable dependency lockfile or proof of long-running production stability.
+  - Five plugins were installed together in isolated DSH Desktop; real NapCat and full Life/State behavior were not retested in that combination.
+  - Persona long-history style expression has a documented model-context limitation accepted for this development baseline.
+  - This is a compatibility and evidence record, not a dependency lockfile, production deployment approval, or public Release.
