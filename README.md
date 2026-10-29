@@ -8,9 +8,11 @@ Amadeus 以官方 DeepSeek Harness（DSH）作为同一智能主体的运行基�
 | [Amadeus Memory](https://github.com/jeskoky-pixel/amadeus-memory) | `@amadeus/memory@1.0.1` | 长期记忆、近期活动、实体图谱与跨 Scene 安全召回 |
 | [Amadeus State](https://github.com/jeskoky-pixel/amadeus-state) | `@amadeus/state@1.1.0` | 心情、精力、好奇心和兴趣的动态演化 |
 | [Amadeus Life](https://github.com/jeskoky-pixel/amadeus-life) | `@amadeus/life@1.1.0` | 自主意图、活动调度、预算和唤醒 |
-| [Amadeus QQ](https://github.com/jeskoky-pixel/amadeus-qq) | `@amadeus/qq@1.1.0` | QQ 连续交流、可信 Scene、NapCat 接口和平台权限 |
+| [Amadeus QQ](https://github.com/jeskoky-pixel/amadeus-qq) | `@amadeus/qq@1.1.1` | QQ 连续交流、可信 Scene、NapCat 接口和平台权限 |
 
 这五个版本已合并到各自仓库的 `main`，形成**个人电脑实机测试的开发基线**。Persona、QQ 和 Memory 等插件可单独使用；其他插件缺席时，各自按其文档降级。Persona 只决定“她是谁、在当前场景如何表达”，不替换 DSH Agent Preset，不增加模型工具，也不授予 QQ 或文件权限。
+
+QQ 1.1.1 在中文 Owner Web Console 加入“QQ 接管”开关，可暂停与恢复插件对 NapCat 的连接，供本地 AstrBot 与 DSH 轮流使用同一个 QQ 登录。补丁已通过自动化测试；真实 NapCat、AstrBot 与 DSH Desktop 的交接流程仍待个人电脑实测。
 
 ## 人格与场景
 
