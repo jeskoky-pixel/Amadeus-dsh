@@ -2,6 +2,8 @@
 
 日期：2026-10-30。状态：**内部候选与隔离 DSH 运行时验收中；未公开发行**。本报告记录实际完成的测试和仍待完成的 Desktop/Market 验收，不构成生产部署许可。
 
+项目主页与兼容矩阵的同步修改见 [Amadeus-dsh PR #6](https://github.com/jeskoky-pixel/Amadeus-dsh/pull/6)。五个包可从各自 PR 对应的 CI 运行下载：[QQ](https://github.com/jeskoky-pixel/amadeus-qq/actions/runs/40918838546)、[Memory](https://github.com/jeskoky-pixel/amadeus-memory/actions/runs/40918844393)、[Life](https://github.com/jeskoky-pixel/amadeus-life/actions/runs/40918867904)、[State](https://github.com/jeskoky-pixel/amadeus-state/actions/runs/40918857965)、[Persona](https://github.com/jeskoky-pixel/amadeus-persona/actions/runs/40918864993)。当前为 CI artifact，需要 GitHub 登录；正式固定 Release 下载地址尚未创建。
+
 ## 候选版本与安装包
 
 | 插件 | 来源基线 | 候选版本 | 内部插件 ID | GitHub CI 预构建包 SHA-256 | 候选 Commit / PR |
