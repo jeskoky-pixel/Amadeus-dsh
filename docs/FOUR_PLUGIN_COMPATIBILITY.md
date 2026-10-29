@@ -1,5 +1,7 @@
 # Amadeus 四插件 v1.0 兼容矩阵
 
+**历史快照。** 下表保留第一阶段 v1.0 的版本、安装包校验值和当时的 main SHA，不代表当前推荐版本。当前五个核心插件的 main 版本和隔离联测边界见[五插件兼容记录](FIVE_PLUGIN_COMPATIBILITY.md)。
+
 本矩阵记录 2026-10-27 在官方 DSH Desktop **0.2.1-rc.3** 的一次隔离安装结果；它不声明更早或未来 DSH 版本的兼容性。四个插件保持独立安装、独立数据目录和独立停用能力。
 
 | 插件 | 最终候选 Commit | npm 包 / Bundle ID | 版本 | SHA-256（最终 tgz） | GitHub main SHA |

@@ -1,12 +1,12 @@
 schemaVersion: 1
-status: first_four_plugins_v1_merged
+status: five_core_plugins_main_development_baseline
 owner: jeskoky-pixel
 modules:
   - id: qq
     repository: https://github.com/jeskoky-pixel/amadeus-qq
     priority: P0
     status: merged_main
-    version: 1.0.0
+    version: 1.1.0
     visibility: public
     license_status: pending_owner_decision
     release: null
@@ -14,7 +14,7 @@ modules:
     repository: https://github.com/jeskoky-pixel/amadeus-life
     priority: P0
     status: merged_main
-    version: 1.0.1
+    version: 1.1.0
     visibility: public
     license_status: pending_owner_decision
     release: null
@@ -22,7 +22,7 @@ modules:
     repository: https://github.com/jeskoky-pixel/amadeus-memory
     priority: P1
     status: merged_main
-    version: 1.0.0
+    version: 1.0.1
     visibility: public
     license_status: pending_owner_decision
     release: null
@@ -30,7 +30,15 @@ modules:
     repository: https://github.com/jeskoky-pixel/amadeus-state
     priority: P1
     status: merged_main
-    version: 1.0.0
+    version: 1.1.0
+    visibility: public
+    license_status: pending_owner_decision
+    release: null
+  - id: persona
+    repository: https://github.com/jeskoky-pixel/amadeus-persona
+    priority: P1
+    status: merged_main
+    version: 0.1.0
     visibility: public
     license_status: pending_owner_decision
     release: null
