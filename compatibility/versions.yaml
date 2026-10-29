@@ -12,6 +12,12 @@ current_main_versions:
   memory: 1.0.1
   state: 1.1.0
   qq: 1.1.1
+v1_2_candidate_versions:
+  persona: 1.2.0
+  life: 1.2.0
+  memory: 1.2.0
+  state: 1.2.0
+  qq: 1.2.0
 verified_combinations:
   - name: first_four_plugins_v1
     dsh: 0.2.1-rc.3
@@ -35,6 +41,15 @@ verified_combinations:
     state: 1.1.0
     qq: 1.1.0
     evidence: docs/FIVE_PLUGIN_COMPATIBILITY.md
+  - name: five_plugins_v1_2_isolated_runtime_candidate
+    dsh: 0.2.1-rc.3
+    persona: 1.2.0
+    life: 1.2.0
+    memory: 1.2.0
+    state: 1.2.0
+    qq: 1.2.0
+    evidence: AMADEUS_V1_2_RELEASE_READINESS.md
+    limits: Desktop GUI, Market download, real NapCat and model-led joint use not yet verified
 notes:
   - QQ 1.1.1 handoff was automation-tested; real NapCat/AstrBot/DSH Desktop handoff and five-plugin co-install were not retested for this patch.
   - Five plugins were installed together in isolated DSH Desktop; real NapCat and full Life/State behavior were not retested in that combination.

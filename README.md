@@ -2,6 +2,8 @@
 
 Amadeus 以官方 DeepSeek Harness（DSH）作为同一智能主体的运行基础。五个独立插件分别负责人格、记忆、当前状态、自主活动和 QQ 交流；可独立安装、停用与升级，不通过切换 Agent Preset 制造不同的“她”。
 
+**v1.2.0 内部发行候选**已完成预构建包和隔离 DSH 运行时的安装、升级与数据保留演练；公开 npm、GitHub Release 和外部 DSH Market 收录仍待发行确认。当前 GitHub `main` 中的稳定开发基线仍是下表旧版本，候选版本在各插件的 v1.2 PR 中。阅读 [v1.2 安装与升级](docs/V1_2_INSTALL_AND_UPGRADE.md)、[兼容矩阵](docs/V1_2_COMPATIBILITY.md)和[发行准备报告](AMADEUS_V1_2_RELEASE_READINESS.md)。
+
 | 插件 | main 中的包版本 | 职责 |
 | --- | --- | --- |
 | [Amadeus Persona](https://github.com/jeskoky-pixel/amadeus-persona) | `@amadeus/persona@0.1.0` | 一份核心人格、可复用场景风格、选定 Workspace 内的可信 System Prompt 注入 |
@@ -10,7 +12,15 @@ Amadeus 以官方 DeepSeek Harness（DSH）作为同一智能主体的运行基�
 | [Amadeus Life](https://github.com/jeskoky-pixel/amadeus-life) | `@amadeus/life@1.1.0` | 自主意图、活动调度、预算和唤醒 |
 | [Amadeus QQ](https://github.com/jeskoky-pixel/amadeus-qq) | `@amadeus/qq@1.1.1` | QQ 连续交流、可信 Scene、NapCat 接口和平台权限 |
 
-这五个版本已合并到各自仓库的 `main`，形成**个人电脑实机测试的开发基线**。Persona、QQ 和 Memory 等插件可单独使用；其他插件缺席时，各自按其文档降级。Persona 只决定“她是谁、在当前场景如何表达”，不替换 DSH Agent Preset，不增加模型工具，也不授予 QQ 或文件权限。
+表内五个版本已合并到各自仓库的 `main`，构成 v1.1 阶段的个人电脑实机测试基线。v1.2 候选均为 `@amadeus/{qq,memory,life,state,persona}@1.2.0`。Persona、QQ 和 Memory 等插件可单独使用；其他插件缺席时，各自按其文档降级。Persona 只决定“她是谁、在当前场景如何表达”，不替换 DSH Agent Preset，不增加模型工具，也不授予 QQ 或文件权限。
+
+## v1.2 控制台预览
+
+下图来自隔离 DSH Web Host 的真实浏览器，显示首次安装的空状态；尚未代表 Desktop 图形安装器或真实 QQ 接入验收。
+
+| QQ 控制台 | Persona 控制台 |
+| --- | --- |
+| ![QQ v1.2 空状态](docs/screenshots/qq-v12-overview.png) | ![Persona v1.2 空状态](docs/screenshots/persona-v12-overview.png) |
 
 QQ 1.1.1 在中文 Owner Web Console 加入“QQ 接管”开关，可暂停与恢复插件对 NapCat 的连接，供本地 AstrBot 与 DSH 轮流使用同一个 QQ 登录。补丁已通过自动化测试；真实 NapCat、AstrBot 与 DSH Desktop 的交接流程仍待个人电脑实测。
 

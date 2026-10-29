@@ -7,6 +7,7 @@ modules:
     priority: P0
     status: merged_main
     version: 1.1.1
+    candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
     release: null
@@ -15,6 +16,7 @@ modules:
     priority: P0
     status: merged_main
     version: 1.1.0
+    candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
     release: null
@@ -23,6 +25,7 @@ modules:
     priority: P1
     status: merged_main
     version: 1.0.1
+    candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
     release: null
@@ -31,6 +34,7 @@ modules:
     priority: P1
     status: merged_main
     version: 1.1.0
+    candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
     release: null
@@ -39,6 +43,7 @@ modules:
     priority: P1
     status: merged_main
     version: 0.1.0
+    candidate_version: 1.2.0
     visibility: public
     license_status: pending_owner_decision
     release: null
