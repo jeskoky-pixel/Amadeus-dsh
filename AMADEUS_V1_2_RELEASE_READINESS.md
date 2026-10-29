@@ -21,7 +21,7 @@
 - 官方 DSH Desktop `0.2.1-rc.3` 附带的 `dsh` CLI、Profile 管理器和 Web Host；Node `22.23.2`。未从当前证据推断其他 DSH 版本兼容。
 - 五个独立隔离 `DSH_HOME` 分别用官方 `dsh plugin --profile web add <tgz>` 安装一个候选包。五次 Host 启动及认证后的 HTTP 首页均返回 200。
 - 联合隔离 Profile 依序安装 QQ、Memory、State、Life、Persona；合成后的 Bundle ID 各出现一次，Memory 保留 `dsh-mneme`。联合 Host 启动成功；QQ 保持未配置/暂停，未连接 NapCat 或向外发送。
-- 从五个 PR 下载 GitHub Actions 产出的 `.tgz` artifact，在另一个全新隔离 Profile 联合安装，Host 与 QQ/Persona Owner Console 均通过认证后的 HTTP 200；表中校验值对应这一组实际 CI 包。
+- 从五个 PR 的首轮 GitHub Actions 下载 `.tgz` artifact，在另一个全新隔离 Profile 联合安装，Host 与 QQ/Persona Owner Console 均通过认证后的 HTTP 200。此项浏览器验证对应补发行说明前的 CI 包，不能冒充最终哈希所对应包的页面验收。
 - 将最终五个 CI artifact 在第三个全新隔离 `DSH_HOME` 中经官方 `dsh plugin --profile web add` 联合安装，五个包均解析为 `1.2.0`，随后 Web Host 成功启动。最终提交仅变更发行说明、市场草案及 Persona 的文档打包清单；不重复把先前功能验收写成新一轮真实 QQ 验收。
 - QQ 和 Persona Owner Web Console 在真实 Edge 浏览器中加载；QQ 六页、Persona 五页及主题切换通过，无页面脚本异常。首次安装 Persona 为空卡，QQ 显示待配置状态。
 - 完整自动化回归：QQ 303 项（299 通过、4 跳过）；Memory 717/717；Life 209/209；State 141/141；Persona 49/49。QQ 的 4 项跳过原因以其测试报告为准，不能计为通过。
