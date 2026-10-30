@@ -1,6 +1,6 @@
 # Amadeus v1.2.0 正式发行验收报告
 
-日期：2026-10-30。状态：**发行候选已推送到五个开发 PR；尚未合并、打 Tag、创建 GitHub Release 或发布 npm。** 本报告以 `@fg-lab/*` 新包和 Memory 根目录改造为准。此前 `@amadeus/*` 候选报告保留在 Git 历史中，不能代替新包验收。
+日期：2026-10-30。状态：**发行候选已推送到五个开发 PR，五仓新 CI 均通过；尚未合并、打 Tag、创建 GitHub Release 或发布 npm。** 本报告以 `@fg-lab/*` 新包和 Memory 根目录改造为准。此前 `@amadeus/*` 候选报告保留在 Git 历史中，不能代替新包验收。
 
 | 插件 | 候选 Commit / PR | npm 包 | 本地候选包 SHA-256 | 自动化 |
 | --- | --- | --- | --- | --- |
@@ -37,8 +37,8 @@
 
 ## 尚需完成的发行门禁
 
-1. 五个 PR 的新 CI 检查通过，审查最终 Diff、包哈希与 Tag 一致。
-2. 使用授权 NapCat 完成真实 QQ/Workspace/Scene 联合收发，并核实 Life 不重复外发；不改 NapCat 配置或登录状态。
+1. 审查最终 Diff、从最终 Tag 重打包并核对哈希；五个 PR 当前 CI 已通过。
+2. 使用授权 NapCat 完成真实 QQ/Workspace/Scene 联合收发，并核实 Life 不重复外发。当前本机只有 NapCat Desktop 主程序，Bot 清单为空、无正在监听的 OneBot 实例，因此此项尚不可执行；不能把离线模拟判为通过。
 3. 公共 npm 发布和固定 GitHub Release 后，从真实 Registry/Release 源重复独立安装、联合安装、重启、禁用/卸载与恢复检查。
 4. 对旧包名切换提供普通用户可操作的备份、移除旧包、安装新包步骤；不能声称包名改变可原位自动升级。
 
