@@ -1,25 +1,25 @@
 # Amadeus v1.2.0 安装、升级和回滚
 
-目前是内部候选版。五个独立预构建包由各仓库 PR 的 Windows CI 产生；首发选择固定版本 GitHub Release 包，暂不使用 npm `@amadeus` Scope。Release 尚未公开创建，也未提交外部 DSH Market。宿主测试目标为官方 DSH Desktop `0.2.1-rc.3`。普通用户在公开发行后应从各自市场条目选择明确版本安装，不需要 Node 工具链或 Codex。
+目前是 `@fg-lab/*@1.2.0` 正式发行验收阶段。五个独立预构建包将分别通过 npm 公共 Registry 和固定 GitHub Release 提供；在实际发布前，不应把开发分支或尚未生成的下载地址当作正式安装源。第三方 DSH Market 条目本轮只准备，不投稿。宿主测试目标为官方 DSH Desktop `0.2.1-rc.3`。
 
 | 插件 | GitHub 仓库 | 包位置 | 首次配置 |
 | --- | --- | --- | --- |
 | QQ | [amadeus-qq](https://github.com/jeskoky-pixel/amadeus-qq) | 根目录 | Workspace、Bot、Owner、NapCat、授权 Scene |
-| Memory | [amadeus-memory](https://github.com/jeskoky-pixel/amadeus-memory) | **`dsh-mneme/` 子目录** | 核对 `memoryDir`、Workspace 与 Scene 安全设置；只启用一个 `dsh-mneme` |
+| Memory | [amadeus-memory](https://github.com/jeskoky-pixel/amadeus-memory) | 根目录（v1.2 候选迁移中） | 核对 `memoryDir`、Workspace 与 Scene 安全设置；只启用一个 `dsh-mneme` |
 | Life | [amadeus-life](https://github.com/jeskoky-pixel/amadeus-life) | 根目录 | Workspace、活动与唤醒策略 |
 | State | [amadeus-state](https://github.com/jeskoky-pixel/amadeus-state) | 根目录 | Workspace、会话规则 |
 | Persona | [amadeus-persona](https://github.com/jeskoky-pixel/amadeus-persona) | 根目录 | Workspace、核心人格、风格和 Scene 绑定 |
 
 ## 单独或联合安装
 
-在目标 DSH Profile 的插件管理器中逐个安装版本化的预构建包，确认已安装列表、设置页和版本。首次安装 QQ 不会自动连接或外发，Persona 没有内置强制人格。其他插件是可选协作，不需为了安装其中一个而强制安装其余四个。联合部署时，推荐按 QQ → Memory → State → Life → Persona 配置；每项仍可独立停用。
+公开发行后，在目标 DSH Profile 的插件管理器中逐个安装固定版本的 `@fg-lab/amadeus-qq`、`@fg-lab/amadeus-memory`、`@fg-lab/amadeus-state`、`@fg-lab/amadeus-life`、`@fg-lab/amadeus-persona`，确认已安装列表、设置页和版本。首次安装 QQ 不会自动连接或外发，Persona 没有内置强制人格。其他插件是可选协作，不需为了安装其中一个而强制安装其余四个。联合部署时，推荐按 QQ → Memory → State → Life → Persona 配置；每项仍可独立停用。
 
-本轮已用官方 `dsh plugin --profile web add <versioned.tgz>` 在五个单插件隔离 Profile 和一个联合 Profile 验证安装、Bundle 合成与 Web Host 启动。Desktop 图形插件管理器的点击安装、公开 Market 下载入口和真实 Workspace 首次配置仍需独立验收，不应从 CLI 成功推断为 GUI 全流程通过。
+新 `@fg-lab/*` 本地包已经用官方 `dsh plugin --profile web add <versioned.tgz>` 在隔离 Profile 联合安装，并完成旧名→新名的合成数据演练；同版 Desktop 图形插件管理器也完成五包本地安装、启用、设置页加载和一次重启。**公开 npm Registry、GitHub Release 与 Market 下载入口尚未验收**；首次配置的真实 NapCat/Workspace 联动也仍待验证。
 
 ## 升级前
 
 1. 记录五个旧包版本、当前 DSH 版本、Profile、Workspace ID 和各数据路径；保留旧 `.tgz`。
-2. 停止插件写入并导出 DSH Profile。对 QQ JSON、Memory 的完整 `memoryDir`、Life/State SQLite（含 WAL/SHM）、Persona 目录做一致性备份，计算校验值。
+2. 停止插件写入并导出 DSH Profile。对 QQ JSON、Memory 的完整 `memoryDir`、Life/State SQLite（含 WAL/SHM）、Persona 目录做一致性备份，计算校验值。包名迁移时先卸载旧 `@amadeus/*` 包，再安装对应 `@fg-lab/amadeus-*` 包；Memory 必须确认只存在一个 `dsh-mneme` Bundle。
 3. 在隔离 Profile 使用旧版创建合成数据，先演练新包替换、重启、内容与关系检查，再升级个人 Profile。
 
 升级时沿用原安装 Profile 和数据路径，绝不通过重建空库或新 Session 掩盖丢失。Memory 的原根目录 `memory.db` 不会被自动收养；出现“空白”时先检查 Workspace 绑定和实际路径。Memory v1.2 首次打开未标记的既有库时，在 schema 变化前创建 `backups/memory-before-schema-v1-*.db`。
@@ -32,4 +32,4 @@
 
 ## Market 条目
 
-五个市场 YAML 草案均在各自仓库的 `market/`，Memory 使用子目录形式和固定 Release tarball。市场正式收录、GitHub Release 和 DSH Market 下载验收尚未发生；条目不可当作已上架链接。未来市场更新必须指向明确的已验收发行版本，避免使用浮动开发分支。npm Scope 权限尚未核实，若以后改走 npm，应单独设计包名迁移，不在 v1.2 中改名。
+五个市场 YAML 草案均在各自仓库的 `market/`，Memory v1.2 草案已经改为根目录形式。市场正式收录、GitHub Release 和 DSH Market 下载验收尚未发生；条目不可当作已上架链接。npm `@fg-lab` 组织 Owner 权限已核实，但正式发布仍取决于最终 CI、真实联动、2FA 和实际 Registry 安装结果。

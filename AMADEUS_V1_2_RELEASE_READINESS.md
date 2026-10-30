@@ -1,59 +1,45 @@
-# Amadeus v1.2.0 发行准备报告
+# Amadeus v1.2.0 正式发行验收报告
 
-日期：2026-10-30。状态：**内部候选与隔离 DSH 运行时验收中；未公开发行**。本报告记录实际完成的测试和仍待完成的 Desktop/Market 验收，不构成生产部署许可。
+日期：2026-10-30。状态：**发行候选已推送到五个开发 PR；尚未合并、打 Tag、创建 GitHub Release 或发布 npm。** 本报告以 `@fg-lab/*` 新包和 Memory 根目录改造为准。此前 `@amadeus/*` 候选报告保留在 Git 历史中，不能代替新包验收。
 
-项目主页与兼容矩阵的同步修改见 [Amadeus-dsh PR #6](https://github.com/jeskoky-pixel/Amadeus-dsh/pull/6)。五个包可从各自 PR 对应的 CI 运行下载：[QQ](https://github.com/jeskoky-pixel/amadeus-qq/actions/runs/40922905467)、[Memory](https://github.com/jeskoky-pixel/amadeus-memory/actions/runs/40918844393)、[Life](https://github.com/jeskoky-pixel/amadeus-life/actions/runs/40922901792)、[State](https://github.com/jeskoky-pixel/amadeus-state/actions/runs/40922901223)、[Persona](https://github.com/jeskoky-pixel/amadeus-persona/actions/runs/40922900718)。当前为 CI artifact，需要 GitHub 登录；正式固定 Release 下载地址尚未创建。
+| 插件 | 候选 Commit / PR | npm 包 | 本地候选包 SHA-256 | 自动化 |
+| --- | --- | --- | --- | --- |
+| QQ | `5378adc` · [PR #5](https://github.com/jeskoky-pixel/amadeus-qq/pull/5) | `@fg-lab/amadeus-qq@1.2.0` | `adaddec438a457ba25a0a9fc697cf051cdc14b7d5c6aefea7864c353114e1443` | 299 通过、4 跳过 |
+| Memory | `7fccd83` · [PR #6](https://github.com/jeskoky-pixel/amadeus-memory/pull/6) | `@fg-lab/amadeus-memory@1.2.0` | `2fca0e0d4cfc11e878f443e87f7268434d66e0d073318a6c926cc7d089d21ff3` | 产品门禁 717/717 |
+| Life | `4044e41` · [PR #5](https://github.com/jeskoky-pixel/amadeus-life/pull/5) | `@fg-lab/amadeus-life@1.2.0` | `7f2d126010dbc4c9d4701a846461c03b1a8ed2018ec63a1a22218ac894f28499` | 209/209 |
+| State | `d1c29c9` · [PR #4](https://github.com/jeskoky-pixel/amadeus-state/pull/4) | `@fg-lab/amadeus-state@1.2.0` | `f67fee94e861a8f03fe4c7a2e37e137a730682884860267013aa09850a41eab0` | 141/141 |
+| Persona | `9a0b377` · [PR #2](https://github.com/jeskoky-pixel/amadeus-persona/pull/2) | `@fg-lab/amadeus-persona@1.2.0` | `1957d64d05a5ff641117195f68cab166dff405b54c3b8a37e5973458a78eb11c` | 49/49 |
 
-## 候选版本与安装包
+上述 SHA 是提交前工作树的本地 `.tgz`，不代表 GitHub Release 或 npm Registry 上已有这些资产。正式发行时将从最终 Tag 重打包并核对哈希与内容。五仓 `verify:release`、`npm publish --dry-run --access public` 通过；包清单包含 Host、Client、静态资源和许可证，不含已识别的数据库、密钥或个人日志。Memory 包含原作者的 MIT `LICENSE` 和 `UPSTREAM.md`。公开 Registry 尚无这五个 1.2.0 版本。
 
-| 插件 | 来源基线 | 候选版本 | 内部插件 ID | GitHub CI 预构建包 SHA-256 | 候选 Commit / PR |
-| --- | --- | --- | --- | --- | --- |
-| QQ | `1.1.1` | `@amadeus/qq@1.2.0` | `amadeus-qq` | `e9fbe69cebbd9982a8834cac1a1e3f1f41457f560e8b520eef426bdef2bea01b` | `cae2f00` · [PR #5](https://github.com/jeskoky-pixel/amadeus-qq/pull/5) |
-| Memory | `1.0.1` | `@amadeus/memory@1.2.0` | `dsh-mneme` | `a903863e549d3ad481b4d4fd737fe369449a221cb4570b4c24bf6cf0a426e1fa` | `d1cebdb` · [PR #6](https://github.com/jeskoky-pixel/amadeus-memory/pull/6) |
-| Life | `1.1.0` | `@amadeus/life@1.2.0` | `amadeus-life` | `596b88906b5e8e6386fd6fc498c76ab9a1867759c4f1ed7fdb48eb5e7dd1d641` | `19b7998` · [PR #5](https://github.com/jeskoky-pixel/amadeus-life/pull/5) |
-| State | `1.1.0` | `@amadeus/state@1.2.0` | `amadeus-state` | `3f7152574e093f5d575cccdd5c921c0dc399fa34d0b45b81ed8695b85136b0ed` | `2f51df7` · [PR #4](https://github.com/jeskoky-pixel/amadeus-state/pull/4) |
-| Persona | `0.1.0` | `@amadeus/persona@1.2.0` | `amadeus-persona` | `ccef7d121ae16ab6921907bfb0bd0ab6f642a8e6142f3ce6124a57b76ee7005b` | `e3ea6d4` · [PR #2](https://github.com/jeskoky-pixel/amadeus-persona/pull/2) |
+## Memory 根目录改造
 
-表中 SHA-256 对应五个 PR 的 GitHub Actions 候选 `.tgz` artifact。它们与本地 `npm pack --ignore-scripts` 产物的文件名和文件内容一致；少数文本文件的 CRLF/LF 差异导致压缩包 SHA 不同，因此以可下载的 CI artifact 校验值为准。所有包均通过 `verify:release` 的 Manifest、Host/Client 入口、静态资源、截图清单、安装脚本与敏感路径/高置信密钥扫描。扫描不能替代人工隐私审查。
+- 493 个跟踪文件从 `dsh-mneme/` 移到仓库根；旧根 README 与上游 README 分别归档，根目录直接具备 `package.json`、`cordis.patch.yml`、`src/`、`lib/`、`assets/`、`locale/`、`scripts/`、`test/`、`docs/`、`LICENSE` 与 `UPSTREAM.md`。
+- 移动前后 183 个 `src/`、`lib/` 文件的字节 SHA-256 一致；少量后续编辑仅为包名、路径、测试假设和发行元数据。内部 Bundle ID `dsh-mneme`、默认 `memoryDir=~/.dsh/memory`、SQLite schema、模型工具与现有数据协议保持。
+- `npm test` 717/717。扩展 `test:all` 迁移前 2617 通过、36 失败、1 跳过；迁移后 2618 通过、35 失败、1 跳过，剩余 35 项均为迁移前已有的旧上游套件/环境失败，分类见 [移动专项记录](https://github.com/jeskoky-pixel/amadeus-memory/blob/codex/v1.2-release/docs/verification/MEMORY_V12_FLATTEN_MOVE.md)。
+- 同一 10k 合成数据基准的 P95，移动前→移动后：关键词服务 53.951→52.146 ms，向量服务 89.075→84.673 ms，SQL 11.180→11.045 ms，本地向量 23.818→24.022 ms。短时合成基准有运行波动，不能当作生产负载性能保证。
+- GitHub 根目录和 npm 包不再需要 `#path:/dsh-mneme`。旧 `@amadeus/memory` 与新包必须先移除旧包再装新包，避免两个 `dsh-mneme` 实例同时打开数据库。迁移前必须做一致性备份，之后核对工作区绑定、记忆正文、图谱和 Scene 权限。
 
-五仓库已补齐 v1.2 发行说明，并为市场草案加入未来 `v1.2.0` GitHub Release 的固定 `.tgz` 地址。QQ、Life、State、Persona 的 MIT 许可决定已写入源码与包；表中对应当前推送的候选 Commit。五个 CI 检查均通过，SHA-256 已按重新下载的最新 CI artifact 计算。GitHub Release 资产仍未创建，市场草案的固定地址目前不可安装。
+## 安装、升级与联合运行
 
-## 测试过的宿主与功能
+使用官方 DSH Desktop `0.2.1-rc.3`、独立 `DSH_HOME` 和合成数据。官方 `dsh plugin` CLI 从五个旧包建立 QQ Scene/Session、Memory 记忆、Life 意图、State 事件/兴趣、Persona 核心与风格绑定；逐个移除旧 `@amadeus/*` 包再安装对应 `@fg-lab/*` 包。新代码读取所有关键内容和关联通过，Memory 数据库升级到 schema 1 且 `quick_check=ok`。同一隔离 Profile 只有五个新包和五个唯一内部 Bundle；Web Host 启动后认证 HTTP 首页为 200。
 
-- 官方 DSH Desktop `0.2.1-rc.3` 附带的 `dsh` CLI、Profile 管理器和 Web Host；Node `22.23.2`。未从当前证据推断其他 DSH 版本兼容。
-- 五个独立隔离 `DSH_HOME` 分别用官方 `dsh plugin --profile web add <tgz>` 安装一个候选包。五次 Host 启动及认证后的 HTTP 首页均返回 200。
-- 联合隔离 Profile 依序安装 QQ、Memory、State、Life、Persona；合成后的 Bundle ID 各出现一次，Memory 保留 `dsh-mneme`。联合 Host 启动成功；QQ 保持未配置/暂停，未连接 NapCat 或向外发送。
-- 从五个 PR 的首轮 GitHub Actions 下载 `.tgz` artifact，在另一个全新隔离 Profile 联合安装，Host 与 QQ/Persona Owner Console 均通过认证后的 HTTP 200。此项浏览器验证对应补发行说明前的 CI 包，不能冒充最终哈希所对应包的页面验收。
-- 将五个当前 CI artifact 在新的隔离 `DSH_HOME` 中经官方 `dsh plugin --profile web add` 联合安装，五个包均解析为 `1.2.0`，随后 Web Host 成功启动。四个 MIT 包的元数据标记 `MIT` 且实际包含 `LICENSE`；五个包逐文件与本地 pack 比对一致。此项不冒充 Desktop 图形安装或真实 QQ 验收。
-- QQ 和 Persona Owner Web Console 在真实 Edge 浏览器中加载；QQ 六页、Persona 五页及主题切换通过，无页面脚本异常。首次安装 Persona 为空卡，QQ 显示待配置状态。
-- 完整自动化回归：QQ 303 项（299 通过、4 跳过）；Memory 717/717；Life 209/209；State 141/141；Persona 49/49。QQ 的 4 项跳过原因以其测试报告为准，不能计为通过。
+同版 **Desktop 图形插件管理器** 已从本地 `.tgz` 安装并启用五个新包；原生设置菜单出现五个独立入口，QQ 首次设置、Memory 多页管理、Life 健康/活动页、State 状态页、Persona 健康/Workspace 页均实际渲染。一次完整 Desktop 重启后五包仍在已安装列表，Persona 保持未配置空状态，Life 自主唤醒默认关闭，QQ 未配置且未外发。本项证实本地包的图形安装与基础加载，不代表公共 Registry 或 Market 下载安装已经通过。
 
-## 长期升级与数据兼容性专项验收
+**数据隔离复核：** 一次 Desktop 预检在设置测试专用 `memoryDir` 之前启动了 Memory，触及已有用户记忆目录的 SQLite 共享内存文件；随即停止实例。现有数据库主文件与 WAL 修改时间早于该预检，复制出的只读快照 `quick_check=ok`，但没有事前哈希，不能据此断言完全未受影响。随后 Desktop 测试改为明确的隔离目录，并核实原目录不再更新。正式部署前应再次核对目标 `memoryDir`，不能把默认路径直接用于破坏性升级演练。
 
-| 插件 | 数据目录与格式 | 本轮演练 |
-| --- | --- | --- |
-| QQ | DSH Profile 配置、绝对 `statePath` 的 JSON schema 1、DSH Session 日志 | 旧包写入合成 Scene 权限、Session 和消息；1.2 后内容与绑定保留 |
-| Memory | `memoryDir` 的 Workspace/未绑定 SQLite，旧版 user_version 0 → 1 | 旧包写入记忆；升级生成迁移前一致性备份，正文保留；备份失败与未来版本拒绝测试通过 |
-| Life | `$DSH_HOME/amadeus-life/life.sqlite` 或显式路径，schema 10 | 旧包写入意图；升级后内容保留；既有 v9→v10 备份/失败恢复测试通过 |
-| State | `$DSH_HOME/amadeus-state/state.sqlite` 或显式路径，schema 2 | 旧包写入事件与兴趣；升级后内容保留；既有 v1→v2 迁移/恢复测试通过 |
-| Persona | `$DSH_HOME/amadeus-persona/persona.json` 或显式目录，schema 1 | 旧包写入核心、风格、Workspace 与 Session 绑定；升级后内容和有效绑定保留 |
+## 发行与市场状态
 
-升级演练使用上一基线从 GitHub main 源码打成的旧 `.tgz`，先由旧代码生成真实格式的**合成**用户数据，再由官方 `dsh plugin` 将包替换为 1.2.0。替换安装包后、首次运行新代码前，五个数据主文件的 SHA-256 均完全不变。升级后新代码读取关键字段、关系和授权；联合 Host 重启后再次读取通过。Memory 迁移备份只生成一次。随后在隔离 Profile 卸载全部五包，数据目录仍存在；重新安装 1.2 后内容可读。将代码回退到上述旧版也可读取这组数据，最后恢复 1.2。上述回退仅证明本轮 schema 组合，不保证未来不可逆迁移可以仅回退程序。
+- npm 登录用户为 `kyjesko`，`fg-lab` 组织中拥有 Owner 权限，CLI 12.0.2；用户已选择 QQ、Life、State、Persona MIT，Memory 保留 Mneme MIT 原作者版权。首次 npm 正式发布可能需要用户本人完成 2FA；未索取或存储 Token。
+- 五仓新增只允许手动从版本 Tag 触发的 `npm-publish.yml`，核验 Tag 与包版本、Commit 属于 `main`，重跑测试、打包，并以 OIDC provenance 发布。首次包发布后仍需由用户在 npm 网站为各包配置精确的 GitHub Trusted Publisher；工作流尚未触发。
+- GitHub About 已设置准确简介、项目主页和 `dsh-plugin` / `deepseek-harness` / `amadeus` Topic。五个市场条目草案遵循 Awesome DSH Plugin 的 YAML 字段，Memory 指向仓库根；详情见[市场准备](docs/DSH_MARKET_V1_2.md)。**未向第三方市场提交 PR/Issue，未确认被 DSH Market 自动索引。**
+- 尚未创建 `v1.2.0` Tag、GitHub Release、公开 npm 包；没有对外安装结果，不能把 dry-run 或本地 `.tgz` 当作已发行。
 
-配置与代码分离：QQ 的 Bot/Owner/白名单在 DSH Profile，Scene 状态在 `statePath`；Memory 的 `memoryDir` 不位于包内；Life/State/Persona 默认在 `$DSH_HOME` 下。每仓库已有 `UPGRADE_POLICY.md`、`DATA_MIGRATION.md`、`RELEASE_CHECKLIST.md`，CI 包含测试、构建、pack 内容与 SHA 检查。未来 v1.2.1 / v1.3.0 仍须按“上一稳定版安装 → 合成旧格式数据 → 升级 → 重启 → 内容/关联/权限验证 → 失败恢复”执行；不允许仅比较条数或覆盖 main。
+## 尚需完成的发行门禁
 
-## 发行许可、npm Scope 与 Market
+1. 五个 PR 的新 CI 检查通过，审查最终 Diff、包哈希与 Tag 一致。
+2. 使用授权 NapCat 完成真实 QQ/Workspace/Scene 联合收发，并核实 Life 不重复外发；不改 NapCat 配置或登录状态。
+3. 公共 npm 发布和固定 GitHub Release 后，从真实 Registry/Release 源重复独立安装、联合安装、重启、禁用/卸载与恢复检查。
+4. 对旧包名切换提供普通用户可操作的备份、移除旧包、安装新包步骤；不能声称包名改变可原位自动升级。
 
-- `npm whoami` 返回未登录；`@amadeus` Scope 的发布权限尚未证实。所有者选择 v1.2 **先走固定 GitHub Release `.tgz`**，本轮不进行 npm 发布，也不更改包名。四个此前未定许可的仓库 QQ、Life、State、Persona 已由所有者明确选择 MIT，Memory 保留原有 MIT 和上游许可记录。四包继续保留 `private:true` 作为 npm 防误发保护；发行包审计检查 `LICENSE` 实际入包。
-- 五个仓库均已设置 `dsh-plugin` GitHub Topic；`market/*.yml` 草案使用官方分类、双语简介、GitHub 托管图标，以及未来固定 `v1.2.0` Release 包地址。Memory 采用 `tree/main/dsh-mneme` 和 `owner/repo#dsh-mneme`。Release 资产目前尚不存在，条目不能提交外部目录或视为已上架/安全审计通过。
-- 按 Market 实际使用的 `github:` 源格式，QQ 的固定 Commit 已从 GitHub 安装成功。Memory 的 `#path:/dsh-mneme` 源安装多次失败；Life 的固定 Commit 安装也因 GitHub `HEAD` 超时及 Git fetch 无法连接 443 端口而失败。对应失败发生在下载阶段，未得到包内容或运行时错误证据；其他三个插件的 GitHub 源路径尚未验收。安装包本身的本地与 CI 路径均通过。
-- `Amadeus Suite` 元 Bundle 暂缓；当前优先五个独立包。尚未验证间接依赖、加载顺序与卸载语义，不使用 postinstall 脚本修改用户 Profile。
-
-## 尚未通过的发行门禁
-
-1. 独立 DSH Desktop 图形插件管理器的点击安装、首次 GUI 配置、升级、禁用和卸载全流程；本轮使用的是同版 Desktop 附带的 CLI 与 Web Host。
-2. 外部 DSH Market 对 GitHub 候选源的真实下载、安装和更新流程；未公开发行前没有可指向的正式版本。
-3. 五插件在真实 NapCat、实际 Workspace / Session、模型推理、Life 自主唤醒和长期记忆向量检索中的联合实机运行；没有触碰生产 Profile、QQ 或记忆数据库。
-4. 最终 MIT 包与 Release 版本绑定、Desktop 图形安装和固定 Release 下载源仍需验收；npm Scope 不再阻塞本轮 GitHub Release 路线。
-
-这些项目完成并复核最终包 SHA 后，才能请求用户的一次性公开发行确认；该确认之前不执行公开 GitHub Release 或外部市场收录 PR。本轮不执行 npm publish。
+这些门禁未完成前，五个 PR 保持开发候选，不把合并、Release 或 npm 发布标记为完成。

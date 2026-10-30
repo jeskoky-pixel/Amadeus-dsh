@@ -2,7 +2,7 @@
 
 Amadeus 以官方 DeepSeek Harness（DSH）作为同一智能主体的运行基础。五个独立插件分别负责人格、记忆、当前状态、自主活动和 QQ 交流；可独立安装、停用与升级，不通过切换 Agent Preset 制造不同的“她”。
 
-**v1.2.0 内部发行候选**已完成预构建包和隔离 DSH 运行时的安装、升级与数据保留演练；本轮选择固定 GitHub Release 包作为发行源，不计划 npm 发布。公开 GitHub Release 和外部 DSH Market 收录仍待最终发行确认。当前 GitHub `main` 中的稳定开发基线仍是下表旧版本，候选版本在各插件的 v1.2 PR 中。阅读 [v1.2 安装与升级](docs/V1_2_INSTALL_AND_UPGRADE.md)、[兼容矩阵](docs/V1_2_COMPATIBILITY.md)和[发行准备报告](AMADEUS_V1_2_RELEASE_READINESS.md)。
+**v1.2.0 正在进行正式发行验收。** 五个独立插件的目标 npm 包是 `@fg-lab/amadeus-{qq,memory,life,state,persona}@1.2.0`。Memory 正将完整插件工程迁至仓库根目录，内部插件 ID 仍为 `dsh-mneme`。在最终包通过测试、隔离安装和升级验收并完成公开发布前，请把各仓库 `main` 视作下表所示的旧开发基线。阅读 [v1.2 安装与升级](docs/V1_2_INSTALL_AND_UPGRADE.md)、[兼容矩阵](docs/V1_2_COMPATIBILITY.md)和[发行准备报告](AMADEUS_V1_2_RELEASE_READINESS.md)。
 
 | 插件 | main 中的包版本 | 职责 |
 | --- | --- | --- |
@@ -12,7 +12,7 @@ Amadeus 以官方 DeepSeek Harness（DSH）作为同一智能主体的运行基�
 | [Amadeus Life](https://github.com/jeskoky-pixel/amadeus-life) | `@amadeus/life@1.1.0` | 自主意图、活动调度、预算和唤醒 |
 | [Amadeus QQ](https://github.com/jeskoky-pixel/amadeus-qq) | `@amadeus/qq@1.1.1` | QQ 连续交流、可信 Scene、NapCat 接口和平台权限 |
 
-表内五个版本已合并到各自仓库的 `main`，构成 v1.1 阶段的个人电脑实机测试基线。v1.2 候选均为 `@amadeus/{qq,memory,life,state,persona}@1.2.0`。Persona、QQ 和 Memory 等插件可单独使用；其他插件缺席时，各自按其文档降级。Persona 只决定“她是谁、在当前场景如何表达”，不替换 DSH Agent Preset，不增加模型工具，也不授予 QQ 或文件权限。
+表内五个版本已合并到各自仓库的 `main`，构成 v1.1 阶段的个人电脑实机测试基线。v1.2 的对外包名将改为 `@fg-lab/amadeus-*`；旧包与新包不能同时安装，以免重复注册插件。五个插件可单独使用；其他插件缺席时，各自按文档降级。Persona 只决定“她是谁、在当前场景如何表达”，不替换 DSH Agent Preset，不增加模型工具，也不授予 QQ 或文件权限。
 
 ## v1.2 控制台预览
 
@@ -32,11 +32,11 @@ Memory 负责她记得什么，State 负责她此刻的状态，Life 负责她�
 
 ## 安装与验证边界
 
-目前核对的宿主是隔离 DSH Desktop `0.2.1-rc.3`。从各仓库的实际包目录构建安装包，再通过 DSH 插件管理器安装与首次配置。**Memory 的包位于仓库 `dsh-mneme/` 子目录，Bundle ID 仍是 `dsh-mneme`**；不要安装第二个 Mneme 实例同时写入同一数据库。Persona 的管理界面选择 Workspace、编辑核心人格及场景风格；QQ、Memory、State、Life 各有独立设置和数据目录。
+目前核对的宿主是隔离 DSH Desktop `0.2.1-rc.3`。v1.2 将从每个仓库根目录打包；Memory 迁移完成后无需 `#path:/dsh-mneme`，其 Bundle ID 仍是 `dsh-mneme`。升级 Memory 前应备份数据并移除旧 `@amadeus/memory` 包，避免两个实例同时写入数据库。Persona 的管理界面选择 Workspace、编辑核心人格及场景风格；QQ、Memory、State、Life 各有独立设置和数据目录。
 
 [五插件版本与验收边界](docs/FIVE_PLUGIN_COMPATIBILITY.md)记录了 main SHA、隔离 Desktop 同装、真实模型调用、离线 QQ Host 场景和仍未通过的实机项目。早期[四插件 v1.0 兼容矩阵](docs/FOUR_PLUGIN_COMPATIBILITY.md)与[原始联合验收](docs/verification/AMADEUS_V1_FOUR_PLUGIN_ACCEPTANCE.md)作为历史证据保留。
 
-Persona 的长期测试会话在切回风格后曾复述旧风格，尽管最终 System Prompt 已更新；用户接受其作为当前开发基线的**已知模型上下文局限**，详情见 [Persona 验收报告](https://github.com/jeskoky-pixel/amadeus-persona/blob/main/docs/VERIFICATION_2026-10-29.md)。本轮五插件联测未连接真实 NapCat，也未完成 State 演化、Life 自主唤醒与长期生产负载测试。**合并 main 不等于生产部署许可**；五个插件均未创建正式 GitHub Release、发布 npm 包或提交 DSH Market。
+Persona 的长期测试会话在切回风格后曾复述旧风格，尽管最终 System Prompt 已更新；这是当前开发基线的**已知模型上下文局限**，详情见 [Persona 验收报告](https://github.com/jeskoky-pixel/amadeus-persona/blob/main/docs/VERIFICATION_2026-10-29.md)。上一轮五插件联测未连接真实 NapCat，也未完成 State 演化、Life 自主唤醒与长期生产负载测试。本轮将重新验证 `@fg-lab/*` 最终包；此前候选包的结果不能直接替代正式发行验收。市场条目仅准备材料，本轮不会向第三方市场投稿。
 
 ## 项目文档
 
