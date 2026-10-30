@@ -5,12 +5,12 @@
 | 插件 | 候选 Commit / PR | npm 包 | 本地候选包 SHA-256 | 自动化 |
 | --- | --- | --- | --- | --- |
 | QQ | `5378adc` · [PR #5](https://github.com/jeskoky-pixel/amadeus-qq/pull/5) | `@fg-lab/amadeus-qq@1.2.0` | `adaddec438a457ba25a0a9fc697cf051cdc14b7d5c6aefea7864c353114e1443` | 299 通过、4 跳过 |
-| Memory | `7fccd83` · [PR #6](https://github.com/jeskoky-pixel/amadeus-memory/pull/6) | `@fg-lab/amadeus-memory@1.2.0` | `2fca0e0d4cfc11e878f443e87f7268434d66e0d073318a6c926cc7d089d21ff3` | 产品门禁 717/717 |
+| Memory | `0413672` · [PR #6](https://github.com/jeskoky-pixel/amadeus-memory/pull/6) | `@fg-lab/amadeus-memory@1.2.0` | `2c54e4106ac125681742afb922c968e20f0a9d50f6afae80da9398d54dd8c19e` | 产品门禁 718/718 |
 | Life | `4044e41` · [PR #5](https://github.com/jeskoky-pixel/amadeus-life/pull/5) | `@fg-lab/amadeus-life@1.2.0` | `7f2d126010dbc4c9d4701a846461c03b1a8ed2018ec63a1a22218ac894f28499` | 209/209 |
 | State | `d1c29c9` · [PR #4](https://github.com/jeskoky-pixel/amadeus-state/pull/4) | `@fg-lab/amadeus-state@1.2.0` | `f67fee94e861a8f03fe4c7a2e37e137a730682884860267013aa09850a41eab0` | 141/141 |
 | Persona | `9a0b377` · [PR #2](https://github.com/jeskoky-pixel/amadeus-persona/pull/2) | `@fg-lab/amadeus-persona@1.2.0` | `1957d64d05a5ff641117195f68cab166dff405b54c3b8a37e5973458a78eb11c` | 49/49 |
 
-上述 SHA 是提交前工作树的本地 `.tgz`，不代表 GitHub Release 或 npm Registry 上已有这些资产。正式发行时将从最终 Tag 重打包并核对哈希与内容。五仓 `verify:release`、`npm publish --dry-run --access public` 通过；包清单包含 Host、Client、静态资源和许可证，不含已识别的数据库、密钥或个人日志。Memory 包含原作者的 MIT `LICENSE` 和 `UPSTREAM.md`。公开 Registry 尚无这五个 1.2.0 版本。
+上述 SHA 是本地候选 `.tgz`，不代表 GitHub Release 或 npm Registry 上已有这些资产。Memory 行的 SHA 对应 `0413672` 提交后的重打包；正式发行时仍须从最终 Tag 重打包并核对哈希与内容。五仓 `verify:release`、`npm publish --dry-run --access public` 通过；包清单包含 Host、Client、静态资源和许可证，不含已识别的数据库、密钥或个人日志。Memory 包含原作者的 MIT `LICENSE` 和 `UPSTREAM.md`。公开 Registry 尚无这五个 1.2.0 版本。
 
 ## Memory 根目录改造
 
@@ -28,6 +28,14 @@
 
 **数据隔离复核：** 一次 Desktop 预检在设置测试专用 `memoryDir` 之前启动了 Memory，触及已有用户记忆目录的 SQLite 共享内存文件；随即停止实例。现有数据库主文件与 WAL 修改时间早于该预检，复制出的只读快照 `quick_check=ok`，但没有事前哈希，不能据此断言完全未受影响。随后 Desktop 测试改为明确的隔离目录，并核实原目录不再更新。正式部署前应再次核对目标 `memoryDir`，不能把默认路径直接用于破坏性升级演练。
 
+## 主 DSH 与授权 NapCat 联测（2026-10-30）
+
+用户授权改用正在登录的 NapCat 与主 DSH Desktop。测试前已备份主 Profile 和 NapCat 网络配置；NapCat 新增仅监听回环地址、带鉴权的 HTTP / WebSocket 接口。官方插件 CLI 将五个 1.2.0 候选包安装进主 Desktop Profile，五个组件均显示运行中。QQ 只授权一个 Owner 私聊和一个双人测试群，真实 OneBot 登录、好友/群目录查询及 QQ Host WebSocket 连接均成功；两个 Scene 各绑定独立 DSH Session，重启后 Session ID 未改变。经 NapCat HTTP 接口直接向这两个授权对象各发送一条测试文字，平台均返回消息 ID；这只验证平台外发，不算 QQ 模型工具外发。QQ Web Console 总览、会话管理和功能状态页已在主 Desktop 的受保护页面中加载。没有向其他 QQ 对象外发。
+
+Memory 在主 Profile 启动前指定全新隔离数据目录，并通过可信 Workspace Registry 绑定同一工作区，开启 Scene 隔离和严格 QQ 模式。真实模型调用 `memory_save` 后，首次 `memory_get` / `memory_search` / `memory_list` 读不到新记录；SQLite 检查证实记录已落盘。定向修复普通 DSH 会话的无 QQ Scene 读路径后，重新安装包并重启，模型对同一 ID 的 `memory_get` 和 `memory_search` 均命中原记录。QQ 标记记忆仍需可信 Host Scene，普通会话只可读未标记的 Workspace 记忆。详见 [Memory 主 DSH 验收](https://github.com/jeskoky-pixel/amadeus-memory/blob/codex/v1.2-release/docs/verification/MEMORY_V12_MAIN_DSH_2026-10-30.md)。
+
+State、Life、Persona 均已通过管理员接口绑定同一工作区；Life 枚举到两个 QQ Session 和一个普通 DSH Session，保持自主投递关闭；Persona 独立 System Prompt Section 已注册，但核心卡为空，因此本轮没有人格文本注入。Memory 的旧人格卡仍关闭。**尚未收到授权账号在插件连接后新发的入站消息，也未通过 QQ 模型工具完成实机外发；Life 自主 QQ 唤醒与不重复外发尚未实机通过。**本轮不能把连接和 Session 恢复等同于完整 QQ 收发验收。
+
 ## 发行与市场状态
 
 - npm 登录用户为 `kyjesko`，`fg-lab` 组织中拥有 Owner 权限，CLI 12.0.2；用户已选择 QQ、Life、State、Persona MIT，Memory 保留 Mneme MIT 原作者版权。首次 npm 正式发布可能需要用户本人完成 2FA；未索取或存储 Token。
@@ -38,7 +46,7 @@
 ## 尚需完成的发行门禁
 
 1. 审查最终 Diff、从最终 Tag 重打包并核对哈希；五个 PR 当前 CI 已通过。
-2. 使用授权 NapCat 完成真实 QQ/Workspace/Scene 联合收发，并核实 Life 不重复外发。当前本机只有 NapCat Desktop 主程序，Bot 清单为空、无正在监听的 OneBot 实例，因此此项尚不可执行；不能把离线模拟判为通过。
+2. 真实 NapCat 已连接并完成双 Scene Session 与重启持久性验证；仍需授权账号的新入站消息、QQ 模型工具外发，以及 Life 自主唤醒与 QQ 不重复外发的端到端验收。不能把 OneBot 连接或离线模拟判为完整通过。
 3. 公共 npm 发布和固定 GitHub Release 后，从真实 Registry/Release 源重复独立安装、联合安装、重启、禁用/卸载与恢复检查。
 4. 对旧包名切换提供普通用户可操作的备份、移除旧包、安装新包步骤；不能声称包名改变可原位自动升级。
 
