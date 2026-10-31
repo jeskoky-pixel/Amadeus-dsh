@@ -1,3 +1,5 @@
+> 历史 v1.2 发行准备记录。当前 main 版本与本轮验收以[2026-10-31 整合报告](../AMADEUS_MAIN_INTEGRATION_2026-10-31.md)为准；Memory 已完成根目录整理。
+
 # Amadeus v1.2.0 五插件兼容矩阵
 
 状态：`@fg-lab/*@1.2.0` 发行验收中。下表升级实验已使用五个新包、官方 DSH Desktop `0.2.1-rc.3` 附带的 CLI / Web Host 和独立 `DSH_HOME`；Desktop 图形插件管理器也完成本地包安装、启用与重启。公开 Registry 下载源、真实 NapCat 联动和生产数据迁移尚未通过。

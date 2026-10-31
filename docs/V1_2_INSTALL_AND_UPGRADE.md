@@ -1,3 +1,5 @@
+> 历史 v1.2 发行准备记录。当前 main 版本与本轮验收以[2026-10-31 整合报告](../AMADEUS_MAIN_INTEGRATION_2026-10-31.md)为准；Memory 已完成根目录整理。
+
 # Amadeus v1.2.0 安装、升级和回滚
 
 目前是 `@fg-lab/*@1.2.0` 正式发行验收阶段。五个独立预构建包将分别通过 npm 公共 Registry 和固定 GitHub Release 提供；在实际发布前，不应把开发分支或尚未生成的下载地址当作正式安装源。第三方 DSH Market 条目本轮只准备，不投稿。宿主测试目标为官方 DSH Desktop `0.2.1-rc.3`。
