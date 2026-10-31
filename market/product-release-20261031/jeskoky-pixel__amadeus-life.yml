@@ -1,0 +1,7 @@
+url: https://github.com/jeskoky-pixel/amadeus-life
+name: jeskoky-pixel/amadeus-life
+category: workflow
+description:
+  en: Schedules durable activities and autonomous wakeups in a selected DeepSeek Harness workspace.
+  zh: 在选定的 DSH 工作区管理持久活动与自主唤醒。
+icon: https://raw.githubusercontent.com/jeskoky-pixel/amadeus-life/main/assets/market-icon.png

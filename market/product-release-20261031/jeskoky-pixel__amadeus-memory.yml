@@ -1,0 +1,7 @@
+url: https://github.com/jeskoky-pixel/amadeus-memory
+name: jeskoky-pixel/amadeus-memory
+category: memory
+description:
+  en: Adds workspace-scoped memory, entity relations and scene access controls to Mneme for DeepSeek Harness.
+  zh: 在 Mneme 基础上提供按工作区隔离的记忆、实体关系与场景访问控制。
+icon: https://raw.githubusercontent.com/jeskoky-pixel/amadeus-memory/main/assets/market-icon.png
