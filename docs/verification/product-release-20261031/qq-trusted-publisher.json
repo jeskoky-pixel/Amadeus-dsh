@@ -1,0 +1,11 @@
+{
+  "id": "c89980f1-9ea4-467a-9ee3-e573b2610b1e",
+  "type": "github",
+  "file": "npm-publish.yml",
+  "repository": "jeskoky-pixel/amadeus-qq",
+  "environment": "npm-release",
+  "permissions": [
+    "createPackage",
+    "createStagedPackage"
+  ]
+}

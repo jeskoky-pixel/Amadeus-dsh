@@ -5,3 +5,4 @@ description:
   en: Adds workspace-scoped memory, entity relations and scene access controls to Mneme for DeepSeek Harness.
   zh: 在 Mneme 基础上提供按工作区隔离的记忆、实体关系与场景访问控制。
 icon: https://raw.githubusercontent.com/jeskoky-pixel/amadeus-memory/main/assets/market-icon.png
+tarball: https://github.com/jeskoky-pixel/amadeus-memory/releases/download/v1.3.0/fg-lab-amadeus-memory-1.3.0.tgz

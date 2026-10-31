@@ -1,0 +1,11 @@
+{
+  "id": "aebacb2f-eb8e-4a05-90c5-87fad408c839",
+  "type": "github",
+  "file": "npm-publish.yml",
+  "repository": "jeskoky-pixel/amadeus-persona",
+  "environment": "npm-release",
+  "permissions": [
+    "createPackage",
+    "createStagedPackage"
+  ]
+}

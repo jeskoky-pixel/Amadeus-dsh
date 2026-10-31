@@ -1,0 +1,11 @@
+{
+  "id": "06466a60-6d1d-482b-b664-95869ed551b3",
+  "type": "github",
+  "file": "npm-publish.yml",
+  "repository": "jeskoky-pixel/amadeus-state",
+  "environment": "npm-release",
+  "permissions": [
+    "createPackage",
+    "createStagedPackage"
+  ]
+}

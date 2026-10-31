@@ -1,0 +1,27 @@
+[
+  {
+    "repository": "jeskoky-pixel/amadeus-qq",
+    "tag": "v1.2.1",
+    "commit": "9496bc8b6b38d43962c17b7776eb70b1383e2f64"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-memory",
+    "tag": "v1.3.0",
+    "commit": "c7f50e6437c99ff4274557d388b434f2119189da"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-life",
+    "tag": "v1.2.1",
+    "commit": "72cff86ca0d3fa2c81134d201f7d729501552024"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-state",
+    "tag": "v1.2.0",
+    "commit": "b4fbf2bff17efd79d86d598899b27f8fd0a196fc"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-persona",
+    "tag": "v1.2.0",
+    "commit": "0099f3f6c3153e72ea8022dd62f6961e10714a1a"
+  }
+]
