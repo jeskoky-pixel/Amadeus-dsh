@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-31T06:05:25.395Z",
+  "transport": "real NapCat",
+  "scenes": [
+    {
+      "kind": "group",
+      "markerCount": 1,
+      "trusted": true,
+      "lifeBinding": true,
+      "legacyBareId": true
+    },
+    {
+      "kind": "private",
+      "markerCount": 1,
+      "trusted": true,
+      "lifeBinding": true,
+      "legacyBareId": false
+    }
+  ],
+  "learnRetained": true,
+  "borrowRevoked": true,
+  "modelDriven": false,
+  "outboundTested": false
+}

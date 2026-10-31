@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-31T04:48:51.056Z",
+  "transport": "real NapCat HTTP",
+  "target": "authorized private test account",
+  "delivered": true,
+  "duplicateSuppressed": true,
+  "revokedSendRejected": true,
+  "actualHostSession": true,
+  "modelDriven": false,
+  "groupSend": false
+}

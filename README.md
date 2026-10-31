@@ -18,7 +18,7 @@ Amadeus 以官方 DeepSeek Harness（DSH）为运行基础。五个独立插件�
 
 五仓库根目录均为插件包。Memory 已完成根目录整理，**不再使用 #path:/dsh-mneme**；其内部 ID 仍为 dsh-mneme，禁止同时加载旧 Mneme 与新 Memory 两个实例。
 
-正式固定版本下载源将在下一轮发布；当前本地预构建包供候选验收。不要将未发布 npm 版本或 main 当作正式发行地址。升级须保留 Profile、Workspace、用户数据目录与一致性备份；禁用不删除数据，卸载代码不等于清空数据。Memory 1.3.0 保留统一 ACL schema 2，不因包版本变化重置数据库。
+正式固定版本下载源将在发布门禁与账户授权完成后提供；当前本地预构建包供候选验收。不要将未发布 npm 版本或 main 当作正式发行地址。升级须保留 Profile、Workspace、用户数据目录与一致性备份；禁用不删除数据，卸载代码不等于清空数据。Memory 1.3.0 保留统一 ACL schema 2，不因包版本变化重置数据库。
 
 人格不授予工具或 QQ 权限；Memory 不覆盖 Persona；QQ 负责当前聊天，Life 负责长期自主活动。其他插件均为可选协作，缺失时安全降级。
 

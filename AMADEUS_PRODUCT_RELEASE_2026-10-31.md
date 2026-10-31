@@ -8,8 +8,8 @@
 | --- | --- | --- | --- | --- |
 | `@fg-lab/amadeus-qq` | 1.2.1 | `9496bc8b6b38d43962c17b7776eb70b1383e2f64` | [#9](https://github.com/jeskoky-pixel/amadeus-qq/pull/9)（已合并）、[#10](https://github.com/jeskoky-pixel/amadeus-qq/pull/10)（已合并） | 未发布 |
 | `@fg-lab/amadeus-memory` | 1.3.0 | `c7f50e6437c99ff4274557d388b434f2119189da` | [#8](https://github.com/jeskoky-pixel/amadeus-memory/pull/8)（已合并）、[#9](https://github.com/jeskoky-pixel/amadeus-memory/pull/9)（已合并） | 未发布 |
-| `@fg-lab/amadeus-life` | 1.2.1 | `9dafb7f3e08f7493500fe804cc3140b0e10edced` | [#7](https://github.com/jeskoky-pixel/amadeus-life/pull/7)（已合并）、[#8](https://github.com/jeskoky-pixel/amadeus-life/pull/8)（已合并） | 未发布 |
-| `@fg-lab/amadeus-state` | 1.2.0 | `6dca472b7d0d35a902786e6601d7500a24e09889` | [#5](https://github.com/jeskoky-pixel/amadeus-state/pull/5)（已合并）、[#6](https://github.com/jeskoky-pixel/amadeus-state/pull/6)（已合并） | 未发布 |
+| `@fg-lab/amadeus-life` | 1.2.1 | `72cff86ca0d3fa2c81134d201f7d729501552024` | [#7](https://github.com/jeskoky-pixel/amadeus-life/pull/7)（已合并）、[#8](https://github.com/jeskoky-pixel/amadeus-life/pull/8)（已合并）、[#9](https://github.com/jeskoky-pixel/amadeus-life/pull/9)（已合并） | 未发布 |
+| `@fg-lab/amadeus-state` | 1.2.0 | `b4fbf2bff17efd79d86d598899b27f8fd0a196fc` | [#5](https://github.com/jeskoky-pixel/amadeus-state/pull/5)（已合并）、[#6](https://github.com/jeskoky-pixel/amadeus-state/pull/6)（已合并）、[#7](https://github.com/jeskoky-pixel/amadeus-state/pull/7)（已合并） | 未发布 |
 | `@fg-lab/amadeus-persona` | 1.2.0 | `0099f3f6c3153e72ea8022dd62f6961e10714a1a` | [#3](https://github.com/jeskoky-pixel/amadeus-persona/pull/3)（已合并）、[#4](https://github.com/jeskoky-pixel/amadeus-persona/pull/4)（已合并） | 未发布 |
 
 以上 main 的 Git tree 与构建候选树逐一相等。普通 Merge Commit 仅改变提交历史，没有替换已验收代码。没有强推、移动已有 Tag 或绕过必需 CI。Memory 内部 ID 始终为 `dsh-mneme`；五包均在仓库根目录安装，不使用旧子目录后缀。
@@ -27,8 +27,8 @@ Memory 首页明确 Hot Memory、近期动态、Core Memory、BM25/Vector/Hybrid
 | QQ Windows 完整测试 | 303 通过；4 项因 Windows 符号链接环境跳过 |
 | QQ Linux 补测 | 同四项安全测试全部通过，0 跳过；不是修改 skip 为 pass |
 | Memory 完整测试 | 782 通过，0 失败/跳过 |
-| Life 完整测试 | 211 通过（按全部子进程 TAP 汇总） |
-| State / Persona | 141 / 49 通过 |
+| Life 完整测试 | 213 通过（按全部子进程 TAP 汇总） |
+| State / Persona | 143 / 49 通过 |
 | 构建、Bundle 与 pack 审计 | 五包通过；Host、Client、Patch 和既有 GUI 资源在包内 |
 | 独立下载与安装 | 五包经本地 HTTP 地址和官方 DSH 插件管理 CLI 安装；每个独立 Host 的真实浏览器返回 200、无页面脚本错误 |
 | 联合安装、升级 | 同一个隔离 Profile 安装五包并重新启动；使用官方 Desktop 0.2.1-rc.3 附带 Host |
@@ -36,7 +36,7 @@ Memory 首页明确 Hot Memory、近期动态、Core Memory、BM25/Vector/Hybrid
 | GUI | QQ/Memory/Persona 真实页面加载无错误；State 七页、Life 八页逐页打开无脚本错误；State 经 GUI 成功选择并绑定工作区 |
 | 公开 npm / Release 下载复验 | 未执行：发行尚不存在，不能用本地 HTTP 测试冒充 |
 
-本轮产品化未修改核心业务算法，复用上一阶段数据迁移失败、备份恢复及禁用/启用的自动回归；不将这些回归描述成五个全新独立 Profile 中逐项点击完成的 GUI 录像。Life/State 的无变更保存按钮没有产生可确认的新保存结果，记录为导航通过，不伪报为配置修改通过。完整公开发行前仍应完成最终固定资产的 GUI 保存/禁用启用与完整恢复清单。
+本轮产品化未修改核心业务算法，复用上一阶段数据迁移失败、备份恢复及禁用/启用的自动回归；不将这些回归描述成五个全新独立 Profile 中逐项点击完成的 GUI 录像。Life/State 另完成真实 GUI 数值修改、保存、重新打开与恢复原值；回归发现并修复共享表单生命周期和数值 Schema 两项实际缺陷。公开发行前仍需公开源下载/安装与完整恢复清单，不将本地安装替代公开源验证。
 
 ## 真实 NapCat 与跨插件门禁
 
@@ -55,8 +55,8 @@ Memory 首页明确 Hot Memory、近期动态、Core Memory、BM25/Vector/Hybrid
 | --- | ---: | --- |
 | `fg-lab-amadeus-qq-1.2.1.tgz` | 952374 | `0c21e6e0618bf8739420ea0dc54befd6d41587cc5828a128a5fbbcf2437e6d50` |
 | `fg-lab-amadeus-memory-1.3.0.tgz` | 2701840 | `1afd4652f06705bd42c01f753bf56e19a75010bf9afdb278336c84e255defb00` |
-| `fg-lab-amadeus-life-1.2.1.tgz` | 590846 | `c67ca35f5e71b7a50d8e95f43738810dc228ccc93cfba479bdad427b746b637d` |
-| `fg-lab-amadeus-state-1.2.0.tgz` | 537579 | `14f9e3a584670c178a946e2cabb38502dbf6f5cdbf9728c21a1b275205794733` |
+| `fg-lab-amadeus-life-1.2.1.tgz` | 591339 | `6df72bdfc8c4e8e12e97cc289247841e7f9f820c5571ece3fda4129da3f03cb3` |
+| `fg-lab-amadeus-state-1.2.0.tgz` | 539142 | `06164c6249dc00a0a92af554ccd5686500e292c92517c3bd532827b46f15ecf7` |
 | `fg-lab-amadeus-persona-1.2.0.tgz` | 2102818 | `ce3aabad789101e33908dfc6cd83dc4b82aa444c12def089532b7fe587052b87` |
 
 安装包暂存于本地发行工作目录，尚无可验证的公共下载 URL。不得把预计 URL 宣传为已可下载。构建记录保留 sourceCommit、mainCommit、Git tree 和文件清单；五包同一版本没有公开覆盖。
@@ -102,4 +102,11 @@ Memory 首页明确 Hot Memory、近期动态、Core Memory、BM25/Vector/Hybrid
 - Memory 首页初版整理遗漏隐私说明及模型工具表，守卫发现后补回；最终完整测试通过，没有削弱测试。
 - 一次联测脚本复用先前 Borrow 的历史证据导致断言失败。测试用例分离数据库后通过，原失败证据保留；随后单独重启读取原库，确认合法 Learn 保留与 Borrow 撤权。未为通过测试放松产品来源规则。
 - Git HTTPS 连接重置，改用 GitHub Git API 创建等价 Git tree 并只做 fast-forward 更新；本地补齐经 SHA 校验的远程提交对象。
+- Life/State 设置页修复：组件不再销毁 Host 共享表单；UI 步长不再序列化为接受值约束，保留已有合法数值。真实官方 Schemastery 与组件重挂载回归均通过，State 两项新回归加入默认测试入口。
 - 当前安装/迁移文档中的旧版本引用已校正；历史 v1.0/v1.1/v1.2 记录保持原样。
+
+## 最终修复后的复验
+
+Life #9、State #7 已通过必需 CI 并正常合并。最终发行包通过官方 HTTP 安装入口重新安装，已安装的 Host Schema 与 Client 文件逐字节匹配源码。重启隔离 Host 后可信 Scene、Life 绑定、Learn 保留与 Borrow 撤权仍通过；Life 设置关闭重开后可修改保存，State 修改、刷新读取与恢复原值通过。共享配置没有重置。
+
+可公开的脱敏结果与安装包校验见 [验收证据目录](docs/verification/product-release-20261031/)。未收录凭证、Owner URL、真实聊天正文、私有配置或用户数据库。
