@@ -1,0 +1,7 @@
+url: https://github.com/jeskoky-pixel/amadeus-state
+name: jeskoky-pixel/amadeus-state
+category: identity
+description:
+  en: Maintains persistent mood, energy, curiosity and interests for DeepSeek Harness agents.
+  zh: 为 DSH 智能体维护持久的情绪、精力、好奇心和兴趣状态。
+icon: https://raw.githubusercontent.com/jeskoky-pixel/amadeus-state/main/assets/market-icon.png

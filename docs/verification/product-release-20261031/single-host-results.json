@@ -1,0 +1,32 @@
+[
+  {
+    "plugin": "qq",
+    "http": 200,
+    "pageErrors": [],
+    "hostRendered": true
+  },
+  {
+    "plugin": "memory",
+    "http": 200,
+    "pageErrors": [],
+    "hostRendered": true
+  },
+  {
+    "plugin": "life",
+    "http": 200,
+    "pageErrors": [],
+    "hostRendered": true
+  },
+  {
+    "plugin": "state",
+    "http": 200,
+    "pageErrors": [],
+    "hostRendered": true
+  },
+  {
+    "plugin": "persona",
+    "http": 200,
+    "pageErrors": [],
+    "hostRendered": true
+  }
+]

@@ -1,0 +1,7 @@
+url: https://github.com/jeskoky-pixel/amadeus-qq
+name: jeskoky-pixel/amadeus-qq
+category: remote
+description:
+  en: Connects authorized QQ chats through NapCat to persistent DeepSeek Harness sessions with scene permissions.
+  zh: 通过 NapCat 将获授权的 QQ 会话接入持久 DSH 会话，并管理场景权限。
+icon: https://raw.githubusercontent.com/jeskoky-pixel/amadeus-qq/main/assets/market-icon.png

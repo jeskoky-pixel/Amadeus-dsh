@@ -1,0 +1,206 @@
+[
+  {
+    "name": "@fg-lab/amadeus-qq",
+    "version": "1.2.1",
+    "sourceCommit": "b5e7c1f4fe01f7b1128a4cbee3a5c8b9562dcfd5",
+    "file": "fg-lab-amadeus-qq-1.2.1.tgz",
+    "sha256": "0c21e6e0618bf8739420ea0dc54befd6d41587cc5828a128a5fbbcf2437e6d50",
+    "entries": 60,
+    "mainCommit": "9496bc8b6b38d43962c17b7776eb70b1383e2f64",
+    "sourceTree": "a46123411e67a30fe6e17222155475aa73e219e6",
+    "bytes": 952374,
+    "pullRequests": [
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-qq/pull/9",
+        "merged": true
+      },
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-qq/pull/10",
+        "merged": true
+      }
+    ],
+    "checks": [
+      {
+        "name": "symlink-security",
+        "conclusion": "success",
+        "url": "https://github.com/jeskoky-pixel/amadeus-qq/actions/runs/41171694804/job/124450825816"
+      },
+      {
+        "name": "verify",
+        "conclusion": "success",
+        "url": "https://github.com/jeskoky-pixel/amadeus-qq/actions/runs/41171694804/job/124450825679"
+      }
+    ],
+    "protection": {
+      "enforceAdmins": true,
+      "requiredChecks": [
+        "verify",
+        "symlink-security"
+      ],
+      "versionTagRules": [
+        "Protect release version tags"
+      ]
+    }
+  },
+  {
+    "name": "@fg-lab/amadeus-memory",
+    "version": "1.3.0",
+    "sourceCommit": "936a4c790a02eec9900229b086a3aed32a4bf9f7",
+    "file": "fg-lab-amadeus-memory-1.3.0.tgz",
+    "sha256": "1afd4652f06705bd42c01f753bf56e19a75010bf9afdb278336c84e255defb00",
+    "entries": 324,
+    "mainCommit": "c7f50e6437c99ff4274557d388b434f2119189da",
+    "sourceTree": "33028d09c8492ae0fcc142fa26a1fda0c151ad30",
+    "bytes": 2701840,
+    "pullRequests": [
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-memory/pull/8",
+        "merged": true
+      },
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-memory/pull/9",
+        "merged": true
+      }
+    ],
+    "checks": [
+      {
+        "name": "verify",
+        "conclusion": "success",
+        "url": "https://github.com/jeskoky-pixel/amadeus-memory/actions/runs/41171703263/job/124450851026"
+      }
+    ],
+    "protection": {
+      "enforceAdmins": true,
+      "requiredChecks": [
+        "verify"
+      ],
+      "versionTagRules": [
+        "Protect release version tags"
+      ]
+    }
+  },
+  {
+    "name": "@fg-lab/amadeus-life",
+    "version": "1.2.1",
+    "sourceCommit": "d6875a583aaf1860df73d206de721917219a6620",
+    "file": "fg-lab-amadeus-life-1.2.1.tgz",
+    "sha256": "6df72bdfc8c4e8e12e97cc289247841e7f9f820c5571ece3fda4129da3f03cb3",
+    "entries": 46,
+    "mainCommit": "72cff86ca0d3fa2c81134d201f7d729501552024",
+    "sourceTree": "953eaa9e65ce8dda96e311a48bc3ec684af84897",
+    "bytes": 591339,
+    "pullRequests": [
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-life/pull/7",
+        "merged": true
+      },
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-life/pull/8",
+        "merged": true
+      },
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-life/pull/9",
+        "merged": true
+      }
+    ],
+    "checks": [
+      {
+        "name": "verify",
+        "conclusion": "success",
+        "url": "https://github.com/jeskoky-pixel/amadeus-life/actions/runs/41175079406/job/124460843329"
+      }
+    ],
+    "protection": {
+      "enforceAdmins": true,
+      "requiredChecks": [
+        "verify"
+      ],
+      "versionTagRules": [
+        "Protect release version tags"
+      ]
+    }
+  },
+  {
+    "name": "@fg-lab/amadeus-state",
+    "version": "1.2.0",
+    "sourceCommit": "4706838cb07cdc8d64b85648d1bf9bfdb0442467",
+    "file": "fg-lab-amadeus-state-1.2.0.tgz",
+    "sha256": "06164c6249dc00a0a92af554ccd5686500e292c92517c3bd532827b46f15ecf7",
+    "entries": 82,
+    "mainCommit": "b4fbf2bff17efd79d86d598899b27f8fd0a196fc",
+    "sourceTree": "5b627377b9e10104c90d39b612aa469510c8e0f7",
+    "bytes": 539142,
+    "pullRequests": [
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-state/pull/5",
+        "merged": true
+      },
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-state/pull/6",
+        "merged": true
+      },
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-state/pull/7",
+        "merged": true
+      }
+    ],
+    "checks": [
+      {
+        "name": "verify",
+        "conclusion": "success",
+        "url": "https://github.com/jeskoky-pixel/amadeus-state/actions/runs/41175082173/job/124460852888"
+      }
+    ],
+    "protection": {
+      "enforceAdmins": true,
+      "requiredChecks": [
+        "verify"
+      ],
+      "versionTagRules": [
+        "Protect release version tags"
+      ]
+    }
+  },
+  {
+    "name": "@fg-lab/amadeus-persona",
+    "version": "1.2.0",
+    "sourceCommit": "b2365c18749c268f4413bf554bfbe18e2752312a",
+    "file": "fg-lab-amadeus-persona-1.2.0.tgz",
+    "sha256": "ce3aabad789101e33908dfc6cd83dc4b82aa444c12def089532b7fe587052b87",
+    "entries": 54,
+    "mainCommit": "0099f3f6c3153e72ea8022dd62f6961e10714a1a",
+    "sourceTree": "3422f17ffbdff1cdcae4fe147805955a98bec461",
+    "bytes": 2102818,
+    "pullRequests": [
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-persona/pull/3",
+        "merged": true
+      },
+      {
+        "url": "https://github.com/jeskoky-pixel/amadeus-persona/pull/4",
+        "merged": true
+      }
+    ],
+    "checks": [
+      {
+        "name": "verify",
+        "conclusion": "success",
+        "url": "https://github.com/jeskoky-pixel/amadeus-persona/actions/runs/41171566329/job/124450435791"
+      },
+      {
+        "name": "test",
+        "conclusion": "success",
+        "url": "https://github.com/jeskoky-pixel/amadeus-persona/actions/runs/41171566302/job/124450435640"
+      }
+    ],
+    "protection": {
+      "enforceAdmins": true,
+      "requiredChecks": [
+        "verify"
+      ],
+      "versionTagRules": [
+        "Protect release version tags"
+      ]
+    }
+  }
+]
