@@ -1,0 +1,11 @@
+{
+  "id": "2f84844f-18d3-44f4-8434-f56a163aea6e",
+  "type": "github",
+  "file": "npm-publish.yml",
+  "repository": "jeskoky-pixel/amadeus-life",
+  "environment": "npm-release",
+  "permissions": [
+    "createPackage",
+    "createStagedPackage"
+  ]
+}

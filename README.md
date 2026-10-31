@@ -2,7 +2,7 @@
 
 Amadeus 以官方 DeepSeek Harness（DSH）为运行基础。五个独立插件分别负责人格、记忆、当前状态、自主活动和 QQ 交流，可分别安装、停用和升级。
 
-**2026-10-31：五插件产品化资料已进入 main，正式发行仍待发布门禁和 npm 账户授权。** Memory 1.3.0，QQ/Life 1.2.1，State/Persona 1.2.0。中英文首页、预构建包、受保护发布流程和 Market 投稿材料已准备；尚未公开发布 npm 或 GitHub Release。见[本轮产品化与发行报告](AMADEUS_PRODUCT_RELEASE_2026-10-31.md)。
+**2026-10-31：五插件已正式发布 npm 和 GitHub Release。** Memory 1.3.0，QQ/Life 1.2.1，State/Persona 1.2.0。公开下载校验、独立/联合安装和卸载重装数据保留已验证。Market 材料已准备，尚未投稿。见[完整发行与验收报告](AMADEUS_PRODUCT_RELEASE_2026-10-31.md)。
 
 | 插件 | 当前 main 包版本 | 职责 |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ Amadeus 以官方 DeepSeek Harness（DSH）为运行基础。五个独立插件�
 
 五仓库根目录均为插件包。Memory 已完成根目录整理，**不再使用 #path:/dsh-mneme**；其内部 ID 仍为 dsh-mneme，禁止同时加载旧 Mneme 与新 Memory 两个实例。
 
-正式固定版本下载源将在发布门禁与账户授权完成后提供；当前本地预构建包供候选验收。不要将未发布 npm 版本或 main 当作正式发行地址。升级须保留 Profile、Workspace、用户数据目录与一致性备份；禁用不删除数据，卸载代码不等于清空数据。Memory 1.3.0 保留统一 ACL schema 2，不因包版本变化重置数据库。
+请在 DSH 插件管理器输入上表完整 npm 包名与固定版本，或使用各仓库 GitHub Release 的预构建 tgz。不要把 main 当作不可变发行源。升级须保留 Profile、Workspace、用户数据目录与一致性备份；禁用不删除数据，卸载代码不等于清空数据。Memory 1.3.0 保留统一 ACL schema 2，不因包版本变化重置数据库。
 
 人格不授予工具或 QQ 权限；Memory 不覆盖 Persona；QQ 负责当前聊天，Life 负责长期自主活动。其他插件均为可选协作，缺失时安全降级。
 

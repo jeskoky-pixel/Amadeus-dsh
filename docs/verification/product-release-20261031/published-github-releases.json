@@ -1,0 +1,27 @@
+[
+  {
+    "repository": "jeskoky-pixel/amadeus-qq",
+    "version": "1.2.1",
+    "url": "https://github.com/jeskoky-pixel/amadeus-qq/releases/tag/v1.2.1"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-memory",
+    "version": "1.3.0",
+    "url": "https://github.com/jeskoky-pixel/amadeus-memory/releases/tag/v1.3.0"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-life",
+    "version": "1.2.1",
+    "url": "https://github.com/jeskoky-pixel/amadeus-life/releases/tag/v1.2.1"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-state",
+    "version": "1.2.0",
+    "url": "https://github.com/jeskoky-pixel/amadeus-state/releases/tag/v1.2.0"
+  },
+  {
+    "repository": "jeskoky-pixel/amadeus-persona",
+    "version": "1.2.0",
+    "url": "https://github.com/jeskoky-pixel/amadeus-persona/releases/tag/v1.2.0"
+  }
+]

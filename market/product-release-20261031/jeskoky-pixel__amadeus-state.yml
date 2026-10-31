@@ -5,3 +5,4 @@ description:
   en: Maintains persistent mood, energy, curiosity and interests for DeepSeek Harness agents.
   zh: 为 DSH 智能体维护持久的情绪、精力、好奇心和兴趣状态。
 icon: https://raw.githubusercontent.com/jeskoky-pixel/amadeus-state/main/assets/market-icon.png
+tarball: https://github.com/jeskoky-pixel/amadeus-state/releases/download/v1.2.0/fg-lab-amadeus-state-1.2.0.tgz

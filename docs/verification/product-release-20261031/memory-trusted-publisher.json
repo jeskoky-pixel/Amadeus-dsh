@@ -1,0 +1,11 @@
+{
+  "id": "f8563ab9-b5b8-44ab-a334-2879498713ed",
+  "type": "github",
+  "file": "npm-publish.yml",
+  "repository": "jeskoky-pixel/amadeus-memory",
+  "environment": "npm-release",
+  "permissions": [
+    "createPackage",
+    "createStagedPackage"
+  ]
+}
